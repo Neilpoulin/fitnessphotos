@@ -1,32 +1,19 @@
 import React from 'react'
-import { TabNavigator } from 'react-navigation';
-import {View, Text} from 'react-native'
+import {TabNavigator} from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import PhotoViewerPage from './PhotoViewerPage'
-import CameraPage from './CameraPage'
-const HomeScreen = () => (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-    </View>
-);
-
-const ProfileScreen = () => (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Profile Screen</Text>
-    </View>
-);
-
+import PhotoViewerPage from 'view/screen/PhotoViewerPage'
+import CameraPage from 'view/screen/CameraPage'
 
 const AppTabNavigation = TabNavigator({
     Photos: {
         screen: PhotoViewerPage,
         navigationOptions: {
             tabBarLabel: 'Photos',
-            tabBarIcon: ({ tintColor, focused }) => (
+            tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
                     name={focused ? 'ios-photos' : 'ios-photos-outline'}
                     size={26}
-                    style={{ color: tintColor }}
+                    style={{color: tintColor}}
                 />
             ),
         },
@@ -35,11 +22,11 @@ const AppTabNavigation = TabNavigator({
         screen: CameraPage,
         navigationOptions: {
             tabBarLabel: 'Camera',
-            tabBarIcon: ({ tintColor, focused }) => (
+            tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
                     name={focused ? 'ios-camera' : 'ios-camera-outline'}
                     size={26}
-                    style={{ color: tintColor }}
+                    style={{color: tintColor}}
                 />
             ),
         },

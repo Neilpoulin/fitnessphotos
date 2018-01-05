@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, TouchableOpacity, Button } from 'react-native';
 import { Camera, Permissions, FileSystem } from 'expo';
-import CameraView from './CameraView'
+import CameraView from '../organism/CameraView'
 
 export default class CameraPage extends React.Component {
     state = {

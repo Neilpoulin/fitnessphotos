@@ -4,5 +4,11 @@
     "development": {
       "plugins": ["transform-react-jsx-source"]
     }
-  }
+  },
+  "plugins": [
+      "jsx-display-if",
+      ["module-resolver", {
+          "root": ["./src"]
+      }]
+  ]
 }
