@@ -1,10 +1,13 @@
-import { Constants, Camera, FileSystem } from 'expo';
+import {Constants, Camera, FileSystem} from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Slider, Vibration } from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Slider, Vibration} from 'react-native';
 import uuid from 'uuid'
-const landmarkSize = 2;
+
+export const landmarkSize = 2;
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import styles from './CameraViewStyle'
+
 
 const flashModeOrder = {
     off: 'on',
@@ -43,7 +46,7 @@ export default class CameraView extends React.Component {
         });
     }
 
-    getRatios = async function() {
+    getRatios = async function () {
         const ratios = await this.camera.getSupportedRatios();
         return ratios;
     };
@@ -96,7 +99,7 @@ export default class CameraView extends React.Component {
         });
     }
 
-    takePicture = async function() {
+    takePicture = async function () {
         if (this.camera) {
             this.camera.takePictureAsync().then(data => {
                 FileSystem.moveAsync({
@@ -113,17 +116,17 @@ export default class CameraView extends React.Component {
         }
     };
 
-    onFacesDetected = ({ faces }) => this.setState({ faces });
+    onFacesDetected = ({faces}) => this.setState({faces});
     onFaceDetectionError = state => console.warn('Faces detection error:', state);
 
-    renderFace({ bounds, faceID, rollAngle, yawAngle }) {
+    renderFace({bounds, faceID, rollAngle, yawAngle}) {
         return (
             <View
                 key={faceID}
                 transform={[
-                    { perspective: 600 },
-                    { rotateZ: `${rollAngle.toFixed(0)}deg` },
-                    { rotateY: `${yawAngle.toFixed(0)}deg` },
+                    {perspective: 600},
+                    {rotateZ: `${rollAngle.toFixed(0)}deg`},
+                    {rotateY: `${yawAngle.toFixed(0)}deg`},
                 ]}
                 style={[
                     styles.face,
@@ -186,9 +189,9 @@ export default class CameraView extends React.Component {
         );
     }
 
-    getFlashIconName(){
+    getFlashIconName() {
         let iconName = 'flash';
-        switch(this.state.flash){
+        switch (this.state.flash) {
             case 'on':
                 iconName = 'flash';
                 break;
@@ -238,10 +241,10 @@ export default class CameraView extends React.Component {
                         alignSelf: 'flex-end',
                     }}>
                     {/*<Slider*/}
-                        {/*style={{ width: 150, marginTop: 15, alignSelf: 'flex-end' }}*/}
-                        {/*onValueChange={this.setFocusDepth.bind(this)}*/}
-                        {/*step={0.1}*/}
-                        {/*disabled={this.state.autoFocus === 'on'}*/}
+                    {/*style={{ width: 150, marginTop: 15, alignSelf: 'flex-end' }}*/}
+                    {/*onValueChange={this.setFocusDepth.bind(this)}*/}
+                    {/*step={0.1}*/}
+                    {/*disabled={this.state.autoFocus === 'on'}*/}
                     {/*/>*/}
                 </View>
                 <View
@@ -254,25 +257,25 @@ export default class CameraView extends React.Component {
                         justifyContent: 'space-between',
                     }}>
                     {/*<TouchableOpacity*/}
-                        {/*style={[styles.flipButton, { flex: 0.1, alignSelf: 'flex-end' }]}*/}
-                        {/*onPress={this.zoomIn.bind(this)}>*/}
-                        {/*<Text style={styles.flipText}> + </Text>*/}
+                    {/*style={[styles.flipButton, { flex: 0.1, alignSelf: 'flex-end' }]}*/}
+                    {/*onPress={this.zoomIn.bind(this)}>*/}
+                    {/*<Text style={styles.flipText}> + </Text>*/}
                     {/*</TouchableOpacity>*/}
                     {/*<TouchableOpacity*/}
-                        {/*style={[styles.flipButton, { flex: 0.1, alignSelf: 'flex-end' }]}*/}
-                        {/*onPress={this.zoomOut.bind(this)}>*/}
-                        {/*<Text style={styles.flipText}> - </Text>*/}
+                    {/*style={[styles.flipButton, { flex: 0.1, alignSelf: 'flex-end' }]}*/}
+                    {/*onPress={this.zoomOut.bind(this)}>*/}
+                    {/*<Text style={styles.flipText}> - </Text>*/}
                     {/*</TouchableOpacity>*/}
                     {/*<TouchableOpacity*/}
-                        {/*style={[styles.flipButton, { flex: 0.25, alignSelf: 'flex-end' }]}*/}
-                        {/*onPress={this.toggleFocus.bind(this)}>*/}
-                        {/*<Text style={styles.flipText}> AF : {this.state.autoFocus} </Text>*/}
+                    {/*style={[styles.flipButton, { flex: 0.25, alignSelf: 'flex-end' }]}*/}
+                    {/*onPress={this.toggleFocus.bind(this)}>*/}
+                    {/*<Text style={styles.flipText}> AF : {this.state.autoFocus} </Text>*/}
                     {/*</TouchableOpacity>*/}
                     <TouchableOpacity style={styles.flipButton} onPress={this.toggleFacing.bind(this)}>
                         <Ionicons
                             name={'ios-reverse-camera-outline'}
                             size={42}
-                            style={{ color: 'white' }}
+                            style={{color: 'white'}}
                         />
                     </TouchableOpacity>
 
@@ -282,14 +285,14 @@ export default class CameraView extends React.Component {
                         <Ionicons
                             name={'ios-camera'}
                             size={32}
-                            style={{ color: 'white' }}
+                            style={{color: 'white'}}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.flipButton} onPress={this.toggleFlash.bind(this)}>
                         <MaterialCommunityIcons
                             name={this.getFlashIconName.bind(this)()}
                             size={35}
-                            style={{ color: 'white' }}
+                            style={{color: 'white'}}
                         />
                     </TouchableOpacity>
                 </View>
@@ -307,83 +310,3 @@ export default class CameraView extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: Constants.statusBarHeight,
-        backgroundColor: '#000',
-    },
-    navigation: {
-        flex: 1,
-    },
-    gallery: {
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-    },
-    flipButton: {
-        flex: 0.3,
-        height: 40,
-        marginHorizontal: 2,
-        marginTop: 20,
-        marginBottom: 20,
-        borderRadius: 8,
-        // borderColor: 'white',
-        // borderWidth: 1,
-        padding: 0,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    flipText: {
-        color: 'white',
-        fontSize: 15,
-    },
-    item: {
-        margin: 4,
-        backgroundColor: 'indianred',
-        height: 35,
-        width: 80,
-        borderRadius: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    picButton: {
-        backgroundColor: 'darkseagreen',
-    },
-    galleryButton: {
-        backgroundColor: 'indianred',
-    },
-    facesContainer: {
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        left: 0,
-        top: 0,
-    },
-    face: {
-        padding: 10,
-        borderWidth: 2,
-        borderRadius: 2,
-        position: 'absolute',
-        borderColor: '#FFD700',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    },
-    landmark: {
-        width: landmarkSize,
-        height: landmarkSize,
-        position: 'absolute',
-        backgroundColor: 'red',
-    },
-    faceText: {
-        color: '#FFD700',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        margin: 10,
-        backgroundColor: 'transparent',
-    },
-    row: {
-        flexDirection: 'row',
-    },
-});

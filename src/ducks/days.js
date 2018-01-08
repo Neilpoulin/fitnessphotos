@@ -4,11 +4,11 @@ import dayReducer from 'ducks/day'
 const initialState = Immutable.fromJS({})
 
 export default function (state = initialState, action) {
-    let day = action.day
-    if (day) {
-        let dayState = state.get(day)
+    let dayKey = action.dayKey
+    if (dayKey) {
+        let dayState = state.get(dayKey)
         dayState = dayReducer(dayState, action)
-        state = state.set(day, dayState)
+        state = state.set(dayKey, dayState)
     }
     return state
 }

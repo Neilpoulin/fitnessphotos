@@ -28,9 +28,9 @@ export default class PhotoViewerPage extends React.Component {
     }
 
     componentDidMount() {
-        this._loadImages();
+        // this._loadImages();
         FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'photosArchived').catch(e => {
-            console.log(e, 'Directory exists');
+            console.log('Directory exists');
         });
     }
 
