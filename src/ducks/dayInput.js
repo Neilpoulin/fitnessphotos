@@ -1,11 +1,15 @@
 import Immutable from 'immutable'
 import moment from 'moment'
 import {getDateKey} from 'util/TimeUtil'
+import {SAVE_DAY} from './day';
+import {loadDay} from './days';
 
 export const SET_DATE = 'dayInput/SET_DATE'
 export const SET_SCORE = 'dayInput/SET_SCORE'
 export const SET_IMAGE = 'dayInput/SET_IMAGE'
 export const SET_EDITING_IMAGE = 'dayInput/SET_EDITING_IMAGE'
+export const SET_STATE = 'dayInput/SET_STATE'
+
 const initialState = Immutable.fromJS({
     date: (new Date()).getTime(),
     scores: {
@@ -31,6 +35,9 @@ export default function reducer(state = initialState, action) {
         case SET_EDITING_IMAGE:
             state = state.set('isEditingImage', action.payload)
             break
+        case SET_STATE:
+            state = initialState.merge(action.payload)
+            break
         default:
             break
     }
@@ -39,11 +46,19 @@ export default function reducer(state = initialState, action) {
 
 export function setDate(date) {
     return (dispatch) => {
-        dispatch({
-            type: SET_DATE,
-            dayKey: getDateKey(date),
-            payload: moment(date).toDate().getTime()
+        const dayKey = getDateKey(date)
+        dispatch(loadDay(dayKey)).then((loadedState) => {
+            dispatch({
+                type: SET_STATE,
+                payload: loadedState
+            })
+            dispatch({
+                type: SET_DATE,
+                dayKey,
+                payload: moment(date).toDate().getTime()
+            })
         })
+
     }
 }
 
@@ -64,12 +79,15 @@ export function goToNextDate() {
 }
 
 function setScore(type, score) {
-    return {
-        type: SET_SCORE,
-        payload: {
-            type,
-            score,
-        }
+    return dispatch => {
+        dispatch({
+            type: SET_SCORE,
+            payload: {
+                type,
+                score,
+            }
+        })
+        dispatch(save())
     }
 }
 
@@ -86,15 +104,31 @@ export function setFoodScore(score) {
 }
 
 export function setImage({uri}) {
-    return {
-        type: SET_IMAGE,
-        payload: {uri},
+    return dispatch => {
+        dispatch({
+            type: SET_IMAGE,
+            payload: {uri},
+        })
+        dispatch(save())
     }
 }
 
 export function setEditingImage(isEditing) {
-    return {
-        type: SET_EDITING_IMAGE,
-        payload: isEditing
+    return dispatch => {
+        dispatch({
+            type: SET_EDITING_IMAGE,
+            payload: isEditing
+        })
+    }
+}
+
+function save() {
+    return (dispatch, getState) => {
+        let input = getState().dayInput
+        dispatch({
+            type: SAVE_DAY,
+            dayKey: getDateKey(input.get('date')),
+            payload: input,
+        })
     }
 }
