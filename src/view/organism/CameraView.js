@@ -120,14 +120,15 @@ export default class CameraView extends React.Component {
     takePicture = async function () {
         if (this.camera) {
             let handler = this.props.handlePhoto;
+            const toUri = `${FileSystem.documentDirectory}photos/Photo_${this.state.photoId}.jpg`
             this.camera.takePictureAsync().then(data => {
                 FileSystem.moveAsync({
                     from: data.uri,
-                    to: `${FileSystem.documentDirectory}photos/Photo_${this.state.photoId}.jpg`,
+                    to: toUri,
                 }).then(() => {
                     console.log('saved image', data);
                     if (handler) {
-                        handler(data);
+                        handler({uri: toUri})
                     }
 
                     this.setState({

@@ -85,10 +85,10 @@ export function setFoodScore(score) {
     return setScore('food', score)
 }
 
-export function setImage(image) {
+export function setImage({uri}) {
     return {
         type: SET_IMAGE,
-        payload: image,
+        payload: {uri},
     }
 }
 
