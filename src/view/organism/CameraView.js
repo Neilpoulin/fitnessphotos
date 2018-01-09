@@ -1,5 +1,6 @@
 import {Constants, Camera, FileSystem} from 'expo';
 import React from 'react';
+import PropTypes from 'prop-types'
 import {StyleSheet, Text, View, TouchableOpacity, Slider, Vibration} from 'react-native';
 import uuid from 'uuid'
 
@@ -40,10 +41,27 @@ export default class CameraView extends React.Component {
         photoId: uuid.v4()
     };
 
+    static propTypes = {
+        onClose: PropTypes.func,
+        handlePhoto: PropTypes.func,
+    }
+
+    static defaultProps = {
+        onClose: () => {
+            console.warn('not implemented ')
+        },
+        handlePhoto: null,
+    }
+
+    _handleClose() {
+        console.log('attempting to close camera')
+        this.props.onClose()
+    }
+
     componentDidMount() {
-        FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'photos').catch(e => {
-            console.log(e, 'Directory exists');
-        });
+        FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'photos').catch(() => {
+            //do nothing
+        })
     }
 
     getRatios = async function () {
@@ -101,16 +119,22 @@ export default class CameraView extends React.Component {
 
     takePicture = async function () {
         if (this.camera) {
+            let handler = this.props.handlePhoto;
             this.camera.takePictureAsync().then(data => {
                 FileSystem.moveAsync({
                     from: data.uri,
                     to: `${FileSystem.documentDirectory}photos/Photo_${this.state.photoId}.jpg`,
                 }).then(() => {
                     console.log('saved image', data);
+                    if (handler) {
+                        handler(data);
+                    }
+
                     this.setState({
                         photoId: uuid.v4(),
                     });
                     Vibration.vibrate();
+                    this._handleClose()
                 });
             });
         }
@@ -246,6 +270,13 @@ export default class CameraView extends React.Component {
                     {/*step={0.1}*/}
                     {/*disabled={this.state.autoFocus === 'on'}*/}
                     {/*/>*/}
+                    <TouchableOpacity style={styles.flipButton} onPress={this._handleClose.bind(this)}>
+                        <Ionicons
+                            name={'md-close'}
+                            size={42}
+                            style={{color: 'white'}}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <View
                     style={{

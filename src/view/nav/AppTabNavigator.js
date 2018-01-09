@@ -1,31 +1,39 @@
 import React from 'react'
 import {TabNavigator} from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import DayInput from 'view/screen/DayInputScreen'
 import PhotoViewerPage from 'view/screen/PhotoViewerPage'
-import CameraPage from 'view/screen/CameraPage'
-import DayInput from 'view/screen/DayInput'
 
-const AppTabNavigation = TabNavigator({
+const navigatorConfig = {
+    initialRouteName: 'DayInput',
+    backBehavior: 'none'
+}
+
+// Camera: {
+//     screen: CameraPage,
+//     navigationOptions: {
+//         tabBarLabel: 'Camera',
+//         tabBarVisible: false,
+//         swipeEnabled: true,
+//         tabBarIcon: ({tintColor, focused}) => (
+//             <Ionicons
+//                 name={focused ? 'ios-camera' : 'ios-camera-outline'}
+//                 size={26}
+//                 style={{color: tintColor}}
+//             />
+//         ),
+//     },
+// },
+
+const AppTabNavigator = TabNavigator({
     Photos: {
         screen: PhotoViewerPage,
         navigationOptions: {
             tabBarLabel: 'Photos',
+            // swipeEnabled: true,
             tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
                     name={focused ? 'ios-photos' : 'ios-photos-outline'}
-                    size={26}
-                    style={{color: tintColor}}
-                />
-            ),
-        },
-    },
-    Camera: {
-        screen: CameraPage,
-        navigationOptions: {
-            tabBarLabel: 'Camera',
-            tabBarIcon: ({tintColor, focused}) => (
-                <Ionicons
-                    name={focused ? 'ios-camera' : 'ios-camera-outline'}
                     size={26}
                     style={{color: tintColor}}
                 />
@@ -36,6 +44,7 @@ const AppTabNavigation = TabNavigator({
         screen: DayInput,
         navigationOptions: {
             tabBarLabel: 'Add',
+            // swipeEnabled: true,
             tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
                     name={focused ? 'ios-add' : 'ios-add'}
@@ -45,6 +54,7 @@ const AppTabNavigation = TabNavigator({
             )
         }
     }
-})
+}, navigatorConfig)
 
-export default AppTabNavigation
+
+export default AppTabNavigator

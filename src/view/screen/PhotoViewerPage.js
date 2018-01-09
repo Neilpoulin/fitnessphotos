@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
     StyleSheet,
     Text,
@@ -6,9 +6,10 @@ import {
     Button,
     Image,
     ScrollView,
-} from 'react-native';
-import {ImagePicker, FileSystem} from 'expo';
+} from 'react-native'
+import {ImagePicker, FileSystem} from 'expo'
 import uuid from 'uuid'
+import PropTypes from 'prop-types'
 import styles from './PhotoViewerPageStyle'
 
 
@@ -18,20 +19,24 @@ export default class PhotoViewerPage extends React.Component {
         selectedPhotos: [],
     };
 
+    static propTypes = {
+        navigation: PropTypes.any,
+    }
+
     constructor(props) {
-        super(props);
+        super(props)
         // this._loadImages = this._loadImages.bind(this);
         // this._archivePicture = this._archivePicture.bind(this);
         // this._pickImage = this._pickImage.bind(this);
-        this._selectPhoto = this._selectPhoto.bind(this);
-        this._unselectPhoto = this._unselectPhoto.bind(this);
+        this._selectPhoto = this._selectPhoto.bind(this)
+        this._unselectPhoto = this._unselectPhoto.bind(this)
     }
 
     componentDidMount() {
         // this._loadImages();
         FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'photosArchived').catch(e => {
-            console.log('Directory exists');
-        });
+            console.log('Directory exists')
+        })
     }
 
     _loadImages() {
@@ -39,61 +44,61 @@ export default class PhotoViewerPage extends React.Component {
             console.log('photos fetched', photos)
             this.setState({
                 photos,
-            });
-        });
+            })
+        })
     }
 
     _pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             allowsEditing: false,
             // aspect: [4, 3],
-        });
+        })
 
-        console.log(result);
+        console.log(result)
 
-        let from = result.uri;
-        let imageId = uuid.v4();
-        let parts = from ? from.split('/') : [];
+        let from = result.uri
+        let imageId = uuid.v4()
+        let parts = from ? from.split('/') : []
         if (!parts.length > 0) {
             return
         }
-        let filename = parts[parts.length - 1];
+        let filename = parts[parts.length - 1]
 
-        let to = `${FileSystem.documentDirectory}photos/${imageId}-${filename}`;
+        let to = `${FileSystem.documentDirectory}photos/${imageId}-${filename}`
         FileSystem.copyAsync({
             from, to,
         }).then(result => {
-            console.log('successfully copied image');
+            console.log('successfully copied image')
             this._loadImages()
         })
 
     };
 
     _archivePicture = ({uri, index}) => {
-        console.log('attempting to delete image', uri);
-        let from = `${FileSystem.documentDirectory}photos/${uri}`;
-        let to = `${FileSystem.documentDirectory}photosArchived/${uri}`;
+        console.log('attempting to delete image', uri)
+        let from = `${FileSystem.documentDirectory}photos/${uri}`
+        let to = `${FileSystem.documentDirectory}photosArchived/${uri}`
         FileSystem.moveAsync({
             from, to,
         }).then(result => {
-            console.log('successfully archived image');
+            console.log('successfully archived image')
             this._loadImages()
         })
     };
 
     _selectPhoto = ({uri, index}) => {
         try {
-            let selected = this.state.selectedPhotos || [];
-            console.log('state selected photos is', this.state.selectedPhotos);
+            let selected = this.state.selectedPhotos || []
+            console.log('state selected photos is', this.state.selectedPhotos)
             if (selected.length >= 2) {
-                console.log('too may selected');
+                console.log('too may selected')
                 return null
             } else if (selected.indexOf(uri) !== -1) {
                 console.log('image already selected')
             }
-            console.log('selecting the image', uri);
-            selected = [uri, ...selected];
-            console.log('selected a photo and now selected is', selected);
+            console.log('selecting the image', uri)
+            selected = [uri, ...selected]
+            console.log('selected a photo and now selected is', selected)
             this.setState({
                 selectedPhotos: selected,
             })
@@ -104,16 +109,16 @@ export default class PhotoViewerPage extends React.Component {
     };
 
     _unselectPhoto = ({uri}) => {
-        let selected = this.state.selectedPhotos || [];
-        selected = [...selected];
-        let filtered = selected.filter(s => s !== uri);
+        let selected = this.state.selectedPhotos || []
+        selected = [...selected]
+        let filtered = selected.filter(s => s !== uri)
         this.setState({
             selectedPhotos: filtered,
         })
     };
 
     render() {
-        let {photos, selectedPhotos} = this.state;
+        let {photos, selectedPhotos} = this.state
 
         return (
             <ScrollView style={styles.container}>
@@ -175,8 +180,13 @@ export default class PhotoViewerPage extends React.Component {
                     onPress={this._pickImage}
                 />
                 <Button title='Refresh Images' onPress={this._loadImages.bind(this)}/>
+
+                <View style={styles.photoContainer}>
+                    <Text>This is a view</Text>
+                    <Button title={'Take Photo'} onPress={() => this.props.navigation.navigate('Camera')}/>
+                </View>
             </ScrollView>
-        );
+        )
     }
 }
 
