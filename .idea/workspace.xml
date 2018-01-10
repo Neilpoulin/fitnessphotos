@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee6cf6da-d390-42b8-922f-d7ee924ca39a" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/selector/daySelector.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/ducks/day.js" afterPath="$PROJECT_DIR$/src/ducks/day.js" />
       <change beforePath="$PROJECT_DIR$/src/ducks/dayInput.js" afterPath="$PROJECT_DIR$/src/ducks/dayInput.js" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/days.js" afterPath="$PROJECT_DIR$/src/ducks/days.js" />
+      <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
-              <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+              <caret line="36" column="19" lean-forward="false" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -33,27 +34,37 @@
         <entry file="file://$PROJECT_DIR$/src/ducks/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+              <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dayInput.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dayInput.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="59" column="10" lean-forward="true" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+            <state relative-caret-position="277">
+              <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="daySelector.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/selector/daySelector.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="162" column="51" lean-forward="true" selection-start-line="162" selection-start-column="51" selection-end-line="162" selection-end-column="51" />
+            <state relative-caret-position="524">
+              <caret line="229" column="10" lean-forward="true" selection-start-line="229" selection-start-column="10" selection-end-line="229" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -69,21 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/ScoreUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="day.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+            <state relative-caret-position="450">
+              <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -103,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/src/view/organism/CameraView.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="809">
-              <caret line="340" column="19" lean-forward="true" selection-start-line="340" selection-start-column="19" selection-end-line="340" selection-end-column="19" />
+              <caret line="340" column="19" lean-forward="false" selection-start-line="340" selection-start-column="19" selection-end-line="340" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -149,8 +150,9 @@
       <find>ModalStackNav</find>
       <find>DayInput</find>
       <find>iCon</find>
-      <find>setPhoto</find>
       <find>close</find>
+      <find>setPhoto</find>
+      <find>SET_STATE</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,11 +196,12 @@
         <option value="$PROJECT_DIR$/src/util/ScoreUtil.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" />
-        <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
         <option value="$PROJECT_DIR$/src/view/organism/CameraView.js" />
-        <option value="$PROJECT_DIR$/src/ducks/day.js" />
         <option value="$PROJECT_DIR$/src/ducks/days.js" />
+        <option value="$PROJECT_DIR$/src/ducks/day.js" />
+        <option value="$PROJECT_DIR$/src/selector/daySelector.js" />
         <option value="$PROJECT_DIR$/src/ducks/dayInput.js" />
+        <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
       </list>
     </option>
   </component>
@@ -296,33 +299,6 @@
               <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="nav" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="organism" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -471,7 +447,7 @@
       <workItem from="1515135685055" duration="366000" />
       <workItem from="1515136128702" duration="609000" />
       <workItem from="1515136768746" duration="6271000" />
-      <workItem from="1515298038797" duration="29357000" />
+      <workItem from="1515298038797" duration="31546000" />
     </task>
     <task id="LOCAL-00001" summary="fix some stuff">
       <created>1514881454632</created>
@@ -508,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515485976364</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Semi persist the data!">
+      <created>1515486911433</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1515486911433</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -541,7 +524,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61562000" />
+    <option name="totallyTimeSpent" value="63751000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -590,7 +573,8 @@
     <MESSAGE value="working day buttons" />
     <MESSAGE value="choose image" />
     <MESSAGE value="fix camrea image" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix camrea image" />
+    <MESSAGE value="Semi persist the data!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Semi persist the data!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -599,14 +583,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ducks/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -922,7 +898,7 @@
     <entry file="file://$PROJECT_DIR$/src/ducks/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -938,7 +914,7 @@
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
-          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <caret line="36" column="19" lean-forward="false" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -951,18 +927,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="162" column="51" lean-forward="true" selection-start-line="162" selection-start-column="51" selection-end-line="162" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/organism/CameraView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="809">
-          <caret line="340" column="19" lean-forward="true" selection-start-line="340" selection-start-column="19" selection-end-line="340" selection-end-column="19" />
+          <caret line="340" column="19" lean-forward="false" selection-start-line="340" selection-start-column="19" selection-end-line="340" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -977,16 +945,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/selector/daySelector.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="59" column="10" lean-forward="true" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+        <state relative-caret-position="277">
+          <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="229" column="10" lean-forward="true" selection-start-line="229" selection-start-column="10" selection-end-line="229" selection-end-column="10" />
           <folding />
         </state>
       </provider>

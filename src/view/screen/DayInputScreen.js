@@ -18,6 +18,7 @@ import {FileSystem, ImagePicker} from 'expo'
 import uuid from 'uuid'
 import {setBodyScore, setMindScore, setFoodScore, setImage, setEditingImage} from 'ducks/dayInput'
 import {formatScore} from 'util/ScoreUtil'
+import {getDayState} from 'selector/daySelector';
 
 class DayInput extends React.Component {
     static propTypes = {
@@ -149,7 +150,7 @@ class DayInput extends React.Component {
                     </View>
                 </View>
                 <View display-if={image && !isEditingImage} style={styles.photoFlexbox}>
-                    <Image source={{uri: image.uri}} style={{height: 200, width: 200}}/>
+                    <Image source={{uri: image.uri}} style={{height: 250, width: 250}} resizeMode={'contain'}/>
                     <Link title={'Change Image'} onPress={editImage}/>
                 </View>
             </View>
@@ -198,14 +199,17 @@ class DayInput extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     let page = state.dayInput
-    let image = page.get('image')
+    let dayState = getDayState(state, page.get('date'))
+
+    let image = dayState.get('image')
     if (image) {
         image = image.toJS()
     }
+
     console.log('image is ', image)
     return {
         dateFormatted: formatLongDate(page.get('date')),
-        scores: page.get('scores').toJS(),
+        scores: dayState.get('scores').toJS(),
         image,
         isEditingImage: page.get('isEditingImage'),
     }
