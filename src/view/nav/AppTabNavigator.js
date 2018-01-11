@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import {TabNavigator} from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import DayInput from 'view/screen/DayInputScreen'
 import PhotoViewerPage from 'view/screen/PhotoViewerPage'
+import DevScreen from 'view/screen/DevScreen'
 
 const navigatorConfig = {
     initialRouteName: 'DayInput',
@@ -48,6 +50,20 @@ const AppTabNavigator = TabNavigator({
             tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
                     name={focused ? 'ios-add' : 'ios-add'}
+                    size={26}
+                    style={{color: tintColor}}
+                />
+            )
+        }
+    },
+    DevScreen: {
+        screen: DevScreen,
+        navigationOptions: {
+            tabBarLabel: 'Dev',
+            // swipeEnabled: true,
+            tabBarIcon: ({tintColor, focused}) => (
+                <Ionicons
+                    name={focused ? 'ios-settings-outline' : 'ios-settings'}
                     size={26}
                     style={{color: tintColor}}
                 />

@@ -16,12 +16,15 @@ import Ionicon from 'react-native-vector-icons/Ionicons'
 import {openCamera} from 'ducks/camera'
 import {FileSystem, ImagePicker} from 'expo'
 import uuid from 'uuid'
-import {setBodyScore, setMindScore, setFoodScore, setImage, setEditingImage} from 'ducks/dayInput'
+import {setBodyScore, setMindScore, setFoodScore, setImage, setEditingImage, loadCurrentDay} from 'ducks/dayInput'
 import {formatScore} from 'util/ScoreUtil'
-import {getDayState} from 'selector/daySelector';
+import {getDayState} from 'selector/daySelector'
+import {saveDay} from 'ducks/day'
+import {getDateKey} from 'util/TimeUtil';
 
 class DayInput extends React.Component {
     static propTypes = {
+        dayKey: PropTypes.string,
         dateFormatted: PropTypes.string,
         foodSelections: PropTypes.arrayOf(PropTypes.any),
         mindSelections: PropTypes.arrayOf(PropTypes.any),
@@ -37,11 +40,7 @@ class DayInput extends React.Component {
             navigate: PropTypes.func,
         }),
         openCamera: PropTypes.func,
-        image: PropTypes.shape({
-            uri: PropTypes.string,
-            height: PropTypes.number,
-            width: PropTypes.number,
-        }),
+        imageUri: PropTypes.string,
         setBody: PropTypes.func,
         setFood: PropTypes.func,
         setMind: PropTypes.func,
@@ -50,12 +49,20 @@ class DayInput extends React.Component {
         editImage: PropTypes.func,
         editImageDone: PropTypes.func,
         isEditingImage: PropTypes.bool,
+        loadScreen: PropTypes.func,
+        save: PropTypes.func,
     }
 
     constructor(props) {
         super(props)
         this._pickImage = this._pickImage.bind(this)
         this._takePicture = this._takePicture.bind(this)
+    }
+
+    componentWillMount() {
+        if (this.props.loadScreen) {
+            this.props.loadScreen()
+        }
     }
 
     _pickImage = async () => {
@@ -102,15 +109,16 @@ class DayInput extends React.Component {
             dateFormatted,
             nextDay,
             previousDay,
-            openCamera,
             scores,
             setBody,
             setMind,
             setFood,
-            image,
+            imageUri,
             editImage,
             editImageDone,
             isEditingImage,
+            save,
+            dayKey,
         } = this.props
         return <View style={styles.container}>
             <View style={styles.topNavContainer}>
@@ -131,7 +139,7 @@ class DayInput extends React.Component {
                 </View>
             </View>
             <View style={styles.photoContainer}>
-                <View style={styles.actionsFlexbox} display-if={!image || isEditingImage}>
+                <View style={styles.actionsFlexbox} display-if={!imageUri || isEditingImage}>
                     <View style={styles.buttonContainer}>
                         <Button
                             title={'Take Photo'}
@@ -149,13 +157,16 @@ class DayInput extends React.Component {
                         <Link title={'Cancel Edit'} onPress={editImageDone}/>
                     </View>
                 </View>
-                <View display-if={image && !isEditingImage} style={styles.photoFlexbox}>
-                    <Image source={{uri: image.uri}} style={{height: 250, width: 250}} resizeMode={'contain'}/>
-                    <Link title={'Change Image'} onPress={editImage}/>
+                <View display-if={imageUri && !isEditingImage} style={styles.photoFlexbox}>
+                    <View>
+                        <Image source={{uri: imageUri}} style={{height: 250, width: 250}} resizeMode={'contain'}/>
+                    </View>
+                    <View>
+                        <Link title={'Change Image'} onPress={editImage}/>
+                    </View>
                 </View>
             </View>
-            <View
-                style={styles.sliderContainer}>
+            <View style={styles.sliderContainer}>
                 <Slider
                     minimumValue={0}
                     maximumValue={3}
@@ -199,24 +210,25 @@ class DayInput extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     let page = state.dayInput
-    let dayState = getDayState(state, page.get('date'))
+    let dayKey = getDateKey(page.get('date'))
+    let dayState = getDayState(state, {dayKey})
 
-    let image = dayState.get('image')
-    if (image) {
-        image = image.toJS()
-    }
+    let imageUri = dayState.get('imageUri')
 
-    console.log('image is ', image)
     return {
         dateFormatted: formatLongDate(page.get('date')),
         scores: dayState.get('scores').toJS(),
-        image,
+        imageUri,
+        dayKey,
         isEditingImage: page.get('isEditingImage'),
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        loadScreen: () => {
+            dispatch(loadCurrentDay())
+        },
         nextDay: () => {
             dispatch(goToNextDate())
         },
@@ -245,6 +257,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         editImageDone: () => {
             dispatch(setEditingImage(false))
+        },
+        save: (dayKey) => {
+            dispatch(saveDay(dayKey))
         }
 
     }

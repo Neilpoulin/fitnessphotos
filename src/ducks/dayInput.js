@@ -1,9 +1,10 @@
 import Immutable from 'immutable'
 import moment from 'moment'
 import {getDateKey} from 'util/TimeUtil'
-import {SAVE_DAY} from './day';
+import {SET_SCORE, SET_IMAGE, saveDay} from './day'
 import {loadDay} from './days';
-import {SET_SCORE, SET_IMAGE} from './day';
+import * as dao from 'service/database'
+import {getDayState, getScore} from 'selector/daySelector';
 
 export const SET_DATE = 'dayInput/SET_DATE'
 
@@ -17,7 +18,6 @@ const initialState = Immutable.fromJS({
         body: null,
         food: null,
     },
-    image: null,
     isEditingImage: false,
 })
 
@@ -25,9 +25,6 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case SET_DATE:
             state = state.set('date', action.payload)
-            break
-        case SET_STATE:
-            state = initialState.merge(action.payload)
             break
         case SET_EDITING_IMAGE:
             state = state.set('isEditingImage', action.payload)
@@ -46,6 +43,7 @@ export function setDate(date) {
             dayKey,
             payload: moment(date).toDate().getTime()
         })
+        dispatch(loadCurrentDay())
     }
 }
 
@@ -67,16 +65,22 @@ export function goToNextDate() {
 
 function setScore({type, score}) {
     return (dispatch, getState) => {
-        let dayKey = getDateKey(getState().dayInput.get('date'))
-        dispatch({
-            type: SET_SCORE,
-            dayKey,
-            payload: {
-                type,
-                score,
-            }
-        })
-        dispatch(save())
+        const state = getState()
+        let dayKey = getDateKey(state.dayInput.get('date'))
+        let currentScore = getScore(state, dayKey, type);
+        console.log('score type to save: ', type, 'current score: ', currentScore, 'updated score', score)
+        if (currentScore !== score) {
+            dispatch({
+                type: SET_SCORE,
+                dayKey,
+                payload: {
+                    type,
+                    score,
+                }
+            })
+            dispatch(save())
+        }
+
     }
 }
 
@@ -116,9 +120,23 @@ export function setEditingImage(isEditing) {
     }
 }
 
+export function loadCurrentDay() {
+    return (dispatch, getState) => {
+        let input = getState().dayInput
+        let dayKey = getDateKey(input.get('date'))
+        if (dayKey) {
+            dispatch(loadDay(dayKey))
+        }
+    }
+}
+
 function save() {
     return (dispatch, getState) => {
         let input = getState().dayInput
+        let dayKey = getDateKey(input.get('date'))
+        console.log('calling say day with dayKey', dayKey)
+        dispatch(saveDay(dayKey))
+
         // dispatch({
         //     type: SAVE_DAY,
         //     dayKey: getDateKey(input.get('date')),
