@@ -14,6 +14,8 @@ export const LOAD_DAY_ERROR = 'day/LOAD_DAY_ERROR'
 export const SET_SCORE = 'day/SET_SCORE'
 export const SET_IMAGE = 'day/SET_IMAGE'
 
+export const SET_WEIGHT = 'day/SET_WEIGHT'
+
 export const propTypes = {
     dayKey: PropTypes.string,
     scores: PropTypes.shape({
@@ -70,6 +72,10 @@ export default function reducer(state = initialState, action) {
             state = state.set('isLoading', false)
             state = state.merge(action.payload)
             state = state.set('error', null)
+            break
+        case SET_WEIGHT:
+            state = state.set('weight', action.payload)
+
             break
         default:
             break

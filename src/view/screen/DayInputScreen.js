@@ -20,7 +20,8 @@ import {setBodyScore, setMindScore, setFoodScore, setImage, setEditingImage, loa
 import {formatScore} from 'util/ScoreUtil'
 import {getDayState} from 'selector/daySelector'
 import {saveDay} from 'ducks/day'
-import {getDateKey} from 'util/TimeUtil';
+import {getDateKey} from 'util/TimeUtil'
+import {getWeightForDay} from 'ducks/user'
 
 class DayInput extends React.Component {
     static propTypes = {
@@ -51,6 +52,8 @@ class DayInput extends React.Component {
         isEditingImage: PropTypes.bool,
         loadScreen: PropTypes.func,
         save: PropTypes.func,
+        getWeight: PropTypes.func,
+        weight: PropTypes.number,
     }
 
     constructor(props) {
@@ -117,8 +120,10 @@ class DayInput extends React.Component {
             editImage,
             editImageDone,
             isEditingImage,
+            weight,
             save,
             dayKey,
+            getWeight,
         } = this.props
         return <View style={styles.container}>
             <View style={styles.topNavContainer}>
@@ -165,6 +170,9 @@ class DayInput extends React.Component {
                         <Link title={'Change Image'} onPress={editImage}/>
                     </View>
                 </View>
+            </View>
+            <View display-if={weight}>
+                <Text>Weight: {weight}</Text>
             </View>
             <View style={styles.sliderContainer}>
                 <Slider
@@ -218,6 +226,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         dateFormatted: formatLongDate(page.get('date')),
         scores: dayState.get('scores').toJS(),
+        weight: dayState.get('weight'),
         imageUri,
         dayKey,
         isEditingImage: page.get('isEditingImage'),
@@ -228,6 +237,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         loadScreen: () => {
             dispatch(loadCurrentDay())
+            dispatch(getWeightForDay('2018-01-15'))
         },
         nextDay: () => {
             dispatch(goToNextDate())
@@ -263,7 +273,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         save: (dayKey) => {
             dispatch(saveDay(dayKey))
         }
-
     }
 }
 

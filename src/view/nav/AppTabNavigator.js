@@ -64,7 +64,7 @@ const AppTabNavigator = TabNavigator({
             // swipeEnabled: true,
             tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
-                    name={focused ? 'ios-settings-outline' : 'ios-settings'}
+                    name={focused ? 'ios-settings' : 'ios-settings-outline'}
                     size={26}
                     style={{color: tintColor}}
                 />

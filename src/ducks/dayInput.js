@@ -5,6 +5,7 @@ import {SET_SCORE, SET_IMAGE, saveDay} from './day'
 import {loadDay} from './days';
 import * as dao from 'service/database'
 import {getDayState, getScore} from 'selector/daySelector';
+import {getWeightForDay} from './user';
 
 export const SET_DATE = 'dayInput/SET_DATE'
 
@@ -126,6 +127,7 @@ export function loadCurrentDay() {
         let dayKey = getDateKey(input.get('date'))
         if (dayKey) {
             dispatch(loadDay(dayKey))
+            dispatch(getWeightForDay(dayKey))
         }
     }
 }

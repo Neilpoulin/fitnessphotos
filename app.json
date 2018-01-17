@@ -2,6 +2,15 @@
     "expo": {
         "name": "Photo Trends",
         "version": "0.0.1",
-        "sdkVersion": "24.0.0"
+        "sdkVersion": "24.0.0",
+        "slug": "photo-trends",
+        "icon": "images/photo-trends-logo.png",
+        "ios": {
+            "bundleIdentifier": "com.neilpoulin.phototrends"
+        },
+        "splash": {
+            "image": "./images/splash.png",
+            "resizeMode": "cover"
+        }
     }
 }
