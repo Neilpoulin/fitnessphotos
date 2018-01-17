@@ -13,6 +13,7 @@ import DayCardView from '/view/organism/DayCardView'
 class FeedScreen extends React.Component {
     static propTypes = {
         days: PropTypes.arrayOf(PropTypes.shape({})),
+        navigation: PropTypes.object,
         //actions
         load: PropTypes.func
     }
@@ -22,11 +23,11 @@ class FeedScreen extends React.Component {
     }
 
     render() {
-        const {days} = this.props
+        const {days, navigation} = this.props
         return <View style={styles.container}>
             <Text>FeedScreen</Text>
             <ScrollView display-if={days}>
-                {days.map((day, i) => <DayCardView key={`dayview_${i}`} day={day}/>)}
+                {days.map((day, i) => <DayCardView navigation={navigation} key={`dayview_${i}`} day={day}/>)}
             </ScrollView>
         </View>
     }

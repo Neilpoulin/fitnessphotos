@@ -91,7 +91,7 @@ export function saveDay(dayKey) {
         upsertDay({
             dayKey,
             scores: dayState.get('scores').toJS(),
-            weight: dayState.get('weight'),
+            weight: dayState.get('weight') ? dayState.get('weight').toFixed(1) : null,
             imageUri: dayState.get('imageUri')
         }).then(({dayId}) => {
             dispatch({

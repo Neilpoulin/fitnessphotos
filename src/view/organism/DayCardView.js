@@ -2,24 +2,30 @@ import React from 'react'
 import {
     View,
     Text,
-    Image
+    Image,
+    TouchableOpacity,
 } from 'react-native'
-import {propTypes as dayPropTypes} from 'ducks/day';
+import {propTypes as dayPropTypes} from 'ducks/day'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {formatDayOfWeekShort} from 'util/TimeUtil'
 import styles from './DayCardViewStyles'
+import {SET_DATE} from '../../ducks/dayInput';
+import {DAY_INPUT_SCREEN} from 'view/nav/Routes'
 
 class DayCardView extends React.Component {
     static propTypes = {
-        day: PropTypes.shape(dayPropTypes)
+        day: PropTypes.shape(dayPropTypes),
+        //actions
+        editDay: PropTypes.func,
     }
 
     render() {
         const {
             day,
+            editDay
         } = this.props
-        return <View style={styles.container}>
+        return <TouchableOpacity onPress={() => editDay()}><View style={styles.container}>
             <View style={styles.columns}>
                 <View style={[styles.rows, styles.padded]}>
                     <View style={styles.marginBottom}>
@@ -48,12 +54,19 @@ class DayCardView extends React.Component {
                         </View>
                     </View>
                 </View>
-                <View display-if={day.imageUri} style={styles.imageContainer}>
-                    <Image source={{uri: day.imageUri}} style={styles.image} resizeMode={'contain'}/>
+                <View style={styles.imageContainer}>
+                    <Image display-if={day.imageUri} source={{uri: day.imageUri}} style={styles.image}
+                        resizeMode={'contain'}/>
+                    <View style={[styles.image, styles.imageEmpty]} display-if={!day.imageUri}>
+                        <Text>No Image</Text>
+                    </View>
+                    <View style={styles.weightContainer} display-if={day.weight}>
+                        <Text style={styles.weightText}>{day.weight.toFixed(1)} lbs</Text>
+                    </View>
                 </View>
             </View>
         </View>
-
+        </TouchableOpacity>
     }
 
 }
@@ -63,7 +76,17 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return {}
+    return {
+        editDay: () => {
+            let dayKey = ownProps.day.dayKey
+            dispatch({
+                type: SET_DATE,
+                dayKey,
+                payload: dayKey
+            })
+            ownProps.navigation.navigate(DAY_INPUT_SCREEN)
+        }
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DayCardView)

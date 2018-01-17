@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee6cf6da-d390-42b8-922f-d7ee924ca39a" name="Default" comment="update the feed view">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/neilpoulin.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/photo-trends-logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ducks/user.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/util/Base64.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/nav/Routes.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change beforePath="$PROJECT_DIR$/src/ducks/day.js" afterPath="$PROJECT_DIR$/src/ducks/day.js" />
       <change beforePath="$PROJECT_DIR$/src/ducks/dayInput.js" afterPath="$PROJECT_DIR$/src/ducks/dayInput.js" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/index.js" afterPath="$PROJECT_DIR$/src/ducks/index.js" />
+      <change beforePath="$PROJECT_DIR$/src/util/TimeUtil.js" afterPath="$PROJECT_DIR$/src/util/TimeUtil.js" />
+      <change beforePath="$PROJECT_DIR$/src/util/TimeUtil.test.js" afterPath="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
       <change beforePath="$PROJECT_DIR$/src/view/nav/AppTabNavigator.js" afterPath="$PROJECT_DIR$/src/view/nav/AppTabNavigator.js" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/DevScreen.js" afterPath="$PROJECT_DIR$/src/view/screen/DevScreen.js" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
+      <change beforePath="$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js" afterPath="$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js" />
+      <change beforePath="$PROJECT_DIR$/src/view/organism/DayCardView.js" afterPath="$PROJECT_DIR$/src/view/organism/DayCardView.js" />
+      <change beforePath="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" afterPath="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" />
+      <change beforePath="$PROJECT_DIR$/src/view/screen/FeedScreen.js" afterPath="$PROJECT_DIR$/src/view/screen/FeedScreen.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,11 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
+      <file leaf-file-name="FeedScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="176" column="39" lean-forward="false" selection-start-line="176" selection-start-column="39" selection-end-line="176" selection-end-column="39" />
+            <state relative-caret-position="193">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DayCardView.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="91" column="45" lean-forward="true" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -42,68 +50,28 @@
       <file leaf-file-name="dayInput.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="129" column="29" lean-forward="false" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
+            <state relative-caret-position="271">
+              <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.json">
+      <file leaf-file-name="Routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/nav/Routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="days.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ducks/days.js">
+      <file leaf-file-name="AppTabNavigator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/nav/AppTabNavigator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="34" column="16" lean-forward="false" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ducks/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="day.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="85" column="16" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Base64.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/Base64.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+            <state relative-caret-position="261">
+              <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -111,21 +79,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DevScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/DevScreen.js">
+      <file leaf-file-name="ModalStackNavigator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+            <state relative-caret-position="30">
+              <caret line="2" column="47" lean-forward="false" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ducks/index.js">
+      <file leaf-file-name="CameraView.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/organism/CameraView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="2" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+            <state relative-caret-position="3642">
+              <caret line="340" column="19" lean-forward="false" selection-start-line="340" selection-start-column="19" selection-end-line="340" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CameraViewStyle.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/organism/CameraViewStyle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DevScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/screen/DevScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="705">
+              <caret line="47" column="19" lean-forward="false" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-977">
+              <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -135,10 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>closeCam</find>
-      <find>photoId</find>
-      <find>flash: '</find>
-      <find>flash:</find>
       <find>toggleFlash</find>
       <find>from.s</find>
       <find>splice</find>
@@ -165,6 +159,10 @@
       <find>SET_IMAGE</find>
       <find>react-native</find>
       <find>butffer</find>
+      <find>.navigate</find>
+      <find>.nav</find>
+      <find>navigate</find>
+      <find>navi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,7 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/AppTabNavigations.js" />
         <option value="$PROJECT_DIR$/PhotoViewerPage.js" />
         <option value="$PROJECT_DIR$/src/view/AppTabNavigations.js" />
         <option value="$PROJECT_DIR$/src/view/screen/PhotoViewerPage.style.js" />
@@ -196,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/ducks/camera.js" />
         <option value="$PROJECT_DIR$/src/view/organism/CameraModal.js" />
         <option value="$PROJECT_DIR$/src/view/nav/TabNavigatorWrapper.js" />
-        <option value="$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js" />
         <option value="$PROJECT_DIR$/src/view/screen/PhotoViewerPage.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DayInput.js" />
         <option value="$PROJECT_DIR$/src/view/nav/AppTabNavigations.js" />
@@ -214,21 +210,23 @@
         <option value="$PROJECT_DIR$/src/ducks/days.js" />
         <option value="$PROJECT_DIR$/src/service/database.js" />
         <option value="$PROJECT_DIR$/src/view/organism/DayView.js" />
-        <option value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
-        <option value="$PROJECT_DIR$/src/util/TimeUtil.js" />
         <option value="$PROJECT_DIR$/src/view/screen/FeedScreenStyles.js" />
-        <option value="$PROJECT_DIR$/src/view/screen/FeedScreen.js" />
-        <option value="$PROJECT_DIR$/src/view/organism/DayCardView.js" />
-        <option value="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" />
-        <option value="$PROJECT_DIR$/src/view/nav/AppTabNavigator.js" />
         <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/src/ducks/index.js" />
         <option value="$PROJECT_DIR$/src/util/Base64.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DevScreen.js" />
-        <option value="$PROJECT_DIR$/src/ducks/day.js" />
-        <option value="$PROJECT_DIR$/src/ducks/dayInput.js" />
         <option value="$PROJECT_DIR$/src/ducks/user.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
+        <option value="$PROJECT_DIR$/src/ducks/day.js" />
+        <option value="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" />
+        <option value="$PROJECT_DIR$/src/view/nav/Routes.js" />
+        <option value="$PROJECT_DIR$/src/view/nav/AppTabNavigator.js" />
+        <option value="$PROJECT_DIR$/src/util/TimeUtil.js" />
+        <option value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
+        <option value="$PROJECT_DIR$/src/ducks/dayInput.js" />
+        <option value="$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js" />
+        <option value="$PROJECT_DIR$/src/view/screen/FeedScreen.js" />
+        <option value="$PROJECT_DIR$/src/view/organism/DayCardView.js" />
       </list>
     </option>
   </component>
@@ -315,11 +313,6 @@
             <path>
               <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -327,6 +320,24 @@
               <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ducks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="selector" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
@@ -345,6 +356,20 @@
               <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="nav" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="organism" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="screen" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -357,7 +382,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -368,16 +393,16 @@
     <property name="javascript.nodejs.core.library.configured.version" value="8.4.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/view/util" />
       <recent name="$PROJECT_DIR$/src/view/organism" />
       <recent name="$PROJECT_DIR$/src/view/nav" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -392,7 +417,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.format day of week short">
+  <component name="RunManager" selected="Jest.get timestamp from dayKey.2018-01-19">
     <configuration name="TimeUtil.test.js" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -400,18 +425,6 @@
       <envs />
       <scope-kind value="TEST_FILE" />
       <test-file value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
-    </configuration>
-    <configuration name="format date short.Sat jan 6 2018 using timestamp" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/view/util/TimeUtil.test.js" />
-      <test-names>
-        <test-name value="format date short" />
-        <test-name value="Sat jan 6 2018 using timestamp" />
-      </test-names>
     </configuration>
     <configuration name="format day of week short" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
@@ -434,6 +447,18 @@
       <test-names>
         <test-name value="format day of week short" />
         <test-name value="Sat jan 6 2018 using timestamp" />
+      </test-names>
+    </configuration>
+    <configuration name="get timestamp from dayKey.2018-01-19" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
+      <test-names>
+        <test-name value="get timestamp from dayKey" />
+        <test-name value="2018-01-19" />
       </test-names>
     </configuration>
     <configuration name="start db script" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
@@ -459,19 +484,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="npm.start ios" />
-      <item index="1" class="java.lang.String" itemvalue="Jest.format date short.Sat jan 6 2018 using timestamp" />
-      <item index="2" class="java.lang.String" itemvalue="Jest.TimeUtil.test.js" />
-      <item index="3" class="java.lang.String" itemvalue="Jest.start db script" />
-      <item index="4" class="java.lang.String" itemvalue="Jest.format day of week short.Sat jan 6 2018 using timestamp" />
-      <item index="5" class="java.lang.String" itemvalue="Jest.format day of week short" />
+      <item index="1" class="java.lang.String" itemvalue="Jest.TimeUtil.test.js" />
+      <item index="2" class="java.lang.String" itemvalue="Jest.start db script" />
+      <item index="3" class="java.lang.String" itemvalue="Jest.format day of week short.Sat jan 6 2018 using timestamp" />
+      <item index="4" class="java.lang.String" itemvalue="Jest.format day of week short" />
+      <item index="5" class="java.lang.String" itemvalue="Jest.get timestamp from dayKey.2018-01-19" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Jest.format day of week short" />
-        <item index="1" class="java.lang.String" itemvalue="Jest.format day of week short.Sat jan 6 2018 using timestamp" />
-        <item index="2" class="java.lang.String" itemvalue="Jest.TimeUtil.test.js" />
+        <item index="0" class="java.lang.String" itemvalue="Jest.get timestamp from dayKey.2018-01-19" />
+        <item index="1" class="java.lang.String" itemvalue="Jest.format day of week short" />
+        <item index="2" class="java.lang.String" itemvalue="Jest.format day of week short.Sat jan 6 2018 using timestamp" />
         <item index="3" class="java.lang.String" itemvalue="Jest.start db script" />
-        <item index="4" class="java.lang.String" itemvalue="Jest.format date short.Sat jan 6 2018 using timestamp" />
+        <item index="4" class="java.lang.String" itemvalue="Jest.TimeUtil.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -572,9 +597,6 @@
     <history-entry file="TimeUtil_test_js - 2018.01.12 at 00h 31m 12s.xml">
       <configuration name="TimeUtil.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="format_date_short_Sat_jan_6_2018_using_timestamp - 2018.01.06 at 21h 35m 00s.xml">
-      <configuration name="format date short.Sat jan 6 2018 using timestamp" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="format_day_of_week_short - 2018.01.12 at 00h 34m 21s.xml">
       <configuration name="format day of week short" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -584,18 +606,21 @@
     <history-entry file="format_day_of_week_short_Sat_jan_6_2018_using_timestamp - 2018.01.12 at 00h 34m 04s.xml">
       <configuration name="format day of week short.Sat jan 6 2018 using timestamp" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="renders_without_crashing - 2018.01.06 at 21h 31m 45s.xml">
-      <configuration name="renders without crashing" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="get_timestamp_from_dayKey_2018-01-19 - 2018.01.17 at 08h 58m 15s.xml">
+      <configuration name="get timestamp from dayKey.2018-01-19" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="renders_without_crashing - 2018.01.06 at 21h 32m 58s.xml">
-      <configuration name="renders without crashing" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="get_timestamp_from_dayKey_2018-01-19 - 2018.01.17 at 08h 58m 26s.xml">
+      <configuration name="get timestamp from dayKey.2018-01-19" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="get_timestamp_from_dayKey_2018-01-19 - 2018.01.17 at 08h 58m 41s.xml">
+      <configuration name="get timestamp from dayKey.2018-01-19" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
     <history-entry file="start_db_script - 2018.01.09 at 23h 53m 28s.xml">
       <configuration name="start db script" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101488000" />
+    <option name="totallyTimeSpent" value="103856000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -614,7 +639,7 @@
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30836454" sideWeight="0.5031905" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910448" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50125" sideWeight="0.49680948" order="7" side_tool="false" content_ui="tabs" />
@@ -629,11 +654,29 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.49680948" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30836454" sideWeight="0.5031905" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910448" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50125" sideWeight="0.49680948" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38333333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910448" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.49680948" order="8" side_tool="false" content_ui="tabs" />
@@ -689,32 +732,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.expo/packager-info.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.expo/settings.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.eslintrc.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,7 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,13 +820,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/organism/CameraModal.js" />
     <entry file="file://$PROJECT_DIR$/src/view/nav/TabNavigatorWrapper.js" />
-    <entry file="file://$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/screen/CameraPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="658">
@@ -826,14 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2655">
           <caret line="177" column="16" lean-forward="false" selection-start-line="177" selection-start-column="16" selection-end-line="180" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/organism/CameraView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5100">
-          <caret line="340" column="19" lean-forward="false" selection-start-line="340" selection-start-column="19" selection-end-line="340" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -858,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="199" column="4" lean-forward="false" selection-start-line="199" selection-start-column="4" selection-end-line="199" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,42 +897,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/organism/CameraViewStyle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -944,35 +915,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-native/RNTester/js/ViewPagerAndroidExample.android.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
+        <state relative-caret-position="3945">
           <caret line="263" column="12" lean-forward="false" selection-start-line="263" selection-start-column="12" selection-end-line="263" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="97" lean-forward="false" selection-start-line="51" selection-start-column="90" selection-end-line="51" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="69" column="17" lean-forward="false" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/nav/AppTabNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="65" column="25" lean-forward="false" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1012,33 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/DevScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="85" column="16" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="129" column="29" lean-forward="false" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,10 +976,132 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="120" column="17" lean-forward="true" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/CameraRoll/CameraRoll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="34" column="2" lean-forward="false" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="26" column="38" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/nav/AppTabNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="47" lean-forward="false" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/nav/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/organism/CameraViewStyle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/organism/CameraView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3642">
+          <caret line="340" column="19" lean-forward="false" selection-start-line="340" selection-start-column="19" selection-end-line="340" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/DevScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="19" lean-forward="false" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="176" column="39" lean-forward="false" selection-start-line="176" selection-start-column="39" selection-end-line="176" selection-end-column="39" />
+        <state relative-caret-position="-977">
+          <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="91" column="45" lean-forward="true" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
           <folding />
         </state>
       </provider>

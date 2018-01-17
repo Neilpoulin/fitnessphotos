@@ -1,13 +1,13 @@
 import Immutable from 'immutable'
 import moment from 'moment'
-import {getDateKey} from 'util/TimeUtil'
+import {getDateKey, getTimeStampFromDayDay} from 'util/TimeUtil'
 import {SET_SCORE, SET_IMAGE, saveDay} from './day'
 import {loadDay} from './days';
-import * as dao from 'service/database'
-import {getDayState, getScore} from 'selector/daySelector';
-import {getWeightForDay} from './user';
+import {getDayState, getScore} from 'selector/daySelector'
+import {getWeightForDay} from './user'
 
 export const SET_DATE = 'dayInput/SET_DATE'
+export const SET_DAY_KEY = 'dayInput/SET_DAY_KEY'
 
 export const SET_EDITING_IMAGE = 'dayInput/SET_EDITING_IMAGE'
 export const SET_STATE = 'dayInput/SET_STATE'
@@ -29,6 +29,9 @@ export default function reducer(state = initialState, action) {
             break
         case SET_EDITING_IMAGE:
             state = state.set('isEditingImage', action.payload)
+            break
+        case SET_DAY_KEY:
+            state = state.set('date', getTimeStampFromDayDay(action.payload))
             break
         default:
             break

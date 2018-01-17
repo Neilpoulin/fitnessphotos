@@ -1,10 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import {View} from 'react-native'
 import {StackNavigator} from 'react-navigation'
 import CameraPage from 'view/screen/CameraPage'
-// import TabNavigatorWrapper from './TabNavigatorWrapper'
 import AppTabNavigations from './AppTabNavigator'
+import * as Routes from './Routes'
 
 const navigatorConfig = {
     initialRouteName: 'Charts',
@@ -14,11 +12,11 @@ const navigatorConfig = {
 }
 
 const ModalStackNavigator = StackNavigator({
-    Charts: {
+    [Routes.CHART_SCREEN]: {
         screen: AppTabNavigations,
         // path: 'charts'
     },
-    Camera: {
+    [Routes.CAMERA_SCREEN]: {
         screen: CameraPage,
         // path: 'camera'
     }

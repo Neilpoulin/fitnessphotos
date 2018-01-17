@@ -98,11 +98,28 @@ const styles = StyleSheet.create({
         flex: .5,
         justifyContent: 'center',
         flexDirection: 'column',
-        alignItems: 'flex-end',
+        alignItems: 'center',
     },
     image: {
         height: imageHeight,
         width: imageWidth
+    },
+    imageEmpty: {
+        borderWidth: 1,
+        borderColor: 'gray',
+        borderStyle: 'dashed',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    weightContainer: {
+        alignItems: 'center',
+        flex: 1,
+        justifyContent: 'center',
+        padding: 6,
+    },
+    weightText: {
+        textAlign: 'center',
     }
 
 })

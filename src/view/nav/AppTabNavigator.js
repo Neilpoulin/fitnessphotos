@@ -6,6 +6,7 @@ import DayInput from 'view/screen/DayInputScreen'
 import PhotoViewerPage from 'view/screen/PhotoViewerPage'
 import DevScreen from 'view/screen/DevScreen'
 import FeedScreen from 'view/screen/FeedScreen'
+import * as Routes from './Routes'
 
 const navigatorConfig = {
     initialRouteName: 'Feed',
@@ -13,7 +14,7 @@ const navigatorConfig = {
 }
 
 const AppTabNavigator = TabNavigator({
-    Feed: {
+    [Routes.FEED_SCREEN]: {
         screen: FeedScreen,
         tabBarLabel: 'Feed',
         // swipeEnabled: true,
@@ -29,7 +30,7 @@ const AppTabNavigator = TabNavigator({
             ),
         },
     },
-    Photos: {
+    [Routes.PHOTOS_SCREEN]: {
         screen: PhotoViewerPage,
         navigationOptions: {
             tabBarLabel: 'Photos',
@@ -43,7 +44,7 @@ const AppTabNavigator = TabNavigator({
             ),
         },
     },
-    DayInput: {
+    [Routes.DAY_INPUT_SCREEN]: {
         screen: DayInput,
         navigationOptions: {
             tabBarLabel: 'Add',
@@ -57,7 +58,7 @@ const AppTabNavigator = TabNavigator({
             )
         }
     },
-    DevScreen: {
+    [Routes.DEV_SCREEN]: {
         screen: DevScreen,
         navigationOptions: {
             tabBarLabel: 'Dev',
