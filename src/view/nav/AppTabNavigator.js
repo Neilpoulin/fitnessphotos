@@ -5,29 +5,30 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import DayInput from 'view/screen/DayInputScreen'
 import PhotoViewerPage from 'view/screen/PhotoViewerPage'
 import DevScreen from 'view/screen/DevScreen'
+import FeedScreen from 'view/screen/FeedScreen'
 
 const navigatorConfig = {
-    initialRouteName: 'DayInput',
+    initialRouteName: 'Feed',
     backBehavior: 'none'
 }
 
-// Camera: {
-//     screen: CameraPage,
-//     navigationOptions: {
-//         tabBarLabel: 'Camera',
-//         tabBarVisible: false,
-//         swipeEnabled: true,
-//         tabBarIcon: ({tintColor, focused}) => (
-//             <Ionicons
-//                 name={focused ? 'ios-camera' : 'ios-camera-outline'}
-//                 size={26}
-//                 style={{color: tintColor}}
-//             />
-//         ),
-//     },
-// },
-
 const AppTabNavigator = TabNavigator({
+    Feed: {
+        screen: FeedScreen,
+        tabBarLabel: 'Feed',
+        // swipeEnabled: true,
+        navigationOptions: {
+            tabBarLabel: 'Feed',
+            // swipeEnabled: true,
+            tabBarIcon: ({tintColor, focused}) => (
+                <Ionicons
+                    name={focused ? 'ios-albums' : 'ios-albums-outline'}
+                    size={26}
+                    style={{color: tintColor}}
+                />
+            ),
+        },
+    },
     Photos: {
         screen: PhotoViewerPage,
         navigationOptions: {

@@ -12,6 +12,14 @@ export function formatLongDate(date, showYear = false) {
 
 }
 
+export function formatDayOfWeekShort(date, showYear = false) {
+    if (showYear) {
+        return moment(date).format('dd, M D, YYYY')
+    }
+    return moment(date).format('ddd, MMM D')
+
+}
+
 export function getDateKey(date) {
     return moment(date).format('YYYY-MM-DD')
 }

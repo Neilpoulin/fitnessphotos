@@ -1,4 +1,5 @@
 import Immutable from 'immutable'
+import PropTypes from 'prop-types'
 import {getDayState} from 'selector/daySelector'
 import {upsertDay} from 'service/database'
 
@@ -13,6 +14,16 @@ export const LOAD_DAY_ERROR = 'day/LOAD_DAY_ERROR'
 export const SET_SCORE = 'day/SET_SCORE'
 export const SET_IMAGE = 'day/SET_IMAGE'
 
+export const propTypes = {
+    dayKey: PropTypes.string,
+    scores: PropTypes.shape({
+        body: PropTypes.number,
+        mind: PropTypes.number,
+        food: PropTypes.number,
+    }),
+    imageUri: PropTypes.string,
+    weight: PropTypes.number,
+}
 
 export const initialState = Immutable.fromJS({
     dayId: null,

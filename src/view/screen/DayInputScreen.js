@@ -159,7 +159,7 @@ class DayInput extends React.Component {
                 </View>
                 <View display-if={imageUri && !isEditingImage} style={styles.photoFlexbox}>
                     <View>
-                        <Image source={{uri: imageUri}} style={{height: 250, width: 250}} resizeMode={'contain'}/>
+                        <Image source={{uri: imageUri}} style={{height: 210, width: 250}} resizeMode={'contain'}/>
                     </View>
                     <View>
                         <Link title={'Change Image'} onPress={editImage}/>
@@ -231,9 +231,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         nextDay: () => {
             dispatch(goToNextDate())
+            dispatch(setEditingImage(false))
         },
         previousDay: () => {
             dispatch(goToPreviousDate())
+            dispatch(setEditingImage(false))
         },
         setPhoto: (photo) => {
             console.log('setting the photo into state', photo)

@@ -118,6 +118,21 @@ export function upsertDay({userId = 1, dayKey, scores = {}, weight, imageUri}) {
     })
 }
 
+function mapRowToState(row = {}) {
+    console.log('row', row)
+    return {
+        // dayId: row['rowid'],
+        scores: {
+            mind: row['mind_score'],
+            body: row['body_score'],
+            food: row['food_score']
+        },
+        weight: row['weight_lbs'],
+        imageUri: row['photo_uri'],
+        dayKey: row['day_key'],
+    }
+}
+
 export function fetchDayByKey(dayKey, userId = 1) {
     console.log('loading the day ' + dayKey)
     return new Promise((resolve, reject) => {
@@ -130,17 +145,7 @@ export function fetchDayByKey(dayKey, userId = 1) {
                     if (resultSet.rows.length > 0) {
                         let row = resultSet.rows.item(0)
                         console.log('row', row)
-                        resolve({
-                            dayId: row['rowid'],
-                            scores: {
-                                mind: row['mind_score'],
-                                body: row['body_score'],
-                                food: row['food_score']
-                            },
-                            weight: row['weight_lbs'],
-                            imageUri: row['photo_uri'],
-                            dayKey,
-                        })
+                        resolve(mapRowToState(row))
                     } else {
                         console.log('fetchDayByKey: no results found')
                         resolve({dayKey})
@@ -161,10 +166,14 @@ export function fetchDayByKey(dayKey, userId = 1) {
     })
 }
 
-export function loadAllDays() {
-    db.transaction(tx => {
-        tx.executeSql('select rowid, * from user_day;', [], (_, resultSet) => {
-            console.log('all results', resultSet)
+export function loadAllDays(userId = 1) {
+    return new Promise((resolve, reject) => {
+        db.transaction(tx => {
+            tx.executeSql('select rowid, * from user_day where user_id = ? order by day_key desc;', [userId], (_, resultSet) => {
+                console.log('all results', resultSet)
+                resolve((resultSet['rows']['_array']).map(mapRowToState))
+            })
         })
-    })
+    });
+
 }

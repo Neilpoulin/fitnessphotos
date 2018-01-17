@@ -4,7 +4,7 @@ import {
     initialState as defaultDay,
     LOAD_DAY_REQUEST, LOAD_DAY_SUCCESS, LOAD_DAY_ERROR
 } from './day'
-import {fetchDayByKey} from 'service/database';
+import {fetchDayByKey, loadAllDays} from 'service/database';
 
 const initialState = Immutable.fromJS({})
 
@@ -16,6 +16,20 @@ export default function (state = initialState, action) {
         state = state.set(dayKey, dayState)
     }
     return state
+}
+
+export function loadAll() {
+    return (dispatch, getState) => {
+        loadAllDays().then(days => {
+            days.map(day => {
+                dispatch({
+                    type: LOAD_DAY_SUCCESS,
+                    dayKey: day.dayKey,
+                    payload: day
+                })
+            })
+        })
+    }
 }
 
 export function loadDay(dayKey) {

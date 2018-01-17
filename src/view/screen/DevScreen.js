@@ -7,6 +7,7 @@ import {
 import {Button as Link} from 'react-native'
 import {connect} from 'react-redux'
 import styles from './DayInputScreenStyle'
+import {loadAll} from 'ducks/days'
 
 import {loadAllDays, deleteAll} from 'service/database'
 
@@ -50,7 +51,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         refreshState: () => {
-            console.warn('refresh state not implemented yet')
+            dispatch(loadAll())
         }
     }
 }
