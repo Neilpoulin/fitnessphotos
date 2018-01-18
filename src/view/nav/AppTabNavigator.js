@@ -4,7 +4,7 @@ import {TabNavigator} from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import DayInput from 'view/screen/DayInputScreen'
 import PhotoViewerPage from 'view/screen/PhotoViewerPage'
-import DevScreen from 'view/screen/DevScreen'
+import ProfileScreen from 'view/screen/ProfileScreen'
 import FeedScreen from 'view/screen/FeedScreen'
 import * as Routes from './Routes'
 
@@ -30,20 +30,6 @@ const AppTabNavigator = TabNavigator({
             ),
         },
     },
-    [Routes.PHOTOS_SCREEN]: {
-        screen: PhotoViewerPage,
-        navigationOptions: {
-            tabBarLabel: 'Photos',
-            // swipeEnabled: true,
-            tabBarIcon: ({tintColor, focused}) => (
-                <Ionicons
-                    name={focused ? 'ios-photos' : 'ios-photos-outline'}
-                    size={26}
-                    style={{color: tintColor}}
-                />
-            ),
-        },
-    },
     [Routes.DAY_INPUT_SCREEN]: {
         screen: DayInput,
         navigationOptions: {
@@ -58,14 +44,14 @@ const AppTabNavigator = TabNavigator({
             )
         }
     },
-    [Routes.DEV_SCREEN]: {
-        screen: DevScreen,
+    [Routes.PROFILE_SCREEN]: {
+        screen: ProfileScreen,
         navigationOptions: {
-            tabBarLabel: 'Dev',
+            tabBarLabel: 'Profile',
             // swipeEnabled: true,
             tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
-                    name={focused ? 'ios-settings' : 'ios-settings-outline'}
+                    name={focused ? 'ios-person' : 'ios-person-outline'}
                     size={26}
                     style={{color: tintColor}}
                 />

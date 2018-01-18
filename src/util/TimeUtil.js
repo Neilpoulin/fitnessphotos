@@ -27,3 +27,13 @@ export function getDateKey(date) {
 export function getTimeStampFromDayDay(dayKey) {
     return moment(dayKey).toDate().getTime()
 }
+
+export function isBeforeNow(time, plus, period) {
+    let toCheck = moment(time)
+    let now = new Date()
+    if (plus && period) {
+        toCheck = toCheck.add(plus, period)
+    }
+
+    return toCheck.isBefore(now)
+}

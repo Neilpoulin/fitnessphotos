@@ -18,7 +18,7 @@ export function startDb(dispatch) {
         db.transaction(tx => {
             tx.executeSql(CREATE_USER_DAY_TABLE,
                 [], (_, resultSet) => {
-                    console.log('DB CREATED', resultSet)
+                    console.log('DB CREATED')
                 }, (_, error) => {
                     console.error(error)
                 })
@@ -47,7 +47,7 @@ export function deleteAll() {
         db.transaction(tx => {
             tx.executeSql('delete from user_day;',
                 [], (_, resultSet) => {
-                    console.log('Deleted all from user_Day', resultSet)
+                    console.log('Deleted all from user_Day')
                 }, (_, error) => {
                     console.error(error)
                 })
@@ -72,7 +72,7 @@ export function deleteByRowId(rowId) {
         db.transaction(tx => {
             tx.executeSql('delete from user_day where rowid = ?;',
                 [rowId], (_, resultSet) => {
-                    console.log('Found Results', resultSet)
+                    console.log('Found Results')
                 }, (_, error) => {
                     console.error(error)
                 })
@@ -98,10 +98,10 @@ export function upsertDay({userId = 1, dayKey, scores = {}, weight, imageUri}) {
             tx.executeSql(UPSERT_USER_DAY,
                 params,
                 (_, resultSet) => {
-                    console.log('successfully created row with ', resultSet)
+                    console.log('successfully created row with ')
                     resolve({dayId: resultSet.insertId})
                     tx.executeSql('select * from user_day where rowid = ?', [resultSet.insertId], (_, selectResults) => {
-                        console.log('inserted results', selectResults)
+                        console.log('inserted results')
                     })
                 }, (_, error) => {
                     console.error(error)
@@ -140,7 +140,7 @@ export function fetchDayByKey(dayKey, userId = 1) {
             tx.executeSql(GET_USER_DAY_SQL,
                 [dayKey, userId],
                 (_, resultSet) => {
-                    console.log('result set = ', resultSet)
+                    console.log('result set = ')
 
                     if (resultSet.rows.length > 0) {
                         let row = resultSet.rows.item(0)
@@ -170,7 +170,6 @@ export function loadAllDays(userId = 1) {
     return new Promise((resolve, reject) => {
         db.transaction(tx => {
             tx.executeSql('select rowid, * from user_day where user_id = ? order by day_key desc;', [userId], (_, resultSet) => {
-                console.log('all results', resultSet)
                 resolve((resultSet['rows']['_array']).map(mapRowToState))
             })
         })

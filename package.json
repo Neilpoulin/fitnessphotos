@@ -4,6 +4,7 @@
     "private": true,
     "devDependencies": {
         "jest": "^22.0.4",
+        "jest-enzyme": "^4.0.2",
         "jest-expo": "23.0.0",
         "react-native-scripts": "1.8.1",
         "react-test-renderer": "16.0.0"
@@ -17,7 +18,11 @@
         "test": "node node_modules/jest/bin/jest.js --watch"
     },
     "jest": {
-        "preset": "jest-expo"
+        "unmockedModulePathPatterns": [
+            "react",
+            "enzyme",
+            "jest-enzyme"
+        ]
     },
     "dependencies": {
         "axios": "^0.17.1",
@@ -27,6 +32,7 @@
         "babel-preset-es2015": "^6.24.1",
         "btoa": "^1.1.2",
         "eslint": "^4.14.0",
+        "eslint-plugin-jasmine": "^2.9.1",
         "eslint-plugin-jest": "^21.5.0",
         "eslint-plugin-react": "^7.5.1",
         "expo": "^24.0.2",

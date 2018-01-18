@@ -137,7 +137,7 @@ export default class PhotoViewerPage extends React.Component {
                     }}>
 
                         {selectedPhotos.map((photoUri, i) => <View key={`selected_photos_${i}`}
-                                                                   style={styles.selectedImageContainer}>
+                            style={styles.selectedImageContainer}>
                             <Image
                                 key={photoUri}
                                 style={styles.selectedImage}
@@ -146,7 +146,7 @@ export default class PhotoViewerPage extends React.Component {
                                 }}
                             />
                             <Button key={`unselectImage_${i}`} title="Remove"
-                                    onPress={() => this._unselectPhoto({uri: photoUri, index: i})}/>
+                                onPress={() => this._unselectPhoto({uri: photoUri, index: i})}/>
                         </View>)}
                     </View>
                 </View>
@@ -166,10 +166,10 @@ export default class PhotoViewerPage extends React.Component {
                             />
                             {selectedPhotos.indexOf(photoUri) === -1 && selectedPhotos.length < 2 &&
                             <Button key={`selecteImage_${i}`}
-                                    title="Select"
-                                    onPress={() => this._selectPhoto({uri: photoUri, index: i})}/>}
+                                title="Select"
+                                onPress={() => this._selectPhoto({uri: photoUri, index: i})}/>}
                             <Button key={`removeImage_${i}`} title="Delete"
-                                    onPress={() => this._archivePicture({uri: photoUri, index: i})}/>
+                                onPress={() => this._archivePicture({uri: photoUri, index: i})}/>
                         </View>)}
 
                     </ScrollView>

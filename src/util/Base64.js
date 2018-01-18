@@ -6,8 +6,8 @@ export function btoa(input: string = '') {
     let output = ''
 
     for (let block = 0, charCode, i = 0, map = chars;
-         str.charAt(i | 0) || (map = '=', i % 1);
-         output += map.charAt(63 & block >> 8 - i % 1 * 8)) {
+        str.charAt(i | 0) || (map = '=', i % 1);
+        output += map.charAt(63 & block >> 8 - i % 1 * 8)) {
 
         charCode = str.charCodeAt(i += 3 / 4)
 
@@ -29,8 +29,8 @@ export function atob(input: string = '') {
         throw new Error('\'atob\' failed: The string to be decoded is not correctly encoded.')
     }
     for (let bc = 0, bs = 0, buffer, i = 0; buffer = str.charAt(i++);
-         ~buffer && (bs = bc % 4 ? bs * 64 + buffer : buffer,
-         bc++ % 4) ? output += String.fromCharCode(255 & bs >> (-2 * bc & 6)) : 0
+        ~buffer && (bs = bc % 4 ? bs * 64 + buffer : buffer,
+            bc++ % 4) ? output += String.fromCharCode(255 & bs >> (-2 * bc & 6)) : 0
     ) {
         buffer = chars.indexOf(buffer)
     }

@@ -61,7 +61,7 @@ class DayCardView extends React.Component {
                         <Text>No Image</Text>
                     </View>
                     <View style={styles.weightContainer} display-if={day.weight}>
-                        <Text style={styles.weightText}>{day.weight.toFixed(1)} lbs</Text>
+                        <Text style={styles.weightText}>{day.weight} lbs</Text>
                     </View>
                 </View>
             </View>

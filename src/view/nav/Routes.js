@@ -1,6 +1,6 @@
 export const DAY_INPUT_SCREEN = 'DayInput'
 export const PHOTOS_SCREEN = 'Photos'
 export const FEED_SCREEN = 'Feed'
-export const DEV_SCREEN = 'DevScreen'
+export const PROFILE_SCREEN = 'ProfileScreen'
 export const CAMERA_SCREEN = 'Camera'
 export const CHART_SCREEN = 'Charts'

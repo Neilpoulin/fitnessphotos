@@ -53,7 +53,7 @@ class DayInput extends React.Component {
         loadScreen: PropTypes.func,
         save: PropTypes.func,
         getWeight: PropTypes.func,
-        weight: PropTypes.number,
+        weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }
 
     constructor(props) {

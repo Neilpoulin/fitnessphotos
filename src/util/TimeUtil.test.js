@@ -3,9 +3,10 @@ import {
     formatLongDate,
     getDateKey,
     formatDayOfWeekShort,
-    getTimeStampFromDayDay
+    getTimeStampFromDayDay,
+    isBeforeNow
 } from './TimeUtil'
-
+import moment from 'moment'
 
 describe('format date long', () => {
     test('Sat Jan 6 2018 using timestamp', () => {
@@ -37,7 +38,7 @@ describe('format day of week short', () => {
     })
 })
 
-describe('format date short', () => {
+describe('get date key', () => {
     test('Sat jan 6 2018 using timestamp', () => {
         let timestamp = 1515298770562;
         let formatted = getDateKey(timestamp)
@@ -57,5 +58,37 @@ describe('get timestamp from dayKey', () => {
         let daykey = '2018-01-19'
         let timestamp = getTimeStampFromDayDay(daykey)
         expect(timestamp).toBe(1516345200000)
+    })
+})
+
+describe('isBeforeNow', () => {
+    test('pass in date string that is old', () => {
+        let start = '1970-01-01'
+        expect(isBeforeNow(start)).toEqual(true)
+    })
+
+    test('pass in date that is old', () => {
+        let start = moment('1970-01-01').toDate()
+        expect(isBeforeNow(start)).toEqual(true)
+    })
+
+    test('pass in ms that is old', () => {
+        let start = moment('1970-01-01').toDate().getTime()
+        expect(isBeforeNow(start)).toEqual(true)
+    })
+
+    test('pass in ms that in the future old', () => {
+        let start = '2099-01-01'
+        expect(isBeforeNow(start)).toEqual(false)
+    })
+
+    test('pass in a past date but adding 1 year', () => {
+        let start = moment('2019-01-01')
+        expect(isBeforeNow(start, 10, 'years')).toEqual(false)
+    })
+
+    test('pass in a past date but adding 1 day', () => {
+        let start = moment('2018-01-01')
+        expect(isBeforeNow(start, 1, 'day')).toEqual(true)
     })
 })

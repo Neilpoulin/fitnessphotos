@@ -13,7 +13,7 @@ import {loginWithFitbit} from 'ducks/user'
 
 import {loadAllDays, deleteAll} from 'service/database'
 
-class DevScreen extends React.Component {
+class ProfileScreen extends React.Component {
     static propTypes = {
         user: PropTypes.object,
         //actions
@@ -77,4 +77,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DevScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen)
