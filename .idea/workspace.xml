@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee6cf6da-d390-42b8-922f-d7ee924ca39a" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/jestSetup.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/service/FetchError.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/service/asyncStorageService.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/service/fitbitService.test.js" />
-      <change beforePath="$PROJECT_DIR$/.babelrc" afterPath="$PROJECT_DIR$/.babelrc" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/src/service/FetchError.js" afterPath="$PROJECT_DIR$/src/service/FetchError.js" />
       <change beforePath="$PROJECT_DIR$/src/service/fitbitService.js" afterPath="$PROJECT_DIR$/src/service/fitbitService.js" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
+      <change beforePath="$PROJECT_DIR$/src/service/fitbitService.test.js" afterPath="$PROJECT_DIR$/src/service/fitbitService.test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,8 +34,8 @@
           <file leaf-file-name="fitbitService.test.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/service/fitbitService.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="261">
-                  <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+                <state relative-caret-position="192">
+                  <caret line="93" column="53" lean-forward="true" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
                   <folding />
                 </state>
               </provider>
@@ -133,8 +128,8 @@
           <file leaf-file-name="fitbitService.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/service/fitbitService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-85">
-                  <caret line="266" column="7" lean-forward="false" selection-start-line="266" selection-start-column="7" selection-end-line="266" selection-end-column="7" />
+                <state relative-caret-position="825">
+                  <caret line="245" column="29" lean-forward="true" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
@@ -143,8 +138,8 @@
           <file leaf-file-name="FetchError.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/service/FetchError.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+                <state relative-caret-position="58">
+                  <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -247,8 +242,8 @@
         <option value="$PROJECT_DIR$/jestSetup.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.babelrc" />
-        <option value="$PROJECT_DIR$/src/service/FetchError.js" />
         <option value="$PROJECT_DIR$/src/service/fitbitService.js" />
+        <option value="$PROJECT_DIR$/src/service/FetchError.js" />
         <option value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
       </list>
     </option>
@@ -470,7 +465,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.authorizedRequestTest.when fetch succeeds, the payload is returned">
+  <component name="RunManager" selected="Jest.authorizedRequestTest.when no auth token is found, an error is thrown">
     <configuration name="authorizedRequestTest" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -482,7 +477,7 @@
         <test-name value="authorizedRequestTest" />
       </test-names>
     </configuration>
-    <configuration name="authorizedRequestTest.when fetch fails, an error is thrown" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+    <configuration name="authorizedRequestTest.ensure the fetch was called with the header and bearer token" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <working-dir value="$PROJECT_DIR$" />
@@ -491,19 +486,7 @@
       <test-file value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
       <test-names>
         <test-name value="authorizedRequestTest" />
-        <test-name value="when fetch fails, an error is thrown" />
-      </test-names>
-    </configuration>
-    <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
-      <test-names>
-        <test-name value="authorizedRequestTest" />
-        <test-name value="when fetch succeds, but with a response error code, an error is thrown" />
+        <test-name value="ensure the fetch was called with the header and bearer token" />
       </test-names>
     </configuration>
     <configuration name="authorizedRequestTest.when fetch succeeds, the payload is returned" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
@@ -518,16 +501,28 @@
         <test-name value="when fetch succeeds, the payload is returned" />
       </test-names>
     </configuration>
-    <configuration name="isBeforeNow.pass in a past date but adding 1 day" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+    <configuration name="authorizedRequestTest.when no URL is provided, an error is thrown" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
+      <test-file value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
       <test-names>
-        <test-name value="isBeforeNow" />
-        <test-name value="pass in a past date but adding 1 day" />
+        <test-name value="authorizedRequestTest" />
+        <test-name value="when no URL is provided, an error is thrown" />
+      </test-names>
+    </configuration>
+    <configuration name="authorizedRequestTest.when no auth token is found, an error is thrown" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
+      <test-names>
+        <test-name value="authorizedRequestTest" />
+        <test-name value="when no auth token is found, an error is thrown" />
       </test-names>
     </configuration>
     <configuration name="start ios" type="js.build_tools.npm" factoryName="npm">
@@ -542,19 +537,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="npm.start ios" />
-      <item index="1" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in a past date but adding 1 day" />
-      <item index="2" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch fails, an error is thrown" />
-      <item index="3" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" />
-      <item index="4" class="java.lang.String" itemvalue="Jest.authorizedRequestTest" />
-      <item index="5" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeeds, the payload is returned" />
+      <item index="1" class="java.lang.String" itemvalue="Jest.authorizedRequestTest" />
+      <item index="2" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeeds, the payload is returned" />
+      <item index="3" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.ensure the fetch was called with the header and bearer token" />
+      <item index="4" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when no URL is provided, an error is thrown" />
+      <item index="5" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when no auth token is found, an error is thrown" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeeds, the payload is returned" />
+        <item index="0" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when no auth token is found, an error is thrown" />
         <item index="1" class="java.lang.String" itemvalue="Jest.authorizedRequestTest" />
-        <item index="2" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" />
-        <item index="3" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch fails, an error is thrown" />
-        <item index="4" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in a past date but adding 1 day" />
+        <item index="2" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when no URL is provided, an error is thrown" />
+        <item index="3" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.ensure the fetch was called with the header and bearer token" />
+        <item index="4" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeeds, the payload is returned" />
       </list>
     </recent_temporary>
   </component>
@@ -578,7 +573,7 @@
       <workItem from="1515298038797" duration="31568000" />
       <workItem from="1515564544756" duration="897000" />
       <workItem from="1515565589673" duration="36818000" />
-      <workItem from="1516243354038" duration="19738000" />
+      <workItem from="1516243354038" duration="20585000" />
     </task>
     <task id="LOCAL-00001" summary="fix some stuff">
       <created>1514881454632</created>
@@ -657,43 +652,50 @@
       <option name="project" value="LOCAL" />
       <updated>1516261481403</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add tests for authenticated service">
+      <created>1516299105065</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1516299105065</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="authorizedRequestTest - 2018.01.18 at 11h 09m 54s.xml">
+    <history-entry file="authorizedRequestTest - 2018.01.18 at 11h 20m 32s.xml">
       <configuration name="authorizedRequestTest" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 01m 34s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_URL_is_provided,_an_error_is_thrown - 2018.01.18 at 11h 20m 08s.xml">
+      <configuration name="authorizedRequestTest.when no URL is provided, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 02m 18s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_URL_is_provided,_an_error_is_thrown - 2018.01.18 at 11h 20m 18s.xml">
+      <configuration name="authorizedRequestTest.when no URL is provided, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 02m 53s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_URL_is_provided,_an_error_is_thrown - 2018.01.18 at 11h 20m 26s.xml">
+      <configuration name="authorizedRequestTest.when no URL is provided, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 03m 41s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_auth_token_is_found,_an_error_is_thrown - 2018.01.18 at 11h 21m 31s.xml">
+      <configuration name="authorizedRequestTest.when no auth token is found, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 08m 00s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_auth_token_is_found,_an_error_is_thrown - 2018.01.18 at 11h 21m 52s.xml">
+      <configuration name="authorizedRequestTest.when no auth token is found, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 08m 47s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_auth_token_is_found,_an_error_is_thrown - 2018.01.18 at 11h 22m 14s.xml">
+      <configuration name="authorizedRequestTest.when no auth token is found, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 09m 19s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_auth_token_is_found,_an_error_is_thrown - 2018.01.18 at 11h 22m 26s.xml">
+      <configuration name="authorizedRequestTest.when no auth token is found, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 09m 28s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_auth_token_is_found,_an_error_is_thrown - 2018.01.18 at 11h 22m 46s.xml">
+      <configuration name="authorizedRequestTest.when no auth token is found, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="authorizedRequestTest_when_fetch_succeeds,_the_payload_is_returned - 2018.01.18 at 11h 11m 21s.xml">
-      <configuration name="authorizedRequestTest.when fetch succeeds, the payload is returned" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_no_auth_token_is_found,_an_error_is_thrown - 2018.01.18 at 11h 24m 52s.xml">
+      <configuration name="authorizedRequestTest.when no auth token is found, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125700000" />
+    <option name="totallyTimeSpent" value="126547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -713,12 +715,12 @@
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30836454" sideWeight="0.5031905" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47625" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47625" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50125" sideWeight="0.49680948" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -781,7 +783,8 @@
     <MESSAGE value="update the feed view" />
     <MESSAGE value="save credentials" />
     <MESSAGE value="fitbit service updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="fitbit service updates" />
+    <MESSAGE value="add tests for authenticated service" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tests for authenticated service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -800,7 +803,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/service/fitbitService.test.js</url>
-          <line>30</line>
+          <line>31</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -810,8 +813,26 @@
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/service/fitbitService.test.js</url>
+          <line>61</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/service/fitbitService.js</url>
+          <line>271</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/service/fitbitService.js</url>
+          <line>56</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="17" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1213,14 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/FetchError.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/jest-fetch-mock/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -1229,18 +1242,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/FetchError.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/fitbitService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="266" column="7" lean-forward="false" selection-start-line="266" selection-start-column="7" selection-end-line="266" selection-end-column="7" />
+        <state relative-caret-position="825">
+          <caret line="245" column="29" lean-forward="true" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/fitbitService.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+        <state relative-caret-position="192">
+          <caret line="93" column="53" lean-forward="true" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
           <folding />
         </state>
       </provider>

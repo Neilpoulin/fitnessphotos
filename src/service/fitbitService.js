@@ -265,11 +265,20 @@ async function isTokenExpiredResponse(response) {
 }
 
 export async function authorizedRequest({url, method = 'GET', headers = {}}) {
+    if (!url) {
+        throw new FetchError({message: 'No URL provided', status: 400})
+    }
+
     let accessToken = await getFitbitAccessToken()
     if (!accessToken) {
         console.log('no accessToken present')
-        throw new FetchError({message: 'Unauthorized, no token present for the request', status: 401})
+        throw new FetchError({
+            message: 'Unauthorized, no token present for the request',
+            status: 401,
+            loginRequired: true
+        })
     }
+
     let response = null
     try {
         response = await fetch(`${url}`, {

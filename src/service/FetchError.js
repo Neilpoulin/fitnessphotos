@@ -2,6 +2,7 @@ class FetchError extends Error {
     constructor(arg) {
         let message
         let status = null
+        let loginRequired = null
         if (typeof arg === 'string') {
             message = arg
             super(message)
@@ -9,6 +10,7 @@ class FetchError extends Error {
         else {
             message = arg.message
             status = arg.status
+            loginRequired = arg.loginRequired
             super(arg.message)
         }
 
@@ -17,6 +19,7 @@ class FetchError extends Error {
         }
         this.message = message
         this.status = status
+        this.loginRequired = loginRequired
 
     }
 }
