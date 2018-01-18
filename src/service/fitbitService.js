@@ -2,6 +2,7 @@ import {AsyncStorage} from 'react-native'
 import {btoa} from 'util/Base64'
 import {AuthSession} from 'expo'
 import {kgToLbs} from 'util/UnitsUtil'
+import FetchError from 'service/FetchError'
 
 export const ACCESS_TOKEN_FITBIT = 'fitbit_accessToken'
 export const USER_ID_FITBIT = 'fitbit_userId'
@@ -12,6 +13,13 @@ const FITBIT_CLIENT_SECRET = 'd006ce8c5ca56a1da89440bab320766c'
 let LATEST_ACCESS_TOKEN = null
 let LAST_REFRESH_DATE = null
 let TOKEN_EXPIRY_MS = 28800 * 1000 //8 hours
+
+/**
+ * FOR TESTING ONLU
+ */
+export function setAccessTokenForTest(token) {
+    LATEST_ACCESS_TOKEN = token
+}
 
 export function getBasicAuthHeader() {
     console.log('get basic fitbit auth header ')
@@ -135,9 +143,8 @@ async function isActiveAccessToken(accessToken) {
             },
             body: `token=${accessToken}`
         })
-        console.log('got token info response', response)
         let responseJson = await response.json()
-        // console.log('got token info', responseJson)
+        console.log('got token info', responseJson)
         let {active} = responseJson
         if (active === 1) {
             return true
@@ -223,29 +230,18 @@ export async function fetchWeightForDay(dayKey) {
         if (!dayKey) {
             return null
         }
-        let accessToken = await getFitbitAccessToken()
-        if (!accessToken) {
-            console.log('no accessToken present')
-            return null
-        }
-        let response = await fetch(`https://api.fitbit.com/1/user/-/body/log/weight/date/${dayKey}.json`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            }
+
+        //response will always be present, or else an error would have been thrown
+        let response = await authorizedRequest({
+            url: `https://api.fitbit.com/1/user/-/body/log/weight/date/${dayKey}.json`,
+            method: 'GET'
         })
 
-        if (response.ok) {
-            let body = await response.json()
-            console.log('day weight response', body)
-            if (body.weight.length > 0) {
-                let weightLbs = kgToLbs(body.weight[0].weight)
-                return weightLbs
-            }
-        } else {
-            console.error('something went wrong fetching weight', response)
-            return null
+        console.log('day weight response', response)
+        if (response.weight.length > 0) {
+            return kgToLbs(response.weight[0].weight)
         }
+
     } catch (e) {
         console.error('something went wrong while fetching the weight for day', dayKey, e)
         return null
@@ -266,6 +262,34 @@ async function isTokenExpiredResponse(response) {
         }
     }
     return false
+}
+
+export async function authorizedRequest({url, method = 'GET', headers = {}}) {
+    let accessToken = await getFitbitAccessToken()
+    if (!accessToken) {
+        console.log('no accessToken present')
+        throw new FetchError({message: 'Unauthorized, no token present for the request', status: 401})
+    }
+    let response = null
+    try {
+        response = await fetch(`${url}`, {
+            method,
+            headers: {
+                ...headers,
+                'Authorization': `Bearer ${accessToken}`
+            }
+        })
+    } catch (e) {
+        console.error('Something unexpected went wrong with the fitbit authorized request', e)
+        throw new FetchError({message: `failed to do authorized fitbit request: ${e.message}`, status: 500})
+    }
+
+    if (response && response.ok) {
+        return await response.json()
+    } else {
+        console.error('The authorized fitbit request failed', response)
+        throw new FetchError({status: response.status, message: response.statusText})
+    }
 }
 
 // export function fetchWeightForDay()

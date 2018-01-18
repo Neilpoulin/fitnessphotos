@@ -1,11 +1,14 @@
 {
     "presets": [
-        "babel-preset-expo"
+        "babel-preset-expo",
+        "react-native"
     ],
     "env": {
         "development": {
             "plugins": [
-                "transform-react-jsx-source"
+                "transform-react-jsx-source",
+                "syntax-async-functions",
+                "transform-async-to-generator"
             ]
         }
     },
@@ -16,6 +19,15 @@
             {
                 "root": [
                     "./src"
+                ]
+            }
+        ],
+        [
+            "babel-plugin-transform-builtin-extend",
+            {
+                "globals": [
+                    "Error",
+                    "Array"
                 ]
             }
         ]

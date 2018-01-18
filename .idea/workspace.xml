@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee6cf6da-d390-42b8-922f-d7ee924ca39a" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/jestSetup.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/service/FetchError.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/service/asyncStorageService.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/service/fitbitService.test.js" />
+      <change beforePath="$PROJECT_DIR$/.babelrc" afterPath="$PROJECT_DIR$/.babelrc" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/day.js" afterPath="$PROJECT_DIR$/src/ducks/day.js" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/FeedScreen.js" afterPath="$PROJECT_DIR$/src/view/screen/FeedScreen.js" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/src/service/fitbitService.js" afterPath="$PROJECT_DIR$/src/service/fitbitService.js" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,112 +23,139 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ducks/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="75" column="14" lean-forward="true" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fitbitService.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/fitbitService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1847">
-              <caret line="129" column="41" lean-forward="true" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="day.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeedScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lib.es5.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="883" column="14" lean-forward="false" selection-start-line="883" selection-start-column="14" selection-end-line="883" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/database.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dayInput.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="54" column="34" lean-forward="true" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DayCardView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5859107">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="asyncStorageService.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/service/asyncStorageService.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="fitbitService.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/service/fitbitService.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="261">
+                  <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/jest-fetch-mock/src/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="151">
+                  <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.d.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/global-types/node_modules/@types/jest/index.d.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="151">
+                  <caret line="437" column="8" lean-forward="false" selection-start-line="437" selection-start-column="8" selection-end-line="437" selection-end-column="8" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TimeUtil.test.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1365">
+                  <caret line="91" column="58" lean-forward="false" selection-start-line="91" selection-start-column="58" selection-end-line="91" selection-end-column="58" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/package.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="332">
+                  <caret line="36" column="6" lean-forward="false" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".babelrc" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.babelrc">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="307">
+                  <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Expo.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/expo/src/Expo.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="validate.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/expo/src/environment/validate.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="script_transformer.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/jest-runner/node_modules/jest-runtime/build/script_transformer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="230">
+                  <caret line="321" column="24" lean-forward="false" selection-start-line="321" selection-start-column="24" selection-end-line="321" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="fitbitService.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/service/fitbitService.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-85">
+                  <caret line="266" column="7" lean-forward="false" selection-start-line="266" selection-start-column="7" selection-end-line="266" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FetchError.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/service/FetchError.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="176">
+                  <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>DayInput</find>
       <find>iCon</find>
       <find>close</find>
       <find>setPhoto</find>
@@ -152,6 +185,7 @@
       <find>introspe</find>
       <find>toFi</find>
       <find>toF</find>
+      <find>intro</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,15 +199,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.eslintrc.json" />
-        <option value="$PROJECT_DIR$/workspaceName.groovy" />
-        <option value="$PROJECT_DIR$/src/middleware/immutable-action.js" />
         <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/src/ducks/config.js" />
         <option value="$PROJECT_DIR$/src/view/screen/TimeUtil.js" />
         <option value="$PROJECT_DIR$/src/view/util/TimeUtil.test.js" />
         <option value="$PROJECT_DIR$/src/view/util/TimeUtil.js" />
-        <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/src/view/organism/CameraViewStyle.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DayInputStyle.js" />
         <option value="$PROJECT_DIR$/src/ducks/camera.js" />
@@ -201,7 +231,6 @@
         <option value="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" />
         <option value="$PROJECT_DIR$/src/ducks/dayInput.js" />
         <option value="$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/util/UnitsUtil.js" />
         <option value="$PROJECT_DIR$/src/util/UnitsUtil.test.js" />
         <option value="$PROJECT_DIR$/src/view/nav/Routes.js" />
@@ -213,9 +242,14 @@
         <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
         <option value="$PROJECT_DIR$/src/service/database.js" />
         <option value="$PROJECT_DIR$/src/ducks/user.js" />
-        <option value="$PROJECT_DIR$/src/service/fitbitService.js" />
         <option value="$PROJECT_DIR$/src/view/screen/FeedScreen.js" />
         <option value="$PROJECT_DIR$/src/ducks/day.js" />
+        <option value="$PROJECT_DIR$/jestSetup.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/src/service/FetchError.js" />
+        <option value="$PROJECT_DIR$/src/service/fitbitService.js" />
+        <option value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
       </list>
     </option>
   </component>
@@ -236,10 +270,10 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="960" />
-    <option name="height" value="872" />
+    <option name="width" value="1440" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -436,16 +470,52 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.isBeforeNow.pass in a past date but adding 1 day">
-    <configuration name="convert kilograms to pounds" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.authorizedRequestTest.when fetch succeeds, the payload is returned">
+    <configuration name="authorizedRequestTest" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/util/UnitsUtil.test.js" />
+      <test-file value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
       <test-names>
-        <test-name value="convert kilograms to pounds" />
+        <test-name value="authorizedRequestTest" />
+      </test-names>
+    </configuration>
+    <configuration name="authorizedRequestTest.when fetch fails, an error is thrown" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
+      <test-names>
+        <test-name value="authorizedRequestTest" />
+        <test-name value="when fetch fails, an error is thrown" />
+      </test-names>
+    </configuration>
+    <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
+      <test-names>
+        <test-name value="authorizedRequestTest" />
+        <test-name value="when fetch succeds, but with a response error code, an error is thrown" />
+      </test-names>
+    </configuration>
+    <configuration name="authorizedRequestTest.when fetch succeeds, the payload is returned" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/service/fitbitService.test.js" />
+      <test-names>
+        <test-name value="authorizedRequestTest" />
+        <test-name value="when fetch succeeds, the payload is returned" />
       </test-names>
     </configuration>
     <configuration name="isBeforeNow.pass in a past date but adding 1 day" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
@@ -460,42 +530,6 @@
         <test-name value="pass in a past date but adding 1 day" />
       </test-names>
     </configuration>
-    <configuration name="isBeforeNow.pass in a past date but adding 1 year" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
-      <test-names>
-        <test-name value="isBeforeNow" />
-        <test-name value="pass in a past date but adding 1 year" />
-      </test-names>
-    </configuration>
-    <configuration name="isBeforeNow.pass in ms that in the future old" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
-      <test-names>
-        <test-name value="isBeforeNow" />
-        <test-name value="pass in ms that in the future old" />
-      </test-names>
-    </configuration>
-    <configuration name="isBeforeNow.pass in ms that is old" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
-      <test-names>
-        <test-name value="isBeforeNow" />
-        <test-name value="pass in ms that is old" />
-      </test-names>
-    </configuration>
     <configuration name="start ios" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -508,19 +542,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="npm.start ios" />
-      <item index="1" class="java.lang.String" itemvalue="Jest.convert kilograms to pounds" />
-      <item index="2" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in ms that is old" />
-      <item index="3" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in ms that in the future old" />
-      <item index="4" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in a past date but adding 1 year" />
-      <item index="5" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in a past date but adding 1 day" />
+      <item index="1" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in a past date but adding 1 day" />
+      <item index="2" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch fails, an error is thrown" />
+      <item index="3" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" />
+      <item index="4" class="java.lang.String" itemvalue="Jest.authorizedRequestTest" />
+      <item index="5" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeeds, the payload is returned" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in a past date but adding 1 day" />
-        <item index="1" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in a past date but adding 1 year" />
-        <item index="2" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in ms that is old" />
-        <item index="3" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in ms that in the future old" />
-        <item index="4" class="java.lang.String" itemvalue="Jest.convert kilograms to pounds" />
+        <item index="0" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeeds, the payload is returned" />
+        <item index="1" class="java.lang.String" itemvalue="Jest.authorizedRequestTest" />
+        <item index="2" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" />
+        <item index="3" class="java.lang.String" itemvalue="Jest.authorizedRequestTest.when fetch fails, an error is thrown" />
+        <item index="4" class="java.lang.String" itemvalue="Jest.isBeforeNow.pass in a past date but adding 1 day" />
       </list>
     </recent_temporary>
   </component>
@@ -544,7 +578,7 @@
       <workItem from="1515298038797" duration="31568000" />
       <workItem from="1515564544756" duration="897000" />
       <workItem from="1515565589673" duration="36818000" />
-      <workItem from="1516243354038" duration="12180000" />
+      <workItem from="1516243354038" duration="19738000" />
     </task>
     <task id="LOCAL-00001" summary="fix some stuff">
       <created>1514881454632</created>
@@ -616,43 +650,50 @@
       <option name="project" value="LOCAL" />
       <updated>1516260893713</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fitbit service updates">
+      <created>1516261481403</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1516261481403</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="isBeforeNow_pass_in_a_past_date_but_adding_1_day - 2018.01.17 at 22h 37m 57s.xml">
-      <configuration name="isBeforeNow.pass in a past date but adding 1 day" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest - 2018.01.18 at 11h 09m 54s.xml">
+      <configuration name="authorizedRequestTest" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_a_past_date_but_adding_1_year - 2018.01.17 at 22h 37m 31s.xml">
-      <configuration name="isBeforeNow.pass in a past date but adding 1 year" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 01m 34s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_ms_that_is_old - 2018.01.17 at 22h 30m 39s.xml">
-      <configuration name="isBeforeNow.pass in ms that is old" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 02m 18s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_ms_that_is_old - 2018.01.17 at 22h 30m 58s.xml">
-      <configuration name="isBeforeNow.pass in ms that is old" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 02m 53s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_ms_that_is_old - 2018.01.17 at 22h 31m 23s.xml">
-      <configuration name="isBeforeNow.pass in ms that is old" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 03m 41s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_ms_that_is_old - 2018.01.17 at 22h 32m 09s.xml">
-      <configuration name="isBeforeNow.pass in ms that is old" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 08m 00s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_ms_that_is_old - 2018.01.17 at 22h 34m 08s.xml">
-      <configuration name="isBeforeNow.pass in ms that is old" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 08m 47s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_ms_that_is_old - 2018.01.17 at 22h 34m 53s.xml">
-      <configuration name="isBeforeNow.pass in ms that is old" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 09m 19s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_ms_that_is_old - 2018.01.17 at 22h 35m 46s.xml">
-      <configuration name="isBeforeNow.pass in ms that is old" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeds,_but_with_a_response_error_code,_an_error_is_thrown - 2018.01.18 at 11h 09m 28s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeds, but with a response error code, an error is thrown" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="isBeforeNow_pass_in_ms_that_is_old - 2018.01.17 at 22h 36m 06s.xml">
-      <configuration name="isBeforeNow.pass in ms that is old" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="authorizedRequestTest_when_fetch_succeeds,_the_payload_is_returned - 2018.01.18 at 11h 11m 21s.xml">
+      <configuration name="authorizedRequestTest.when fetch succeeds, the payload is returned" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118142000" />
+    <option name="totallyTimeSpent" value="125700000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,7 +705,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="960" height="872" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="872" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.49680948" order="6" side_tool="false" content_ui="tabs" />
@@ -672,12 +713,12 @@
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30836454" sideWeight="0.5031905" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47625" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50125" sideWeight="0.49680948" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50125" sideWeight="0.49680948" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38333333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -739,7 +780,8 @@
     <MESSAGE value="get saving to work" />
     <MESSAGE value="update the feed view" />
     <MESSAGE value="save credentials" />
-    <option name="LAST_COMMIT_MESSAGE" value="save credentials" />
+    <MESSAGE value="fitbit service updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="fitbit service updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -750,8 +792,26 @@
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/service/fitbitService.test.js</url>
+          <line>14</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/service/fitbitService.test.js</url>
+          <line>30</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/service/fitbitService.test.js</url>
+          <line>26</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -790,64 +850,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/jest-runner/build/run_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="116" column="18" lean-forward="true" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/PhotoViewerPageStyle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-vector-icons/Ionicons.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/expo/src/Expo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="104" column="7" lean-forward="false" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/jest-expo/src/expoModules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="39" column="78" lean-forward="false" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ducks/camera.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/organism/CameraModal.js" />
     <entry file="file://$PROJECT_DIR$/src/view/nav/TabNavigatorWrapper.js" />
     <entry file="file://$PROJECT_DIR$/src/view/screen/CameraPage.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1025,22 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/global-types/node_modules/@types/jest/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="369" column="8" lean-forward="false" selection-start-line="369" selection-start-column="8" selection-end-line="369" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/UnitsUtil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1070,16 +1056,8 @@
         <state relative-caret-position="391">
           <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="91" column="58" lean-forward="false" selection-start-line="91" selection-start-column="58" selection-end-line="91" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,7 +1096,7 @@
     <entry file="file://$PROJECT_DIR$/src/ducks/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
-          <caret line="75" column="14" lean-forward="true" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
+          <caret line="75" column="14" lean-forward="false" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1127,14 +1105,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="883" column="14" lean-forward="false" selection-start-line="883" selection-start-column="14" selection-end-line="883" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/fitbitService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1847">
-          <caret line="129" column="41" lean-forward="true" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1150,7 +1120,7 @@
     <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
-          <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <caret line="35" column="1" lean-forward="false" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1158,15 +1128,119 @@
     <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jestSetup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="91" column="58" lean-forward="false" selection-start-line="91" selection-start-column="58" selection-end-line="91" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/asyncStorageService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jest-runner/node_modules/jest-runtime/build/script_transformer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="321" column="24" lean-forward="false" selection-start-line="321" selection-start-column="24" selection-end-line="321" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/expo/src/Expo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/expo/src/environment/validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="36" column="6" lean-forward="false" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/global-types/node_modules/@types/jest/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="437" column="8" lean-forward="false" selection-start-line="437" selection-start-column="8" selection-end-line="437" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/FetchError.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jest-fetch-mock/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/fitbitService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="266" column="7" lean-forward="false" selection-start-line="266" selection-start-column="7" selection-end-line="266" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/fitbitService.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
           <folding />
         </state>
       </provider>
