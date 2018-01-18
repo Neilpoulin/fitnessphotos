@@ -24,7 +24,7 @@ export const propTypes = {
         food: PropTypes.number,
     }),
     imageUri: PropTypes.string,
-    weight: PropTypes.number,
+    weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export const initialState = Immutable.fromJS({
@@ -91,7 +91,7 @@ export function saveDay(dayKey) {
         upsertDay({
             dayKey,
             scores: dayState.get('scores').toJS(),
-            weight: dayState.get('weight') ? dayState.get('weight').toFixed(1) : null,
+            weight: dayState.get('weight'),
             imageUri: dayState.get('imageUri')
         }).then(({dayId}) => {
             dispatch({
