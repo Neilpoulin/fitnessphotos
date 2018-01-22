@@ -26,9 +26,9 @@ class FeedScreen extends React.Component {
     render() {
         const {days, navigation} = this.props
         return <View style={styles.container}>
-            <Text>FeedScreen</Text>
             <ScrollView display-if={days}>
-                {days.map((day, i) => <DayCardView navigation={navigation} key={`dayview_${i}`} day={day}/>)}
+                {days.map((day, i) =>
+                    <DayCardView navigation={navigation} key={`dayview_${i}`} day={day}/>)}
             </ScrollView>
         </View>
     }

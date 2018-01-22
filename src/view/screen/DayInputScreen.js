@@ -230,7 +230,7 @@ const mapStateToProps = (state, ownProps) => {
     let dayKey = getDayKey(page.get('date'))
     let dayState = getDayState(state, {dayKey})
     let imageUri = dayState.get('imageUri')
-    let steps = page.getIn(['activity', 'fitbit', 'summary', 'steps'], null)
+    let steps = dayState.get('steps')
 
     return {
         dateFormatted: formatLongDate(page.get('date')),
