@@ -1,10 +1,11 @@
 import Immutable from 'immutable'
-import dayReducer from 'ducks/day'
+import dayReducer, {saveDay, SET_STEPS, SET_WEIGHT} from 'ducks/day'
 import {
     initialState as defaultDay,
-    LOAD_DAY_REQUEST, LOAD_DAY_SUCCESS, LOAD_DAY_ERROR
+    LOAD_DAY_REQUEST, LOAD_DAY_SUCCESS, LOAD_DAY_ERROR,
 } from './day'
-import {fetchDayByKey, loadAllDays} from 'service/database';
+import {fetchDayByKey, loadAllDays} from 'service/database'
+import {fetchStepsForPeriod, fetchWeightForPeriod} from 'service/fitbitService'
 
 const initialState = Immutable.fromJS({})
 
@@ -25,10 +26,70 @@ export function loadAll() {
                 dispatch({
                     type: LOAD_DAY_SUCCESS,
                     dayKey: day.dayKey,
-                    payload: day
+                    payload: day,
                 })
             })
+            console.log('all days', days)
+            if (days && days.length > 0) {
+                let noWeights = days.filter(day => !day.weight)
+                let noStepDays = days.filter(day => !day.steps)
+                //only days with no weight
+                console.log('no weight days', noWeights)
+                console.log('no step days', noStepDays)
+                if (noWeights && noWeights.length > 0) {
+                    dispatch(loadAllWeightSince(noWeights[noWeights.length - 1].dayKey))
+                }
+
+                if (noStepDays && noStepDays.length > 0) {
+                    dispatch(loadAllStepsSince(noStepDays[noStepDays.length - 1].dayKey))
+                }
+            }
+
         })
+    }
+}
+
+export function loadAllStepsSince(dayKey) {
+    return async (dispatch, getState) => {
+        try {
+            let weights = await fetchStepsForPeriod({startDate: dayKey, endDate: 'today'})
+            console.log('fetched steps', weights)
+            if (weights) {
+                weights.forEach(({dateTime, value}) => {
+                    dispatch({
+                        type: SET_STEPS,
+                        dayKey: dateTime,
+                        payload: value,
+                    })
+                    dispatch(saveDay(dateTime))
+                })
+            }
+
+        } catch (e) {
+            console.warn('something went wrong processing all weights since ' + dayKey)
+        }
+    }
+}
+
+export function loadAllWeightSince(dayKey) {
+    return async (dispatch, getState) => {
+        try {
+            let weights = await fetchWeightForPeriod({startDate: dayKey, endDate: 'today'})
+            console.log('fetched weights', weights)
+            if (weights) {
+                weights.forEach(({dateTime, value}) => {
+                    dispatch({
+                        type: SET_WEIGHT,
+                        dayKey: dateTime,
+                        payload: value,
+                    })
+                    dispatch(saveDay(dateTime))
+                })
+            }
+
+        } catch (e) {
+            console.warn('something went wrong processing all weights since ' + dayKey)
+        }
     }
 }
 
@@ -45,7 +106,7 @@ export function loadDay(dayKey) {
                 dayKey,
             })
             return fetchDayByKey(dayKey).then((result) => {
-                console.log('found days success from DB', result)
+                console.log('found day from DB', result)
                 dispatch({
                     type: LOAD_DAY_SUCCESS,
                     dayKey,
@@ -56,10 +117,10 @@ export function loadDay(dayKey) {
                 dispatch({
                     type: LOAD_DAY_ERROR,
                     dayKey,
-                    payload: error
+                    payload: error,
                 })
                 let dayState = days.get(dayKey)
-                return resolve(dayState);
+                return resolve(dayState)
             })
             // }
             // //day is already in state, not loading

@@ -2,21 +2,21 @@ import React from 'react'
 import {
     View,
     Text,
-    ScrollView
+    ScrollView,
 } from 'react-native'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import styles from './FeedScreenStyles'
 import {loadAll} from 'ducks/days'
 import DayCardView from '/view/organism/DayCardView'
-import {getTimeStampFromDayDay} from '../../util/TimeUtil';
+import {getTimeStampFromDayKey} from '../../util/TimeUtil'
 
 class FeedScreen extends React.Component {
     static propTypes = {
         days: PropTypes.arrayOf(PropTypes.shape({})),
         navigation: PropTypes.object,
         //actions
-        load: PropTypes.func
+        load: PropTypes.func,
     }
 
     componentWillMount() {
@@ -38,9 +38,9 @@ class FeedScreen extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     let days = state.days.toList()
         .filter(day => day.get('dayKey') != null)
-        .sortBy(day => getTimeStampFromDayDay(day.get('dayKey'))).reverse().toJS()
+        .sortBy(day => getTimeStampFromDayKey(day.get('dayKey'))).reverse().toJS()
     return {
-        days
+        days,
     }
 }
 
@@ -48,7 +48,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         load: () => {
             dispatch(loadAll())
-        }
+        },
     }
 }
 

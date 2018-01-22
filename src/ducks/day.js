@@ -15,6 +15,7 @@ export const SET_SCORE = 'day/SET_SCORE'
 export const SET_IMAGE = 'day/SET_IMAGE'
 
 export const SET_WEIGHT = 'day/SET_WEIGHT'
+export const SET_STEPS = 'day/SET_STEPS'
 
 export const propTypes = {
     dayKey: PropTypes.string,
@@ -37,6 +38,7 @@ export const initialState = Immutable.fromJS({
     },
     imageUri: null,
     weight: null,
+    steps: null,
     isSaving: false,
     saveError: null,
     isLoading: false,
@@ -75,7 +77,9 @@ export default function reducer(state = initialState, action) {
             break
         case SET_WEIGHT:
             state = state.set('weight', action.payload)
-
+            break
+        case SET_STEPS:
+            state = state.set('steps', action.payload)
             break
         default:
             break
@@ -84,7 +88,7 @@ export default function reducer(state = initialState, action) {
 }
 
 export function saveDay(dayKey) {
-    console.log('beginnign saveDay function for dayKey', dayKey)
+    console.log('beginning saveDay function for dayKey', dayKey)
     return (dispatch, getState) => {
         const state = getState()
         let dayState = getDayState(state, {dayKey})
@@ -92,13 +96,14 @@ export function saveDay(dayKey) {
             dayKey,
             scores: dayState.get('scores').toJS(),
             weight: dayState.get('weight'),
-            imageUri: dayState.get('imageUri')
+            steps: dayState.get('steps'),
+            imageUri: dayState.get('imageUri'),
         }).then(({dayId}) => {
             dispatch({
                 type: SAVE_SUCCESS,
                 payload: {
                     dayId,
-                }
+                },
             })
         }).catch(error => {
             dispatch({

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {formatDayOfWeekShort} from 'util/TimeUtil'
 import styles from './DayCardViewStyles'
-import {SET_DATE} from '../../ducks/dayInput';
+import {SET_DATE} from '../../ducks/dayInput'
 import {DAY_INPUT_SCREEN} from 'view/nav/Routes'
 
 class DayCardView extends React.Component {
@@ -23,7 +23,7 @@ class DayCardView extends React.Component {
     render() {
         const {
             day,
-            editDay
+            editDay,
         } = this.props
         return <TouchableOpacity onPress={() => editDay()}><View style={styles.container}>
             <View style={styles.columns}>
@@ -52,6 +52,9 @@ class DayCardView extends React.Component {
                                 <Text style={styles.scoreLabel}>Mind</Text>
                             </View>
                         </View>
+                    </View>
+                    <View display-if={day.steps}>
+                        <Text>Steps: {day.steps}</Text>
                     </View>
                 </View>
                 <View style={styles.imageContainer}>
@@ -82,10 +85,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch({
                 type: SET_DATE,
                 dayKey,
-                payload: dayKey
+                payload: dayKey,
             })
             ownProps.navigation.navigate(DAY_INPUT_SCREEN)
-        }
+        },
     }
 }
 

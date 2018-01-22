@@ -5,12 +5,11 @@ import {
     Text,
     Image,
 } from 'react-native'
-import Immutable from 'immutable'
 import {Button, Slider} from 'react-native-elements'
 import {Button as Link} from 'react-native'
 import {connect} from 'react-redux'
 import {formatLongDate} from 'util/TimeUtil'
-import {goToNextDate, goToPreviousDate} from 'ducks/dayInput'
+import {goToNextDate, goToPreviousDate, setDayKey} from 'ducks/dayInput'
 import styles from './DayInputScreenStyle'
 import Ionicon from 'react-native-vector-icons/Ionicons'
 import {openCamera} from 'ducks/camera'
@@ -20,11 +19,15 @@ import {setBodyScore, setMindScore, setFoodScore, setImage, setEditingImage, loa
 import {formatScore} from 'util/ScoreUtil'
 import {getDayState} from 'selector/daySelector'
 import {saveDay} from 'ducks/day'
-import {getDateKey} from 'util/TimeUtil'
-import {getWeightForDay} from 'ducks/user'
+import {getDayKey} from 'util/TimeUtil'
 
 class DayInput extends React.Component {
     static propTypes = {
+        //ownprops
+        screenProps: PropTypes.shape({
+            overrideDayKey: PropTypes.string,
+        }),
+        //state props
         dayKey: PropTypes.string,
         dateFormatted: PropTypes.string,
         foodSelections: PropTypes.arrayOf(PropTypes.any),
@@ -54,6 +57,7 @@ class DayInput extends React.Component {
         save: PropTypes.func,
         getWeight: PropTypes.func,
         weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        steps: PropTypes.number,
     }
 
     constructor(props) {
@@ -67,6 +71,7 @@ class DayInput extends React.Component {
             this.props.loadScreen()
         }
     }
+
 
     _pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -94,8 +99,7 @@ class DayInput extends React.Component {
                 uri: to,
             })
         })
-
-    };
+    }
 
     _takePicture = async () => {
         let imageSetter = this.props.setPhoto
@@ -103,7 +107,7 @@ class DayInput extends React.Component {
             handlePhoto: (photo) => {
                 console.log('got photo', photo)
                 imageSetter(photo)
-            }
+            },
         })
     }
 
@@ -121,6 +125,8 @@ class DayInput extends React.Component {
             editImageDone,
             isEditingImage,
             weight,
+            steps,
+            //actions
             save,
             dayKey,
             getWeight,
@@ -174,6 +180,9 @@ class DayInput extends React.Component {
             <View display-if={weight}>
                 <Text>Weight: {weight}</Text>
             </View>
+            <View display-if={steps}>
+                <Text>Steps: {steps}</Text>
+            </View>
             <View style={styles.sliderContainer}>
                 <Slider
                     minimumValue={0}
@@ -218,10 +227,10 @@ class DayInput extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     let page = state.dayInput
-    let dayKey = getDateKey(page.get('date'))
+    let dayKey = getDayKey(page.get('date'))
     let dayState = getDayState(state, {dayKey})
-
     let imageUri = dayState.get('imageUri')
+    let steps = page.getIn(['activity', 'fitbit', 'summary', 'steps'], null)
 
     return {
         dateFormatted: formatLongDate(page.get('date')),
@@ -230,6 +239,7 @@ const mapStateToProps = (state, ownProps) => {
         imageUri,
         dayKey,
         isEditingImage: page.get('isEditingImage'),
+        steps,
     }
 }
 
@@ -237,7 +247,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         loadScreen: () => {
             dispatch(loadCurrentDay())
-            dispatch(getWeightForDay('2018-01-15'))
         },
         nextDay: () => {
             dispatch(goToNextDate())
@@ -272,7 +281,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         save: (dayKey) => {
             dispatch(saveDay(dayKey))
-        }
+        },
     }
 }
 

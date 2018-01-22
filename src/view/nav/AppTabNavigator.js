@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types,react/display-name */
 import React from 'react'
 import {TabNavigator} from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -7,10 +7,11 @@ import PhotoViewerPage from 'view/screen/PhotoViewerPage'
 import ProfileScreen from 'view/screen/ProfileScreen'
 import FeedScreen from 'view/screen/FeedScreen'
 import * as Routes from './Routes'
+import {getDayKey} from 'util/TimeUtil'
 
 const navigatorConfig = {
     initialRouteName: 'Feed',
-    backBehavior: 'none'
+    backBehavior: 'none',
 }
 
 const AppTabNavigator = TabNavigator({
@@ -32,17 +33,17 @@ const AppTabNavigator = TabNavigator({
     },
     [Routes.DAY_INPUT_SCREEN]: {
         screen: DayInput,
-        navigationOptions: {
+        navigationOptions: ({navigation}) => ({
             tabBarLabel: 'Add',
-            // swipeEnabled: true,
+            
             tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
                     name={focused ? 'ios-add' : 'ios-add'}
                     size={26}
                     style={{color: tintColor}}
                 />
-            )
-        }
+            ),
+        }),
     },
     [Routes.PROFILE_SCREEN]: {
         screen: ProfileScreen,
@@ -55,9 +56,9 @@ const AppTabNavigator = TabNavigator({
                     size={26}
                     style={{color: tintColor}}
                 />
-            )
-        }
-    }
+            ),
+        },
+    },
 }, navigatorConfig)
 
 

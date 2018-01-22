@@ -1,14 +1,14 @@
 import Expo, {SQLite} from 'expo'
 import {
     CREATE_USER_DAY_TABLE,
-    CREATE_USER_DAY_TRIGGER
+    CREATE_USER_DAY_TRIGGER,
+    ADD_STEPS,
 } from 'sql/createTables'
 
 import {
     UPSERT_USER_DAY,
     GET_USER_DAY_SQL,
 } from 'sql/userDay'
-import {UPDATE_USER_DAY_SQL} from '../sql/userDay'
 
 const DB_NAME = 'db.db'
 const db = SQLite.openDatabase(DB_NAME)
@@ -33,9 +33,13 @@ export function startDb(dispatch) {
             //Transaction completed
             console.log('transaction completed')
             dispatch({
-                type: 'DB_INITIALIZED'
+                type: 'DB_INITIALIZED',
             })
             resolve()
+        })
+
+        db.transaction(tx => {
+            tx.executeSql(ADD_STEPS)
         })
     })
 
@@ -88,17 +92,16 @@ export function deleteByRowId(rowId) {
     })
 }
 
-export function upsertDay({userId = 1, dayKey, scores = {}, weight, imageUri}) {
-    console.log('saving the day', {scores, weight, imageUri, dayKey})
+export function upsertDay({userId = 1, dayKey, scores = {}, weight, imageUri, steps}) {
+    console.log('saving the day', {scores, weight, imageUri, dayKey, steps})
     return new Promise((resolve, reject) => {
         let userDayId = null
         db.transaction(tx => {
-            let params = [dayKey, userId, scores.mind, scores.body, scores.food, imageUri, weight]
-            console.log('running query with parms', UPSERT_USER_DAY, params)
+            let params = [dayKey, userId, scores.mind, scores.body, scores.food, imageUri, weight, steps,]
             tx.executeSql(UPSERT_USER_DAY,
                 params,
                 (_, resultSet) => {
-                    console.log('successfully created row with ')
+                    console.log('successfully created row ')
                     resolve({dayId: resultSet.insertId})
                     tx.executeSql('select * from user_day where rowid = ?', [resultSet.insertId], (_, selectResults) => {
                         console.log('inserted results')
@@ -119,17 +122,17 @@ export function upsertDay({userId = 1, dayKey, scores = {}, weight, imageUri}) {
 }
 
 function mapRowToState(row = {}) {
-    console.log('row', row)
     return {
         // dayId: row['rowid'],
         scores: {
             mind: row['mind_score'],
             body: row['body_score'],
-            food: row['food_score']
+            food: row['food_score'],
         },
         weight: row['weight_lbs'],
         imageUri: row['photo_uri'],
         dayKey: row['day_key'],
+        steps: row['steps'],
     }
 }
 
@@ -140,11 +143,8 @@ export function fetchDayByKey(dayKey, userId = 1) {
             tx.executeSql(GET_USER_DAY_SQL,
                 [dayKey, userId],
                 (_, resultSet) => {
-                    console.log('result set = ')
-
                     if (resultSet.rows.length > 0) {
                         let row = resultSet.rows.item(0)
-                        console.log('row', row)
                         resolve(mapRowToState(row))
                     } else {
                         console.log('fetchDayByKey: no results found')
@@ -173,6 +173,6 @@ export function loadAllDays(userId = 1) {
                 resolve((resultSet['rows']['_array']).map(mapRowToState))
             })
         })
-    });
+    })
 
 }

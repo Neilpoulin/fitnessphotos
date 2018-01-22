@@ -48,7 +48,7 @@ class ProfileScreen extends React.Component {
             </View>
 
             <View>
-                <Button onPress={() => connectFitbit()} title='Login With Fitbit'/>
+                <Button onPress={() => connectFitbit()} title='Login With Fitbit' display-if={!user.fitbit.isLoggedIn}/>
                 <View>
                     <Text display-if={user.isLoading}>Loading...</Text>
                     <Text display-if={user.fitbit.userId}>UserID = {user.fitbit.userId}</Text>

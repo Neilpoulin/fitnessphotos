@@ -20,11 +20,11 @@ export function formatDayOfWeekShort(date, showYear = false) {
 
 }
 
-export function getDateKey(date) {
+export function getDayKey(date) {
     return moment(date).format('YYYY-MM-DD')
 }
 
-export function getTimeStampFromDayDay(dayKey) {
+export function getTimeStampFromDayKey(dayKey) {
     return moment(dayKey).toDate().getTime()
 }
 
@@ -36,4 +36,9 @@ export function isBeforeNow(time, plus, period) {
     }
 
     return toCheck.isBefore(now)
+}
+
+export function addDuration({start = (new Date()), amount = 0, period = 'ms'}) {
+
+    return moment(start).add(amount, period).toDate()
 }
