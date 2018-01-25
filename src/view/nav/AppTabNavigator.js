@@ -2,12 +2,13 @@
 import React from 'react'
 import {TabNavigator} from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import DayInput from 'view/screen/DayInputScreen'
-import PhotoViewerPage from 'view/screen/PhotoViewerPage'
+import ChartScreen from 'view/screen/ChartScreen'
 import ProfileScreen from 'view/screen/ProfileScreen'
 import FeedScreen from 'view/screen/FeedScreen'
 import * as Routes from './Routes'
-import {getDayKey} from 'util/TimeUtil'
+
 
 const navigatorConfig = {
     initialRouteName: 'Feed',
@@ -35,7 +36,7 @@ const AppTabNavigator = TabNavigator({
         screen: DayInput,
         navigationOptions: ({navigation}) => ({
             tabBarLabel: 'Add',
-            
+
             tabBarIcon: ({tintColor, focused}) => (
                 <Ionicons
                     name={focused ? 'ios-add' : 'ios-add'}
@@ -44,6 +45,20 @@ const AppTabNavigator = TabNavigator({
                 />
             ),
         }),
+    },
+    [Routes.CHART_SCREEN]: {
+        screen: ChartScreen,
+        navigationOptions: {
+            tabBarLabel: 'Charts',
+            // swipeEnabled: true,
+            tabBarIcon: ({tintColor, focused}) => (
+                <MaterialCommunityIcons
+                    name={'chart-areaspline'}
+                    size={26}
+                    style={{color: tintColor}}
+                />
+            ),
+        },
     },
     [Routes.PROFILE_SCREEN]: {
         screen: ProfileScreen,
