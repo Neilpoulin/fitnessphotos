@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native'
 
 const imageHeight = 100
 const imageWidth = 100
@@ -6,6 +6,10 @@ const cardHeight = 60
 const cardMargin = 10
 const cardPadding = 10
 const circleDiameter = 50
+
+const redColor = '#ef1c27'
+const greenColor = '#19a45d'
+const yellowColor = '#fdf103'
 
 const styles = StyleSheet.create({
     container: {
@@ -18,7 +22,7 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
     },
     marginBottom: {
-        marginBottom: cardMargin
+        marginBottom: cardMargin,
     },
     padded: {
         padding: cardPadding,
@@ -54,6 +58,7 @@ const styles = StyleSheet.create({
     },
     scoreCircleText: {
         color: 'white',
+        fontWeight: '900',
     },
     score0CircleText: {
         color: 'black',
@@ -69,6 +74,7 @@ const styles = StyleSheet.create({
     },
     scoreLabel: {
         textAlign: 'center',
+        fontSize: 10,
     },
     score0View: {
         backgroundColor: 'white',
@@ -76,13 +82,13 @@ const styles = StyleSheet.create({
         borderColor: 'gray',
     },
     score1View: {
-        backgroundColor: 'red',
+        backgroundColor: redColor,
     },
     score2View: {
-        backgroundColor: 'yellow',
+        backgroundColor: yellowColor,
     },
     score3View: {
-        backgroundColor: 'green',
+        backgroundColor: greenColor,
     },
     containerInner: {
         flex: 1,
@@ -102,7 +108,7 @@ const styles = StyleSheet.create({
     },
     image: {
         height: imageHeight,
-        width: imageWidth
+        width: imageWidth,
     },
     imageEmpty: {
         borderWidth: 1,
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
     },
     weightText: {
         textAlign: 'center',
-    }
+    },
 
 })
 

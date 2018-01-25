@@ -15,7 +15,15 @@ import Ionicon from 'react-native-vector-icons/Ionicons'
 import {openCamera} from 'ducks/camera'
 import {FileSystem, ImagePicker} from 'expo'
 import uuid from 'uuid'
-import {setBodyScore, setMindScore, setFoodScore, setImage, setEditingImage, loadCurrentDay} from 'ducks/dayInput'
+import {
+    setBodyScore,
+    setMindScore,
+    setFoodScore,
+    setImage,
+    setEditingImage,
+    loadCurrentDay,
+    goToToday,
+} from 'ducks/dayInput'
 import {formatScore} from 'util/ScoreUtil'
 import {getDayState} from 'selector/daySelector'
 import {saveDay} from 'ducks/day'
@@ -58,6 +66,8 @@ class DayInput extends React.Component {
         getWeight: PropTypes.func,
         weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         steps: PropTypes.number,
+        //actions
+        today: PropTypes.func,
     }
 
     constructor(props) {
@@ -130,6 +140,7 @@ class DayInput extends React.Component {
             save,
             dayKey,
             getWeight,
+            today,
         } = this.props
         return <View style={styles.container}>
             <View style={styles.topNavContainer}>
@@ -147,6 +158,9 @@ class DayInput extends React.Component {
                         style={styles.topNavButton}
                         onPress={nextDay}
                     />
+                </View>
+                <View>
+                    <Link title={'Today'} onPress={today}/>
                 </View>
             </View>
             <View style={styles.photoContainer}>
@@ -255,6 +269,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         previousDay: () => {
             dispatch(goToPreviousDate())
             dispatch(setEditingImage(false))
+        },
+        today: () => {
+            dispatch(goToToday())
         },
         setPhoto: (photo) => {
             console.log('setting the photo into state', photo)

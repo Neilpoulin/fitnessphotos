@@ -36,25 +36,28 @@ class DayCardView extends React.Component {
                             <View style={[styles.scoreView]}>
                                 <View style={[styles.scoreCircle, styles[`score${day.scores.body}View`]]}>
                                     <Text style={styles[`score${day.scores.body}CircleText`]}>{day.scores.body}</Text>
+                                    <Text style={[styles.scoreLabel, styles[`score${day.scores.body}CircleText`]]}>Body</Text>
                                 </View>
-                                <Text style={styles.scoreLabel}>Body</Text>
+
                             </View>
                             <View style={[styles.scoreView]}>
                                 <View style={[styles.scoreCircle, styles[`score${day.scores.food}View`]]}>
                                     <Text style={styles[`score${day.scores.food}CircleText`]}>{day.scores.food}</Text>
+                                    <Text style={[styles.scoreLabel, styles[`score${day.scores.food}CircleText`]]}>Food</Text>
                                 </View>
-                                <Text style={styles.scoreLabel}>Food</Text>
+
                             </View>
                             <View style={[styles.scoreView]}>
                                 <View style={[styles.scoreCircle, styles[`score${day.scores.mind}View`]]}>
                                     <Text style={styles[`score${day.scores.mind}CircleText`]}>{day.scores.mind}</Text>
+                                    <Text style={[styles.scoreLabel, styles[`score${day.scores.mind}CircleText`]]}>Mind</Text>
                                 </View>
-                                <Text style={styles.scoreLabel}>Mind</Text>
+
                             </View>
                         </View>
                     </View>
                     <View display-if={day.steps}>
-                        <Text>Steps: {day.steps}</Text>
+                        <Text>{day.steps.toLocaleString()} steps</Text>
                     </View>
                 </View>
                 <View style={styles.imageContainer}>
