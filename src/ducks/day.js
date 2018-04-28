@@ -1,7 +1,7 @@
 import Immutable from 'immutable'
 import PropTypes from 'prop-types'
 import {getDayState} from 'selector/daySelector'
-import {upsertDay} from 'service/database'
+import {saveDay as saveDayFirebase} from 'service/firebaseService'
 
 export const SAVE_REQUEST = 'day/SAVE_REQUEST'
 export const SAVE_SUCCESS = 'day/SAVE_SUCCESS'
@@ -87,29 +87,46 @@ export default function reducer(state = initialState, action) {
     return state
 }
 
+
 export function saveDay(dayKey) {
     console.log('beginning saveDay function for dayKey', dayKey)
     return (dispatch, getState) => {
         const state = getState()
         let dayState = getDayState(state, {dayKey})
-        upsertDay({
+        const dayData = {
             dayKey,
             scores: dayState.get('scores').toJS(),
             weight: dayState.get('weight'),
             steps: dayState.get('steps'),
             imageUri: dayState.get('imageUri'),
-        }).then(({dayId}) => {
+        }
+        saveDayFirebase(dayData).then(response => {
+            console.log('firebase response', response)
             dispatch({
                 type: SAVE_SUCCESS,
                 payload: {
-                    dayId,
+                    dayId: dayKey,
                 },
             })
         }).catch(error => {
+            console.error('firebase error', error)
             dispatch({
                 type: SAVE_ERROR,
                 payload: error,
             })
         })
+        // upsertDay(dayData).then(({dayId}) => {
+        //     dispatch({
+        //         type: SAVE_SUCCESS,
+        //         payload: {
+        //             dayId,
+        //         },
+        //     })
+        // }).catch(error => {
+        //     dispatch({
+        //         type: SAVE_ERROR,
+        //         payload: error,
+        //     })
+        // })
     }
 }

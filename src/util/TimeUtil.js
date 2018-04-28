@@ -9,7 +9,6 @@ export function formatLongDate(date, showYear = false) {
         return moment(date).format('dddd, MMMM D, YYYY')
     }
     return moment(date).format('dddd, MMMM D')
-
 }
 
 export function formatDayOfWeekShort(date, showYear = false) {
@@ -17,7 +16,6 @@ export function formatDayOfWeekShort(date, showYear = false) {
         return moment(date).format('dd, M D, YYYY')
     }
     return moment(date).format('ddd, MMM D')
-
 }
 
 export function getDayKey(date) {
@@ -38,7 +36,10 @@ export function isBeforeNow(time, plus, period) {
     return toCheck.isBefore(now)
 }
 
-export function addDuration({start = (new Date()), amount = 0, period = 'ms'}) {
+export function getDateKeyDayAgo(days) {
+    return getDayKey(moment().subtract(days, 'days').toDate())
+}
 
+export function addDuration({start = (new Date()), amount = 0, period = 'ms'}) {
     return moment(start).add(amount, period).toDate()
 }

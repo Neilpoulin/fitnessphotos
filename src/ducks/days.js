@@ -4,7 +4,8 @@ import {
     initialState as defaultDay,
     LOAD_DAY_REQUEST, LOAD_DAY_SUCCESS, LOAD_DAY_ERROR,
 } from './day'
-import {fetchDayByKey, loadAllDays} from 'service/database'
+
+import {fetchDays, fetchDay} from 'service/firebaseService'
 import {fetchStepsForPeriod, fetchWeightForPeriod} from 'service/fitbitService'
 
 const initialState = Immutable.fromJS({})
@@ -21,7 +22,9 @@ export default function (state = initialState, action) {
 
 export function loadAll() {
     return (dispatch, getState) => {
-        loadAllDays().then(days => {
+        console.log('LOAD ALL')
+        fetchDays({}).then(days => {
+            console.log('fetched days in the load all screen', days)
             days.map(day => {
                 dispatch({
                     type: LOAD_DAY_SUCCESS,
@@ -37,11 +40,11 @@ export function loadAll() {
                 console.log('no weight days', noWeights)
                 console.log('no step days', noStepDays)
                 if (noWeights && noWeights.length > 0) {
-                    dispatch(loadAllWeightSince(noWeights[noWeights.length - 1].dayKey))
+                    // dispatch(loadAllWeightSince(noWeights[noWeights.length - 1].dayKey))
                 }
 
                 if (noStepDays && noStepDays.length > 0) {
-                    dispatch(loadAllStepsSince(noStepDays[noStepDays.length - 1].dayKey))
+                    // dispatch(loadAllStepsSince(noStepDays[noStepDays.length - 1].dayKey))
                 }
             }
 
@@ -52,10 +55,10 @@ export function loadAll() {
 export function loadAllStepsSince(dayKey) {
     return async (dispatch, getState) => {
         try {
-            let weights = await fetchStepsForPeriod({startDate: dayKey, endDate: 'today'})
-            console.log('fetched steps', weights)
-            if (weights) {
-                weights.forEach(({dateTime, value}) => {
+            let steps = await fetchStepsForPeriod({startDate: dayKey, endDate: 'today'})
+            console.log('fetched steps', steps)
+            if (steps) {
+                steps.forEach(({dateTime, value}) => {
                     dispatch({
                         type: SET_STEPS,
                         dayKey: dateTime,
@@ -74,18 +77,18 @@ export function loadAllStepsSince(dayKey) {
 export function loadAllWeightSince(dayKey) {
     return async (dispatch, getState) => {
         try {
-            let weights = await fetchWeightForPeriod({startDate: dayKey, endDate: 'today'})
-            console.log('fetched weights', weights)
-            if (weights) {
-                weights.forEach(({dateTime, value}) => {
-                    dispatch({
-                        type: SET_WEIGHT,
-                        dayKey: dateTime,
-                        payload: value,
-                    })
-                    dispatch(saveDay(dateTime))
-                })
-            }
+            // let weights = await fetchWeightForPeriod({startDate: dayKey, endDate: 'today'})
+            // console.log('fetched weights', weights)
+            // if (weights) {
+            //     weights.forEach(({dateTime, value}) => {
+            //         dispatch({
+            //             type: SET_WEIGHT,
+            //             dayKey: dateTime,
+            //             payload: value,
+            //         })
+            //         dispatch(saveDay(dateTime))
+            //     })
+            // }
 
         } catch (e) {
             console.warn('something went wrong processing all weights since ' + dayKey)
@@ -105,7 +108,7 @@ export function loadDay(dayKey) {
                 type: LOAD_DAY_REQUEST,
                 dayKey,
             })
-            return fetchDayByKey(dayKey).then((result) => {
+            return fetchDay({dayKey}).then((result) => {
                 console.log('found day from DB', result)
                 dispatch({
                     type: LOAD_DAY_SUCCESS,

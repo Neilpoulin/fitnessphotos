@@ -7,8 +7,8 @@ import {loadDay} from './days'
 import {getDayState, getScore} from 'selector/daySelector'
 import {getCurrentDayKey} from 'selector/dayInputSelector'
 import {fetchActivityForDay} from 'service/fitbitService'
-import {fetchWeightForDay} from 'service/fitbitService'
-import {FITBIT_LOGIN_REQUIRED} from './user'
+// import {fetchWeightForDay} from 'service/fitbitService'
+// import {FITBIT_LOGIN_REQUIRED} from './user'
 import {getWeight, getSteps} from 'selector/daySelector'
 
 import {SET_STEPS} from 'ducks/day'
@@ -182,16 +182,16 @@ export function getActivityForDay() {
             return null
         }
         try {
-            let activity = await fetchActivityForDay(dayKey)
-            dispatch({
-                type: FETCH_FITBIT_ACTIVITY_SUCCESS,
-                payload: activity,
-            })
-            dispatch({
-                type: SET_STEPS,
-                dayKey,
-                payload: Immutable.fromJS(activity).getIn(['summary', 'steps']),
-            })
+            // let activity = await fetchActivityForDay(dayKey)
+            // dispatch({
+            //     type: FETCH_FITBIT_ACTIVITY_SUCCESS,
+            //     payload: activity,
+            // })
+            // dispatch({
+            //     type: SET_STEPS,
+            //     dayKey,
+            //     payload: Immutable.fromJS(activity).getIn(['summary', 'steps']),
+            // })
             dispatch(save())
         } catch (e) {
             dispatch({

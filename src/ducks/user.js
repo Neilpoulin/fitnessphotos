@@ -2,12 +2,20 @@ import Immutable from 'immutable'
 import {
     login as fitbitLogin,
 } from 'service/fitbitService'
+import {
+    signInWithGoogleAsync,
+} from 'service/googleService'
 
 export const LOGIN_FITBIT_REQUEST = 'user/LOGIN_FITBIT_REQUEST'
 export const LOGIN_FITBIT_SUCCESS = 'user/LOGIN_FITBIT_SUCCESS'
 export const LOGIN_FITBIT_ERROR = 'user/LOGIN_FITBIT_ERROR'
 
 export const FITBIT_LOGIN_REQUIRED = 'user/FITBIT_LOGIN_REQUIRED'
+
+export const LOGIN_GOOGLE_REQUEST = 'user/LOGIN_GOOGLE_REQUEST'
+export const LOGIN_GOOGLE_SUCCESS = 'user/LOGIN_GOOGLE_SUCCESS'
+export const LOGIN_GOOGLE_ERROR = 'user/LOGIN_GOOGLE_ERROR'
+
 
 export const initialState = Immutable.fromJS({
     isLoading: false,
@@ -49,6 +57,29 @@ export default function reducer(state = initialState, action) {
 export function initialize() {
     return (dispatch, getState) => {
 
+    }
+}
+
+export function loginWithGoogle() {
+    console.log('starting google login flow')
+    return async dispatch => {
+        dispatch({
+            type: LOGIN_GOOGLE_REQUEST,
+        })
+        try {
+            const accessToken = await signInWithGoogleAsync()
+            dispatch({
+                type: LOGIN_GOOGLE_SUCCESS,
+                payload: accessToken,
+            })
+            console.log('signed in with google successfully', accessToken)
+        } catch (e) {
+            console.error('failed to login with google', e)
+            dispatch({
+                type: LOGIN_GOOGLE_ERROR,
+                error: e,
+            })
+        }
     }
 }
 

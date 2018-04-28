@@ -13,7 +13,7 @@ import {goToNextDate, goToPreviousDate, setDayKey} from 'ducks/dayInput'
 import styles from './DayInputScreenStyle'
 import Ionicon from 'react-native-vector-icons/Ionicons'
 import {openCamera} from 'ducks/camera'
-import {FileSystem, ImagePicker} from 'expo'
+import {FileSystem, ImagePicker, Permissions} from 'expo'
 import uuid from 'uuid'
 import {
     setBodyScore,
@@ -84,31 +84,44 @@ class DayInput extends React.Component {
 
 
     _pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            allowsEditing: false,
-            // aspect: [4, 3],
-        })
-        let imageSetter = this.props.setPhoto
-        console.log(result)
+        try {
+            const {status} = await Permissions.askAsync(Permissions.CAMERA_ROLL)
+            console.log('camera roll status = ', status)
 
-        let from = result.uri
-        let imageId = uuid.v4()
-        let parts = from ? from.split('/') : []
-        if (!parts.length > 0) {
-            return
-        }
-        let filename = parts[parts.length - 1]
+            if (status !== 'granted') {
+                console.warn('no permissions granted, returning')
+                return
+            }
 
-        let to = `${FileSystem.documentDirectory}photos/${imageId}-${filename}`
-        FileSystem.copyAsync({
-            from, to,
-        }).then(result => {
-            console.log('successfully copied image', result)
-            // this._loadImages()
-            imageSetter({
-                uri: to,
+            let result = await ImagePicker.launchImageLibraryAsync({
+                allowsEditing: false,
+                // aspect: [4, 3],
             })
-        })
+            let imageSetter = this.props.setPhoto
+            console.log(result)
+
+            let from = result.uri
+            let imageId = uuid.v4()
+            let parts = from ? from.split('/') : []
+            if (!parts.length > 0) {
+                return
+            }
+            let filename = parts[parts.length - 1]
+
+            let to = `${FileSystem.documentDirectory}photos/${imageId}-${filename}`
+            FileSystem.copyAsync({
+                from, to,
+            }).then(result => {
+                console.log('successfully copied image', result)
+                // this._loadImages()
+                imageSetter({
+                    uri: to,
+                })
+            })
+        } catch (e) {
+            console.error('something went wrong trying to open the camera roll', e)
+        }
+
     }
 
     _takePicture = async () => {

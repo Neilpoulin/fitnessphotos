@@ -4,22 +4,24 @@ import CameraPage from 'view/screen/CameraPage'
 import AppTabNavigations from './AppTabNavigator'
 import * as Routes from './Routes'
 
+const initialScreen = Routes.PROFILE_SCREEN
+
 const navigatorConfig = {
-    initialRouteName: 'Charts',
+    initialRouteName: initialScreen,
     mode: 'modal',
     headerMode: 'none',
 
 }
 
 const ModalStackNavigator = StackNavigator({
-    [Routes.CHART_SCREEN]: {
+    [initialScreen]: {
         screen: AppTabNavigations,
         // path: 'charts'
     },
     [Routes.CAMERA_SCREEN]: {
         screen: CameraPage,
         // path: 'camera'
-    }
+    },
 }, navigatorConfig)
 
 export default ModalStackNavigator

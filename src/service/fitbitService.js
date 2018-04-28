@@ -350,20 +350,22 @@ export async function fetchStepsForPeriod({startDate, endDate, period}) {
 export async function fetchWeightForDay(dayKey) {
     // let accessToken = state.user.getIn(['fitbit', 'accessToken'])
     try {
-        if (!dayKey) {
-            return null
-        }
-
-        //response will always be present, or else an error would have been thrown
-        let response = await authorizedRequest({
-            url: `https://api.fitbit.com/1/user/-/body/log/weight/date/${dayKey}.json`,
-            method: 'GET',
-        })
-
-        console.log('day weight response', response)
-        if (response.weight.length > 0) {
-            return response.weight[0].weight
-        }
+        console.warn('method not supported right now, exiting')
+        return null
+        // if (!dayKey) {
+        //     return null
+        // }
+        //
+        // //response will always be present, or else an error would have been thrown
+        // let response = await authorizedRequest({
+        //     url: `https://api.fitbit.com/1/user/-/body/log/weight/date/${dayKey}.json`,
+        //     method: 'GET',
+        // })
+        //
+        // console.log('day weight response', response)
+        // if (response.weight.length > 0) {
+        //     return response.weight[0].weight
+        // }
 
     } catch (e) {
         console.error('something went wrong while fetching the weight for day', dayKey, e)
@@ -372,18 +374,21 @@ export async function fetchWeightForDay(dayKey) {
 }
 
 export async function fetchActivityForDay(dayKey) {
+
     try {
-        if (!dayKey) {
-            return null
-        }
-
-        let response = await authorizedRequest({
-            url: `https://api.fitbit.com/1/user/-/activities/date/${dayKey}.json`,
-        })
-
-        // console.log('retrieved the activity:', response)
-
-        return response
+        console.warn('method not supported right now, exiting')
+        return null
+        // if (!dayKey) {
+        //     return null
+        // }
+        //
+        // let response = await authorizedRequest({
+        //     url: `https://api.fitbit.com/1/user/-/activities/date/${dayKey}.json`,
+        // })
+        //
+        // // console.log('retrieved the activity:', response)
+        //
+        // return response
         /*
         Sample response payload:
         {

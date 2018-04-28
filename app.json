@@ -1,8 +1,8 @@
 {
     "expo": {
         "name": "Photo Trends",
-        "version": "0.0.1",
-        "sdkVersion": "24.0.0",
+        "version": "0.0.2",
+        "sdkVersion": "27.0.1",
         "slug": "photo-trends",
         "icon": "images/photo-trends-logo.png",
         "ios": {
