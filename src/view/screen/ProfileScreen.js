@@ -9,7 +9,7 @@ import {Button as Link} from 'react-native'
 import {connect} from 'react-redux'
 import styles from './DayInputScreenStyle'
 import {loadAll, loadAllStepsSince} from 'ducks/days'
-import {loginWithFitbit, loginWithGoogle} from 'ducks/user'
+import {loginWithFitbit, loginWithGoogle, logout as logoutUser} from 'ducks/user'
 import {getDateKeyDayAgo} from 'util/TimeUtil'
 
 import {loadAllDays, deleteAll} from 'service/database'
@@ -24,6 +24,7 @@ class ProfileScreen extends React.Component {
         loadSteps: PropTypes.func,
         loginGoogle: PropTypes.func,
         getDays: PropTypes.func,
+        logout: PropTypes.func,
     }
 
     constructor(props) {
@@ -42,6 +43,7 @@ class ProfileScreen extends React.Component {
             loadSteps,
             loginGoogle,
             getDays,
+            logout,
         } = this.props
         return <View style={styles.container}>
             <Text>Dev Screen</Text>
@@ -58,7 +60,7 @@ class ProfileScreen extends React.Component {
             <View style={{marginBottom: 10}}>
                 <Button onPress={() => connectFitbit()} title='Login With Fitbit' display-if={!user.fitbit.isLoggedIn}/>
                 <View>
-                    <Text display-if={user.isLoading}>Loading...</Text>
+                    <Text display-if={user.isFitbitLoading}>Loading...</Text>
                     <Text display-if={user.fitbit.userId}>UserID = {user.fitbit.userId}</Text>
                 </View>
             </View>
@@ -68,10 +70,19 @@ class ProfileScreen extends React.Component {
 
             <View style={{marginBottom: 10}}>
                 <Button onPress={() => loginGoogle()} title={'Login With Google'}/>
+                <View display-if={user.google.user}>
+                    <Text>google id: {user.google.user.id}</Text>
+                    <Text>{user.google.user.email}</Text>
+                    <Text>{user.google.user.givenName} {user.google.user.familyName}</Text>
+                </View>
             </View>
 
             <View style={{marginBottom: 10}}>
                 <Button onPress={() => getDays()} title={'Fetch all data'}/>
+            </View>
+
+            <View style={{marginBottom: 10}}>
+                <Button onPress={() => logout()} title={'Log Out'}/>
             </View>
         </View>
     }
@@ -87,8 +98,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        refreshState: () => {
-            dispatch(loadAll())
+        refreshState: async () => {
+            dispatch(await loadAll())
         },
         connectFitbit: () => {
             dispatch(loginWithFitbit())
@@ -101,9 +112,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(loginWithGoogle())
         },
         getDays: async () => {
-            const days = await fetchDays({})
-            console.log('fetch days on ProfileScreen', days)
+            // const days = await fetchDays({})
+            // console.log('fetch days on ProfileScreen', days)
         },
+        logout: async () => {
+            dispatch(await logoutUser())
+        }
     }
 }
 

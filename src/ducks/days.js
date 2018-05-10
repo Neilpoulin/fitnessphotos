@@ -7,6 +7,7 @@ import {
 
 import {fetchDays, fetchDay} from 'service/firebaseService'
 import {fetchStepsForPeriod, fetchWeightForPeriod} from 'service/fitbitService'
+import {getUserId} from 'selector/userSelector'
 
 const initialState = Immutable.fromJS({})
 
@@ -21,9 +22,11 @@ export default function (state = initialState, action) {
 }
 
 export function loadAll() {
-    return (dispatch, getState) => {
+    return async (dispatch, getState) => {
         console.log('LOAD ALL')
-        fetchDays({}).then(days => {
+        const state = getState()
+        const userId = await getUserId(state)
+        fetchDays({userId}).then(days => {
             console.log('fetched days in the load all screen', days)
             days.map(day => {
                 dispatch({
@@ -98,17 +101,18 @@ export function loadAllWeightSince(dayKey) {
 
 export function loadDay(dayKey) {
     console.log('days.js - loadDay by dayKey = ' + dayKey)
-    return (dispatch, getState) => {
-        return new Promise((resolve, reject) => {
-            let days = getState().days
-
+    return async (dispatch, getState) => {
+        return new Promise(async (resolve, reject) => {
+            const state = getState()
+            let days = state.days
+            const userId = await getUserId(state)
 
             // if (!days.has(dayKey)) {
             dispatch({
                 type: LOAD_DAY_REQUEST,
                 dayKey,
             })
-            return fetchDay({dayKey}).then((result) => {
+            return fetchDay({dayKey, userId}).then((result) => {
                 console.log('found day from DB', result)
                 dispatch({
                     type: LOAD_DAY_SUCCESS,

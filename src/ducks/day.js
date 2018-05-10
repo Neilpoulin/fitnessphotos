@@ -1,6 +1,7 @@
 import Immutable from 'immutable'
 import PropTypes from 'prop-types'
 import {getDayState} from 'selector/daySelector'
+import {getUserId} from 'selector/userSelector'
 import {saveDay as saveDayFirebase} from 'service/firebaseService'
 
 export const SAVE_REQUEST = 'day/SAVE_REQUEST'
@@ -41,7 +42,7 @@ export const initialState = Immutable.fromJS({
     steps: null,
     isSaving: false,
     saveError: null,
-    isLoading: false,
+    isFitbitLoading: false,
 })
 
 export default function reducer(state = initialState, action) {
@@ -57,21 +58,21 @@ export default function reducer(state = initialState, action) {
             state = state.set('dayId', action.payload.get('dayId'))
             break
         case SAVE_REQUEST:
-            state = state.set('isLoading', true)
+            state = state.set('isFitbitLoading', true)
             break
         case SAVE_ERROR:
-            state = state.set('isLoading', false)
+            state = state.set('isFitbitLoading', false)
             state = state.set('saveError', action.payload)
             break
         case LOAD_DAY_REQUEST:
-            state = state.set('isLoading', true)
+            state = state.set('isFitbitLoading', true)
             break
         case LOAD_DAY_ERROR:
-            state = state.set('isLoading', false)
+            state = state.set('isFitbitLoading', false)
             state = state.set('error', action.payload)
             break
         case LOAD_DAY_SUCCESS:
-            state = state.set('isLoading', false)
+            state = state.set('isFitbitLoading', false)
             state = state.merge(action.payload)
             state = state.set('error', null)
             break
@@ -90,8 +91,10 @@ export default function reducer(state = initialState, action) {
 
 export function saveDay(dayKey) {
     console.log('beginning saveDay function for dayKey', dayKey)
-    return (dispatch, getState) => {
+    return async (dispatch, getState) => {
         const state = getState()
+        let userId = await getUserId(state)
+        console.log('found user id', userId)
         let dayState = getDayState(state, {dayKey})
         const dayData = {
             dayKey,
@@ -100,7 +103,7 @@ export function saveDay(dayKey) {
             steps: dayState.get('steps'),
             imageUri: dayState.get('imageUri'),
         }
-        saveDayFirebase(dayData).then(response => {
+        saveDayFirebase(dayData, userId).then(response => {
             console.log('firebase response', response)
             dispatch({
                 type: SAVE_SUCCESS,

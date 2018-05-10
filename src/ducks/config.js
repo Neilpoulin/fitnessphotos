@@ -5,7 +5,8 @@ export const INITIALIZE_SUCCESS = 'config/INITIALIZE_SUCCESS'
 export const INITIALIZE_ERROR = 'config/INITIALIZE_ERROR'
 
 const initialState = Immutable.fromJS({
-    isLoading: false,
+    isFitbitLoading: false,
+    hasLoaded: false,
     updatedAt: null,
     createdAt: null,
 })
@@ -14,10 +15,10 @@ const initialState = Immutable.fromJS({
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case INITIALIZE_REQUEST:
-            state = state.set('isLoading', true)
+            state = state.set('isFitbitLoading', true)
             break
         case INITIALIZE_SUCCESS:
-            state = state.set('isLoading', false)
+            state = state.set('isFitbitLoading', false)
                 .set('updatedAt', new Date())
                 .set('createdAt', new Date())
             break
@@ -33,16 +34,16 @@ export function initialize() {
         return new Promise((resolve, reject) => {
 
             dispatch({
-                type: INITIALIZE_REQUEST
+                type: INITIALIZE_REQUEST,
             })
 
             setTimeout(() => {
                 let config = {
-                    found: true
+                    found: true,
                 }
                 dispatch({
                     type: INITIALIZE_SUCCESS,
-                    payload: config
+                    payload: config,
                 })
                 resolve(config)
             }, 1000)

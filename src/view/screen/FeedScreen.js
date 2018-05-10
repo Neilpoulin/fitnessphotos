@@ -46,8 +46,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        load: () => {
-            dispatch(loadAll())
+        load: async () => {
+            dispatch(await loadAll())
         },
     }
 }

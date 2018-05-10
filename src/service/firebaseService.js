@@ -1,24 +1,78 @@
 import * as firebase from 'firebase'
+import 'firebase/firestore'
+import 'firebase/auth'
 
-const USER_ID = '0aaYr5SVT65p5hLKmsXn'
+import {saveUserId} from 'service/asyncStorageService'
+// noinspection ES6CheckImport
+import {
+    FIREBASE_API_KEY,
+    FIREBASE_AUTH_DOMAIN,
+    FIREBASE_DATABASE_URL,
+    FIREBASE_MESSAGING_SENDER_ID,
+    FIREBASE_PROJECT_ID,
+    FIREBASE_STORAGE_BUCKET,
+} from 'react-native-dotenv'
+import {LOGIN_FIREBASE_SUCCESS} from 'ducks/user'
 
-export async function saveDay({dayKey, steps, scores, weight, imageUri}) {
-    console.log('saving day key to firebase', dayKey)
-    return firebase.firestore().collection('users').doc(USER_ID).collection('days').doc(dayKey).set({
-        dayKey,
-        steps,
-        scores,
-        weight,
-        imageUri,
-        userId: USER_ID,
-    }, {merge: true})
+// const USER_ID = '0aaYr5SVT65p5hLKmsXn'
+
+export function initializeFirebase(dispatch) {
+
+
+    const firebaseConfig = {
+        apiKey: FIREBASE_API_KEY,
+        authDomain: FIREBASE_AUTH_DOMAIN,
+        databaseURL: FIREBASE_DATABASE_URL,
+        storageBucket: FIREBASE_STORAGE_BUCKET,
+        projectId: FIREBASE_PROJECT_ID,
+    }
+    console.log('initializing firebase app')
+    firebase.initializeApp(firebaseConfig)
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user != null) {
+            console.log('We are authenticated now!', user)
+            dispatch({
+                type: LOGIN_FIREBASE_SUCCESS,
+                user,
+            })
+        }
+        console.log('auth state changed. User = ', user)
+
+        // Do other things
+    })
+
+    const db = firebase.firestore()
+    db.settings({
+        timestampsInSnapshots: true,
+    })
+    console.log('initilzed firestore db')
+
+
 }
 
-export async function fetchDay({dayKey}) {
+export async function saveDay({dayKey, steps, scores, weight, imageUri}, userId) {
+    console.log('saving day key to firebase', dayKey, 'for userid ', userId)
+    return firebase.firestore()
+        .collection('users')
+        .doc(userId)
+        .collection('days')
+        .doc(dayKey).set({
+            dayKey,
+            steps,
+            scores,
+            weight,
+            imageUri,
+            userId: userId,
+        }, {merge: true})
+}
+
+export async function fetchDay({dayKey, userId}) {
     console.log('fetch day by dayKey', dayKey)
     let daysRef = firebase.firestore()
         .collection('users')
-        .doc(USER_ID)
+        .doc(userId)
         .collection('days')
         .doc(dayKey)
     const day = await daysRef.get()
@@ -32,11 +86,13 @@ export async function fetchDay({dayKey}) {
     }
 }
 
-export async function fetchDays({limit}) {
+export async function fetchDays({limit, userId}) {
     console.log('starting to fetch days')
+    var user = firebase.auth().currentUser
+
     let daysRef = firebase.firestore()
         .collection('users')
-        .doc(USER_ID)
+        .doc(userId)
         .collection('days')
         .orderBy('dayKey', 'desc')
     if (limit) {
@@ -50,5 +106,21 @@ export async function fetchDays({limit}) {
         results.push(data)
     })
     return results
+}
 
+export async function saveGoogleAuth(googleAuth, userId) {
+    console.log('starting to save google auth for userId', userId)
+
+    if (!userId) {
+        const savedUser = await firebase.firestore()
+            .collection('users')
+            .add({googleAuth})
+        userId = savedUser.id
+        await saveUserId(userId)
+        return savedUser
+    }
+    return await firebase.firestore()
+        .collection('users')
+        .doc(userId)
+        .set({googleAuth}, {merge: true})
 }
