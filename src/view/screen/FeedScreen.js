@@ -3,6 +3,7 @@ import {
     View,
     Text,
     ScrollView,
+    ActivityIndicator,
 } from 'react-native'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -14,6 +15,7 @@ import {getAllDaysList} from 'selector/daySelector'
 class FeedScreen extends React.Component {
     static propTypes = {
         days: PropTypes.arrayOf(PropTypes.shape({})),
+        isLoading: PropTypes.bool,
         navigation: PropTypes.object,
         //actions
         load: PropTypes.func,
@@ -24,9 +26,16 @@ class FeedScreen extends React.Component {
     }
 
     render() {
-        const {days, navigation} = this.props
+        const {
+            days,
+            navigation,
+            isLoading,
+        } = this.props
         return <View style={styles.container}>
-            <ScrollView display-if={days}>
+            <View display-if={isLoading} style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size={'large'} color={'#0000ff'}/>
+            </View>
+            <ScrollView display-if={days && !isLoading}>
                 {days.map((day, i) =>
                     <DayCardView navigation={navigation} key={`dayview_${i}`} day={day}/>)}
             </ScrollView>
@@ -37,8 +46,10 @@ class FeedScreen extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     let days = getAllDaysList(state)
+    const isLoading = state.days.get('isLoading')
     return {
         days,
+        isLoading,
     }
 }
 
