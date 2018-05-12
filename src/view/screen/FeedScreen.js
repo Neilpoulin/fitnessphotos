@@ -9,7 +9,7 @@ import {connect} from 'react-redux'
 import styles from './FeedScreenStyles'
 import {loadAll} from 'ducks/days'
 import DayCardView from '/view/organism/DayCardView'
-import {getTimeStampFromDayKey} from '../../util/TimeUtil'
+import {getAllDaysList} from 'selector/daySelector'
 
 class FeedScreen extends React.Component {
     static propTypes = {
@@ -36,9 +36,7 @@ class FeedScreen extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    let days = state.days.toList()
-        .filter(day => day.get('dayKey') != null)
-        .sortBy(day => getTimeStampFromDayKey(day.get('dayKey'))).reverse().toJS()
+    let days = getAllDaysList(state)
     return {
         days,
     }

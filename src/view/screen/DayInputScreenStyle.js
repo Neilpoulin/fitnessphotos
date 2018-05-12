@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {Constants} from 'expo';
+import {StyleSheet} from 'react-native'
+import {Constants} from 'expo'
 
 export default StyleSheet.create({
     container: {
@@ -12,9 +12,10 @@ export default StyleSheet.create({
     },
     dayTitle: {
         fontSize: 22,
+        flex: 2,
     },
     topNavContainer: {
-        height: 60,
+        height: 90,
     },
     topNavButton: {
         color: '#007AFF',
@@ -35,7 +36,7 @@ export default StyleSheet.create({
     actionsFlexbox: {
         alignItems: 'stretch',
         justifyContent: 'center',
-        flex: 1,
+        // flex: 1,
     },
     photoFlexbox: {
         alignItems: 'center',
@@ -55,7 +56,7 @@ export default StyleSheet.create({
         paddingRight: 20,
         flex: 1,
         alignItems: 'stretch',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     sliderTrack: {
         // backgroundColor: 'green',
@@ -68,7 +69,7 @@ export default StyleSheet.create({
             height: 1,
         },
         shadowRadius: 1,
-        shadowOpacity: .7
-    }
+        shadowOpacity: .7,
+    },
 
-});
+})

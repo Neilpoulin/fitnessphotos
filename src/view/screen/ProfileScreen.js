@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import {
     View,
     Text,
+    Button as Link,
+    Image,
 } from 'react-native'
 import {Button} from 'react-native-elements'
-import {Button as Link} from 'react-native'
+
 import {connect} from 'react-redux'
 import styles from './DayInputScreenStyle'
 import {loadAll, loadAllStepsSince} from 'ducks/days'
@@ -13,7 +15,6 @@ import {loginWithFitbit, loginWithGoogle, logout as logoutUser} from 'ducks/user
 import {getDateKeyDayAgo} from 'util/TimeUtil'
 
 import {loadAllDays, deleteAll} from 'service/database'
-import {fetchDays} from 'service/firebaseService'
 
 class ProfileScreen extends React.Component {
     static propTypes = {
@@ -46,7 +47,17 @@ class ProfileScreen extends React.Component {
             logout,
         } = this.props
         return <View style={styles.container}>
-            <Text>Dev Screen</Text>
+
+            <View style={{display: 'flex', flexDirection: 'row'}}>
+                <Image display-if={user.photoURL} source={{uri: user.photoURL}} style={{width: 100, height: 100}}/>
+                <View style={{padding: 20}}>
+                    <Text display-if={user.userId}>{user.userId}</Text>
+                    <Text display-if={user.email}>{user.email}</Text>
+                    <Text display-if={user.firstName || user.lastName}>{`${user.firstName} ${user.lastName}`}</Text>
+                    <Text display-if={user.displayName}>{user.displayName}</Text></View>
+            </View>
+
+
             <View>
                 <Link onPress={refreshState} title={'Refresh All State'}/>
             </View>
@@ -70,11 +81,6 @@ class ProfileScreen extends React.Component {
 
             <View style={{marginBottom: 10}}>
                 <Button onPress={() => loginGoogle()} title={'Login With Google'}/>
-                <View display-if={user.google.user}>
-                    <Text>google id: {user.google.user.id}</Text>
-                    <Text>{user.google.user.email}</Text>
-                    <Text>{user.google.user.givenName} {user.google.user.familyName}</Text>
-                </View>
             </View>
 
             <View style={{marginBottom: 10}}>
@@ -117,7 +123,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         logout: async () => {
             dispatch(await logoutUser())
-        }
+        },
     }
 }
 

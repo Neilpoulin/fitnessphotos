@@ -164,7 +164,10 @@ class DayInput extends React.Component {
                         style={styles.topNavButton}
                         onPress={previousDay}
                     />
-                    <Text style={styles.dayTitle}>{dateFormatted}</Text>
+
+                    <View>
+                        <Text style={styles.dayTitle}>{dateFormatted}</Text>
+                    </View>
                     <Ionicon
                         name={'ios-arrow-forward'}
                         size={42}

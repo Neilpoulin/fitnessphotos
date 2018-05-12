@@ -43,13 +43,6 @@ export const initialState = Immutable.fromJS({
         isLoggedIn: false,
     },
     isLoadingGoogle: false,
-    google: {
-        idToken: null,
-        accessToken: null,
-        user: null,
-
-    },
-
 })
 
 export default function reducer(state = initialState, action) {

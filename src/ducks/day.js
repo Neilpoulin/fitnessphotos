@@ -56,9 +56,10 @@ export default function reducer(state = initialState, action) {
         case SAVE_SUCCESS:
             state = state.set('isSaving', false)
             state = state.set('dayId', action.payload.get('dayId'))
+            state = state.set('dayKey', action.payload.get('dayId'))
             break
         case SAVE_REQUEST:
-            state = state.set('isFitbitLoading', true)
+            state = state.set('isSaving', true)
             break
         case SAVE_ERROR:
             state = state.set('isFitbitLoading', false)
@@ -103,6 +104,7 @@ export function saveDay(dayKey) {
             steps: dayState.get('steps'),
             imageUri: dayState.get('imageUri'),
         }
+        dispatch({type: SAVE_REQUEST, dayKey})
         saveDayFirebase(dayData, userId).then(response => {
             console.log('firebase response', response)
             dispatch({
