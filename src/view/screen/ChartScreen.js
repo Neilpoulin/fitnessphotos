@@ -9,6 +9,8 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getStepData, getWeightData} from 'selector/chartSelector'
 import {StockLine} from 'react-native-pathjs-charts'
+import {SafeAreaView} from 'react-navigation'
+
 
 const styles = StyleSheet.create({
     container: {
@@ -66,33 +68,35 @@ class ChartScreen extends React.Component {
             weightData,
             chartOptions,
         } = this.props
-        return <ScrollView>
-            <View style={styles.container}>
-                <Text>Step Data</Text>
-                <StockLine
-                    data={stepData.series}
-                    display-if={stepData && stepData.series[0].length}
-                    panHandlerStart={this._panHandlerStart}
-                    panHandlerMove={this._panHandlerMove}
-                    panHandlerEnd={this._panHandlerEnd}
-                    xKey='x'
-                    yKey='y'
-                    options={stepData.options}
-                />
+        return <SafeAreaView>
+            <ScrollView>
+                <View style={styles.container}>
+                    <Text>Step Data</Text>
+                    <StockLine
+                        data={stepData.series}
+                        display-if={stepData && stepData.series[0].length}
+                        panHandlerStart={this._panHandlerStart}
+                        panHandlerMove={this._panHandlerMove}
+                        panHandlerEnd={this._panHandlerEnd}
+                        xKey='x'
+                        yKey='y'
+                        options={stepData.options}
+                    />
 
-                <Text>Weight Data</Text>
-                <StockLine
-                    data={weightData.series}
-                    display-if={weightData && weightData.series[0].length}
-                    panHandlerStart={this._panHandlerStart}
-                    panHandlerMove={this._panHandlerMove}
-                    panHandlerEnd={this._panHandlerEnd}
-                    xKey='x'
-                    yKey='y'
-                    options={weightData.options}
-                />
-            </View>
-        </ScrollView>
+                    <Text>Weight Data</Text>
+                    <StockLine
+                        data={weightData.series}
+                        display-if={weightData && weightData.series[0].length}
+                        panHandlerStart={this._panHandlerStart}
+                        panHandlerMove={this._panHandlerMove}
+                        panHandlerEnd={this._panHandlerEnd}
+                        xKey='x'
+                        yKey='y'
+                        options={weightData.options}
+                    />
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     }
 
 }

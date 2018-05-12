@@ -1,5 +1,6 @@
 import Immutable from 'immutable'
-import {formatShortDate, getTimeStampFromDayKey} from 'util/TimeUtil'
+import {formatShortDate, getTimeStampFromDayKey, getDayKey} from 'util/TimeUtil'
+import {getAllDaysList} from 'selector/daySelector'
 
 const CHART_X_DEFAULT = 'x'
 const CHART_Y_DEFAULT = 'y'
@@ -68,8 +69,8 @@ const defaultChartOptions = Immutable.fromJS({
 
 export function getStepData(state, opts = defaultOpts) {
     opts = defaultOpts.merge(opts).toJS()
-
-    let stepSeries = state.days.toList()
+    const days = getAllDaysList(state, false)
+    let stepSeries = days
         .filter(day => day.get('steps') != null)
         .sort(day => day.get('dayKey'))
         .reduce((series, day, i, array) => {
@@ -86,8 +87,8 @@ export function getStepData(state, opts = defaultOpts) {
 
 export function getWeightData(state, opts = defaultOpts) {
     opts = defaultOpts.merge(opts).toJS()
-
-    let weightSeries = state.days.toList()
+    const days = getAllDaysList(state, false)
+    let weightSeries = days
         .filter(day => day.get('weight') != null)
         .sort(day => day.get('dayKey'))
         .reduce((series, day, i, array) => {

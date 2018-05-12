@@ -14,6 +14,8 @@ import {isAppReady} from 'selector/configSelector'
 import {isLoggedIn} from 'selector/userSelector'
 import {navigationProp} from 'util/PropTypes'
 import {FEED_SCREEN} from 'view/nav/Routes'
+import {SafeAreaView} from 'react-navigation'
+
 
 class LoginScreen extends React.Component {
     static propTypes = {
@@ -32,7 +34,7 @@ class LoginScreen extends React.Component {
             isLoggedIn,
             navigation,
         } = this.props
-        return <View style={styles.container}>
+        return <SafeAreaView style={styles.container}>
             <View display-if={!isReady} style={{flex: 1, justifyContent: 'center'}}>
                 <ActivityIndicator size={'large'} color={'#00009A'}/>
                 <Text style={[{fontSize: 20, color: '#00009A'}, styles.centerText]}>Loading App</Text>
@@ -47,7 +49,7 @@ class LoginScreen extends React.Component {
                 <Text style={styles.centerText}>You are logged in</Text>
                 <Button onPress={() => navigation.navigate(FEED_SCREEN)} title={'Continue To Feed'}/>
             </View>
-        </View>
+        </SafeAreaView>
     }
 
 }

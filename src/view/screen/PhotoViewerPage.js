@@ -11,13 +11,14 @@ import {ImagePicker, FileSystem} from 'expo'
 import uuid from 'uuid'
 import PropTypes from 'prop-types'
 import styles from './PhotoViewerPageStyle'
+import {SafeAreaView} from 'react-navigation'
 
 
 export default class PhotoViewerPage extends React.Component {
     state = {
         photos: [],
         selectedPhotos: [],
-    };
+    }
 
     static propTypes = {
         navigation: PropTypes.any,
@@ -72,7 +73,7 @@ export default class PhotoViewerPage extends React.Component {
             this._loadImages()
         })
 
-    };
+    }
 
     _archivePicture = ({uri, index}) => {
         console.log('attempting to delete image', uri)
@@ -84,7 +85,7 @@ export default class PhotoViewerPage extends React.Component {
             console.log('successfully archived image')
             this._loadImages()
         })
-    };
+    }
 
     _selectPhoto = ({uri, index}) => {
         try {
@@ -106,7 +107,7 @@ export default class PhotoViewerPage extends React.Component {
             console.error(e)
         }
 
-    };
+    }
 
     _unselectPhoto = ({uri}) => {
         let selected = this.state.selectedPhotos || []
@@ -115,77 +116,79 @@ export default class PhotoViewerPage extends React.Component {
         this.setState({
             selectedPhotos: filtered,
         })
-    };
+    }
 
     render() {
         let {photos, selectedPhotos} = this.state
 
         return (
-            <ScrollView style={styles.container}>
-                <View style={{
-                    // flex: 1,
-                    // flexDirection: 'row-reverse',
-                    // justifyContent: 'flex-start',
-                    // // padding: 10,
-                }}>
-                    <Text>Selected Photos</Text>
+            <SafeAreaView>
+                <ScrollView style={styles.container}>
                     <View style={{
-                        flex: 1,
-                        flexDirection: 'row-reverse',
-                        justifyContent: 'flex-start',
-                        // padding: 10,
+                        // flex: 1,
+                        // flexDirection: 'row-reverse',
+                        // justifyContent: 'flex-start',
+                        // // padding: 10,
                     }}>
+                        <Text>Selected Photos</Text>
+                        <View style={{
+                            flex: 1,
+                            flexDirection: 'row-reverse',
+                            justifyContent: 'flex-start',
+                            // padding: 10,
+                        }}>
 
-                        {selectedPhotos.map((photoUri, i) => <View key={`selected_photos_${i}`}
-                            style={styles.selectedImageContainer}>
-                            <Image
-                                key={photoUri}
-                                style={styles.selectedImage}
-                                source={{
-                                    uri: `${FileSystem.documentDirectory}photos/${photoUri}`,
-                                }}
-                            />
-                            <Button key={`unselectImage_${i}`} title="Remove"
-                                onPress={() => this._unselectPhoto({uri: photoUri, index: i})}/>
-                        </View>)}
+                            {selectedPhotos.map((photoUri, i) => <View key={`selected_photos_${i}`}
+                                style={styles.selectedImageContainer}>
+                                <Image
+                                    key={photoUri}
+                                    style={styles.selectedImage}
+                                    source={{
+                                        uri: `${FileSystem.documentDirectory}photos/${photoUri}`,
+                                    }}
+                                />
+                                <Button key={`unselectImage_${i}`} title="Remove"
+                                    onPress={() => this._unselectPhoto({uri: photoUri, index: i})}/>
+                            </View>)}
+                        </View>
                     </View>
-                </View>
-                <View style={styles.imageScrollContainer}>
-                    <ScrollView
-                        style={styles.imagesContainer}
-                        horizontal={true}
-                        centerContent={false}
-                    >
-                        {photos.map((photoUri, i) => <View key={`photos_${i}`}>
-                            <Image
-                                key={photoUri}
-                                style={styles.image}
-                                source={{
-                                    uri: `${FileSystem.documentDirectory}photos/${photoUri}`,
-                                }}
-                            />
-                            {selectedPhotos.indexOf(photoUri) === -1 && selectedPhotos.length < 2 &&
-                            <Button key={`selecteImage_${i}`}
-                                title="Select"
-                                onPress={() => this._selectPhoto({uri: photoUri, index: i})}/>}
-                            <Button key={`removeImage_${i}`} title="Delete"
-                                onPress={() => this._archivePicture({uri: photoUri, index: i})}/>
-                        </View>)}
+                    <View style={styles.imageScrollContainer}>
+                        <ScrollView
+                            style={styles.imagesContainer}
+                            horizontal={true}
+                            centerContent={false}
+                        >
+                            {photos.map((photoUri, i) => <View key={`photos_${i}`}>
+                                <Image
+                                    key={photoUri}
+                                    style={styles.image}
+                                    source={{
+                                        uri: `${FileSystem.documentDirectory}photos/${photoUri}`,
+                                    }}
+                                />
+                                {selectedPhotos.indexOf(photoUri) === -1 && selectedPhotos.length < 2 &&
+                                <Button key={`selecteImage_${i}`}
+                                    title="Select"
+                                    onPress={() => this._selectPhoto({uri: photoUri, index: i})}/>}
+                                <Button key={`removeImage_${i}`} title="Delete"
+                                    onPress={() => this._archivePicture({uri: photoUri, index: i})}/>
+                            </View>)}
 
-                    </ScrollView>
-                </View>
+                        </ScrollView>
+                    </View>
 
-                <Button
-                    title="Pick an image from camera roll"
-                    onPress={this._pickImage}
-                />
-                <Button title='Refresh Images' onPress={this._loadImages.bind(this)}/>
+                    <Button
+                        title="Pick an image from camera roll"
+                        onPress={this._pickImage}
+                    />
+                    <Button title='Refresh Images' onPress={this._loadImages.bind(this)}/>
 
-                <View style={styles.photoContainer}>
-                    <Text>This is a view</Text>
-                    <Button title={'Take Photo'} onPress={() => this.props.navigation.navigate('Camera')}/>
-                </View>
-            </ScrollView>
+                    <View style={styles.photoContainer}>
+                        <Text>This is a view</Text>
+                        <Button title={'Take Photo'} onPress={() => this.props.navigation.navigate('Camera')}/>
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
         )
     }
 }

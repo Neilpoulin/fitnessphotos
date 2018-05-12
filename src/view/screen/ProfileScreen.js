@@ -15,6 +15,9 @@ import {loginWithFitbit, loginWithGoogle, logout as logoutUser} from 'ducks/user
 import {getDateKeyDayAgo} from 'util/TimeUtil'
 
 import {loadAllDays, deleteAll} from 'service/database'
+import {navigationProp} from 'util/PropTypes'
+import {LOGIN_SCREEN} from 'view/nav/Routes'
+import {SafeAreaView} from 'react-navigation'
 
 class ProfileScreen extends React.Component {
     static propTypes = {
@@ -26,6 +29,7 @@ class ProfileScreen extends React.Component {
         loginGoogle: PropTypes.func,
         getDays: PropTypes.func,
         logout: PropTypes.func,
+        navigation: navigationProp,
     }
 
     constructor(props) {
@@ -46,7 +50,7 @@ class ProfileScreen extends React.Component {
             getDays,
             logout,
         } = this.props
-        return <View style={styles.container}>
+        return <SafeAreaView style={styles.container}>
 
             <View style={{display: 'flex', flexDirection: 'row'}}>
                 <Image display-if={user.photoURL} source={{uri: user.photoURL}} style={{width: 100, height: 100}}/>
@@ -90,7 +94,7 @@ class ProfileScreen extends React.Component {
             <View style={{marginBottom: 10}}>
                 <Button onPress={() => logout()} title={'Log Out'}/>
             </View>
-        </View>
+        </SafeAreaView>
     }
 
 }
@@ -123,6 +127,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         logout: async () => {
             dispatch(await logoutUser())
+            ownProps.navigation.navigate(LOGIN_SCREEN)
         },
     }
 }

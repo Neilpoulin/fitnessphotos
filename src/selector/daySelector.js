@@ -1,10 +1,16 @@
 import {getDayKey, getTimeStampFromDayKey} from 'util/TimeUtil'
 import {initialState as dayDefault} from 'ducks/day'
 
-export function getAllDaysList(state) {
-    return state.days.get('daysByKey').toList()
+export function getAllDaysList(state, toJs = true) {
+    const days = state.days.get('daysByKey').toList()
         .filter(day => day.get('dayKey') != null)
-        .sortBy(day => getTimeStampFromDayKey(day.get('dayKey'))).reverse().toJS()
+        .sortBy(day => getTimeStampFromDayKey(day.get('dayKey')))
+        .reverse()
+    if (toJs) {
+        return days.toJS()
+    }
+    return days
+
 }
 
 export function getDayState(state, {date, dayKey}) {

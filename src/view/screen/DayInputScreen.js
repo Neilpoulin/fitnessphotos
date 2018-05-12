@@ -29,6 +29,8 @@ import {getDayState} from 'selector/daySelector'
 import {saveDay} from 'ducks/day'
 import {getDayKey} from 'util/TimeUtil'
 import {CAMERA_SCREEN} from 'view/nav/Routes'
+import {SafeAreaView} from 'react-navigation'
+
 
 class DayInput extends React.Component {
     static propTypes = {
@@ -156,7 +158,7 @@ class DayInput extends React.Component {
             getWeight,
             today,
         } = this.props
-        return <View style={styles.container}>
+        return <SafeAreaView style={styles.container}>
             <View style={styles.topNavContainer}>
                 <View style={styles.topNav}>
                     <Ionicon
@@ -251,7 +253,8 @@ class DayInput extends React.Component {
                 <Text>Food: {formatScore(scores.food)}</Text>
             </View>
 
-        </View>
+
+        </SafeAreaView>
     }
 
 }

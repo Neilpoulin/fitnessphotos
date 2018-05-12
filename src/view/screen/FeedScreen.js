@@ -11,6 +11,7 @@ import styles from './FeedScreenStyles'
 import {loadAll} from 'ducks/days'
 import DayCardView from '/view/organism/DayCardView'
 import {getAllDaysList} from 'selector/daySelector'
+import {SafeAreaView} from 'react-navigation'
 
 class FeedScreen extends React.Component {
     static propTypes = {
@@ -31,7 +32,7 @@ class FeedScreen extends React.Component {
             navigation,
             isLoading,
         } = this.props
-        return <View style={styles.container}>
+        return <SafeAreaView style={styles.container}>
             <View display-if={isLoading} style={{flex: 1, justifyContent: 'center'}}>
                 <ActivityIndicator size={'large'} color={'#0000ff'}/>
             </View>
@@ -39,7 +40,7 @@ class FeedScreen extends React.Component {
                 {days.map((day, i) =>
                     <DayCardView navigation={navigation} key={`dayview_${i}`} day={day}/>)}
             </ScrollView>
-        </View>
+        </SafeAreaView>
     }
 
 }

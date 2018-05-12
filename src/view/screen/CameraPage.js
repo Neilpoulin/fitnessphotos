@@ -4,6 +4,7 @@ import {Text, View, TouchableOpacity, Button} from 'react-native'
 import {Camera, Permissions, FileSystem} from 'expo'
 import CameraView from '../organism/CameraView'
 import {navigationProp} from 'util/PropTypes'
+import {SafeAreaView} from 'react-navigation'
 
 export default class CameraPage extends React.Component {
     state = {
@@ -38,7 +39,7 @@ export default class CameraPage extends React.Component {
         } else {
 
             return (
-                <View style={{flex: 1}}>
+                <SafeAreaView style={{flex: 1}}>
                     <CameraView
                         handlePhoto={navParams.handlePhoto}
                         onClose={() => {
@@ -46,7 +47,7 @@ export default class CameraPage extends React.Component {
                             navigation.goBack()
                         }}
                     />
-                </View>
+                </SafeAreaView>
             )
         }
     }
