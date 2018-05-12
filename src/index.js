@@ -5,15 +5,11 @@ import reducers from './ducks/reducers'
 import thunkMiddleware from 'redux-thunk'
 import immutableAction from './middleware/immutable-action'
 import {applyMiddleware, createStore} from 'redux'
-import {initialize as initializeConfig} from 'ducks/config'
+import {initializeApp} from 'ducks/config'
 import {composeWithDevTools} from 'redux-devtools-extension'
-
+import {loadUserIfExists} from 'ducks/user'
 
 console.log('index.js starting')
-import {saveUserId} from 'service/asyncStorageService'
-
-import {loadUserIfExists} from 'ducks/user'
-import {initializeFirebase} from 'service/firebaseService'
 
 console.log('attempting to set up store')
 let middlewares = [thunkMiddleware, immutableAction]
@@ -22,18 +18,17 @@ let devToolsEnhancer = composeWithDevTools({
 })
 const store = createStore(reducers, devToolsEnhancer(applyMiddleware(...middlewares)))
 const dispatch = store.dispatch
-
-initializeFirebase(dispatch)
-dispatch(initializeConfig()).then(async config => {
+console.log('redux store configured ')
+dispatch(initializeApp()).then(async config => {
 
     console.log('loaded config', config)
     // const loggedIn = dispatch(await loginWithGoogleFromCache())
-    dispatch(await loadUserIfExists())
+    // dispatch(await loadUserIfExists())
     // dispatch(await loadUserFromCache())
     // if (loggedIn) {
     //     console.log('logged in with google from cache')
     // }
-    //initialize the fitbit tokens
+    //initializeApp the fitbit tokens
     // initializeFitbit().then(tokens => {
     //     console.log('successfully initialized the fitbit service', tokens)
     // })

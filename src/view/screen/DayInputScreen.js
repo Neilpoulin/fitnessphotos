@@ -28,6 +28,7 @@ import {formatScore} from 'util/ScoreUtil'
 import {getDayState} from 'selector/daySelector'
 import {saveDay} from 'ducks/day'
 import {getDayKey} from 'util/TimeUtil'
+import {CAMERA_SCREEN} from 'view/nav/Routes'
 
 class DayInput extends React.Component {
     static propTypes = {
@@ -126,7 +127,7 @@ class DayInput extends React.Component {
 
     _takePicture = async () => {
         let imageSetter = this.props.setPhoto
-        this.props.navigation.navigate('Camera', {
+        this.props.navigation.navigate(CAMERA_SCREEN, {
             handlePhoto: (photo) => {
                 console.log('got photo', photo)
                 imageSetter(photo)

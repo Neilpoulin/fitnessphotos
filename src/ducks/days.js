@@ -36,6 +36,7 @@ export default function (state = initialState, action) {
             if (dayKey) {
                 let dayState = state.getIn(['daysByKey', dayKey])
                 dayState = dayReducer(dayState, action)
+                dayState = dayState.set('dayKey', dayKey)
                 state = state.setIn(['daysByKey', dayKey], dayState)
             }
             break

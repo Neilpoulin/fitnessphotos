@@ -6,7 +6,7 @@ import {
     signInWithGoogleAsync,
 } from 'service/googleService'
 import {fetchGoogleAuth, fetchUserId, clearKeys} from 'service/asyncStorageService'
-import {saveGoogleAuth} from 'service/firebaseService'
+import {logoutFirebase, saveGoogleAuth} from 'service/firebaseService'
 import firebase from 'firebase'
 
 export const LOGIN_FITBIT_REQUEST = 'user/LOGIN_FITBIT_REQUEST'
@@ -24,6 +24,7 @@ export const LOGIN_GOOGLE_ERROR = 'user/LOGIN_GOOGLE_ERROR'
 export const LOGIN_FIREBASE_REQUEST = 'user/LOGIN_FIREBASE_REQUEST'
 export const LOGIN_FIREBASE_SUCCESS = 'user/LOGIN_FIREBASE_SUCCESS'
 export const LOGIN_FIREBASE_ERROR = 'user/LOGIN_FIREBASE_ERROR'
+export const LOGIN_FIREBASE_NO_USER = 'user/LOGIN_FIREBASE_NO_USER'
 
 export const LOGOUT_SUCCESS = 'user/LOGOUT_SUCCESS'
 
@@ -90,6 +91,9 @@ export default function reducer(state = initialState, action) {
             state = state.set('photoURL', action.user.photoURL)
             state = state.set('userId', action.user.uid)
             break
+        case LOGIN_FIREBASE_NO_USER:
+            state = state.set('isLoadingFirebase', false)
+            break
         case LOGIN_FIREBASE_ERROR:
             // state = state.setIn(['google', 'error'], action.error)
             state = state.set('isLoadingFirebase', false)
@@ -124,7 +128,7 @@ export function loadUserFromCache() {
 export function loadUserIfExists() {
     return async dispatch => {
 
-        // dispatch({type: LOGIN_FIREBASE_REQUEST})
+        dispatch({type: LOGIN_FIREBASE_REQUEST})
 
         let user = firebase.auth().currentUser
         if (user) {
@@ -135,7 +139,7 @@ export function loadUserIfExists() {
             })
         } else {
             console.log('no auth().current user')
-            // dispatch({type: LOGIN_FIREBASE_ERROR})
+            dispatch({type: LOGIN_FIREBASE_NO_USER})
         }
 
         // return user
@@ -153,10 +157,23 @@ export function loginWithGoogleFromCache() {
     }
 }
 
+export function handleAuthStateChange(user) {
+    return dispatch => {
+        if (user != null) {
+            console.log('We are authenticated now!', user)
+            dispatch({
+                type: LOGIN_FIREBASE_SUCCESS,
+                user,
+            })
+        }
+        console.log('auth state changed. User = ', user)
+    }
+}
+
 export function logout() {
     console.log('logging out the user...')
     return async dispatch => {
-        await clearKeys()
+        await Promise.all([clearKeys(), logoutFirebase()])
         dispatch({
             type: LOGOUT_SUCCESS,
         })

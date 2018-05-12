@@ -33,7 +33,7 @@ export async function initialize() {
         let tokens = await getFitbitAccessToken()
         return tokens
     } catch (e) {
-        console.error('failed to initialize fitbit service', e)
+        console.error('failed to initializeApp fitbit service', e)
     }
 
 }

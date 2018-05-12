@@ -56,7 +56,7 @@ export default function reducer(state = initialState, action) {
         case SAVE_SUCCESS:
             state = state.set('isSaving', false)
             state = state.set('dayId', action.payload.get('dayId'))
-            state = state.set('dayKey', action.payload.get('dayId'))
+            // state = state.set('dayKey', action.payload.get('dayId'))
             break
         case SAVE_REQUEST:
             state = state.set('isSaving', true)
@@ -86,6 +86,7 @@ export default function reducer(state = initialState, action) {
         default:
             break
     }
+    state = state.set('dayKey', action.dayKey)
     return state
 }
 

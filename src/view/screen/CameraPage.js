@@ -3,25 +3,19 @@ import PropTypes from 'prop-types'
 import {Text, View, TouchableOpacity, Button} from 'react-native'
 import {Camera, Permissions, FileSystem} from 'expo'
 import CameraView from '../organism/CameraView'
+import {navigationProp} from 'util/PropTypes'
 
 export default class CameraPage extends React.Component {
     state = {
         hasCameraPermission: null,
         type: Camera.Constants.Type.back,
-    };
+    }
 
     static propTypes = {
         closeCamera: PropTypes.func,
-        navigation: PropTypes.shape({
-            goBack: PropTypes.func,
-            state: PropTypes.shape({
-                params: PropTypes.shape({
-                    handlePhoto: PropTypes.func,
-                })
-            })
-        }),
+        navigation: navigationProp,
         handlePhoto: PropTypes.func,
-    };
+    }
 
     async componentWillMount() {
         const {status} = await Permissions.askAsync(Permissions.CAMERA)

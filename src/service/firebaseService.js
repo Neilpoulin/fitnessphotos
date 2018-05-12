@@ -1,7 +1,7 @@
 import * as firebase from 'firebase'
 import 'firebase/firestore'
 import 'firebase/auth'
-
+import {handleAuthStateChange} from 'ducks/user'
 import {saveUserId} from 'service/asyncStorageService'
 // noinspection ES6CheckImport
 import {
@@ -12,43 +12,30 @@ import {
     FIREBASE_PROJECT_ID,
     FIREBASE_STORAGE_BUCKET,
 } from 'react-native-dotenv'
-import {LOGIN_FIREBASE_SUCCESS} from 'ducks/user'
 
-// const USER_ID = '0aaYr5SVT65p5hLKmsXn'
-
-export function initializeFirebase(dispatch) {
-
-
-    const firebaseConfig = {
-        apiKey: FIREBASE_API_KEY,
-        authDomain: FIREBASE_AUTH_DOMAIN,
-        databaseURL: FIREBASE_DATABASE_URL,
-        storageBucket: FIREBASE_STORAGE_BUCKET,
-        projectId: FIREBASE_PROJECT_ID,
-    }
-    console.log('initializing firebase app')
-    firebase.initializeApp(firebaseConfig)
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user != null) {
-            console.log('We are authenticated now!', user)
-            dispatch({
-                type: LOGIN_FIREBASE_SUCCESS,
-                user,
-            })
+export function initializeFirebase() {
+    return dispatch => {
+        const firebaseConfig = {
+            apiKey: FIREBASE_API_KEY,
+            authDomain: FIREBASE_AUTH_DOMAIN,
+            databaseURL: FIREBASE_DATABASE_URL,
+            storageBucket: FIREBASE_STORAGE_BUCKET,
+            projectId: FIREBASE_PROJECT_ID,
         }
-        console.log('auth state changed. User = ', user)
+        console.log('initializing firebase app')
+        firebase.initializeApp(firebaseConfig)
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 
-        // Do other things
-    })
+        firebase.auth().onAuthStateChanged((user) => {
+            dispatch(handleAuthStateChange(user))
+        })
 
-    const db = firebase.firestore()
-    db.settings({
-        timestampsInSnapshots: true,
-    })
-    console.log('initilzed firestore db')
-
+        const db = firebase.firestore()
+        db.settings({
+            timestampsInSnapshots: true,
+        })
+        console.log('initilzed firestore db')
+    }
 
 }
 
@@ -123,4 +110,13 @@ export async function saveGoogleAuth(googleAuth, userId) {
         .collection('users')
         .doc(userId)
         .set({googleAuth}, {merge: true})
+}
+
+export async function logoutFirebase() {
+    console.log('logging out of firebase')
+    try {
+        await firebase.auth().signOut()
+    } catch (e) {
+        console.error('failed to logout of firebase')
+    }
 }

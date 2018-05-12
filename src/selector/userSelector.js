@@ -13,3 +13,7 @@ export async function getUserId(state) {
     console.log('found user id = ', userId)
     return userId
 }
+
+export function isLoggedIn(state) {
+    return !!state.user.get('userId')
+}
