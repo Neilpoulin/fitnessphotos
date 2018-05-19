@@ -9,40 +9,57 @@ import {Button} from 'react-native-elements'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import styles from './LoginScreenStyles'
-import {loginWithGoogle} from 'ducks/user'
+import {loginWithGoogle, loginAsGuest} from 'ducks/user'
 import {isAppReady} from 'selector/configSelector'
-import {isLoggedIn} from 'selector/userSelector'
+import {isLoggedIn, isLoggingIn} from 'selector/userSelector'
 import {navigationProp} from 'util/PropTypes'
 import {FEED_SCREEN} from 'view/nav/Routes'
 import {SafeAreaView} from 'react-navigation'
+import {textLightColor, textSuccessColor} from 'style/GlobalStyles'
 
 
 class LoginScreen extends React.Component {
     static propTypes = {
         isReady: PropTypes.bool,
         isLoggedIn: PropTypes.bool,
+        isLoggingIn: PropTypes.bool,
         //actions
         loginGoogle: PropTypes.func.isRequired,
+        guestLogin: PropTypes.func.isRequired,
         navigation: navigationProp,
     }
 
+    componentWillUpdate(props) {
+        if (props.isLoggedIn) {
+            props.navigation.navigate(FEED_SCREEN)
+        }
+    }
 
     render() {
         const {
             loginGoogle,
             isReady,
             isLoggedIn,
+            guestLogin,
             navigation,
+            isLoggingIn,
         } = this.props
         return <SafeAreaView style={styles.container}>
             <View display-if={!isReady} style={{flex: 1, justifyContent: 'center'}}>
-                <ActivityIndicator size={'large'} color={'#00009A'}/>
-                <Text style={[{fontSize: 20, color: '#00009A'}, styles.centerText]}>Loading App</Text>
+                <ActivityIndicator size={'large'} color={textLightColor}/>
+                <Text style={[{fontSize: 20, color: textLightColor}, styles.centerText]}>Loading App</Text>
             </View>
 
-            <View style={styles.verticalCenterContainer} display-if={isReady && !isLoggedIn}>
+            <View style={styles.verticalCenterContainer} display-if={isLoggingIn}>
+                <ActivityIndicator size={'small'} color={textSuccessColor}/>
+                <Text style={[{fontSize: 15, color: textSuccessColor}, styles.centerText]}>Logging In...</Text>
+            </View>
+            <View style={styles.verticalCenterContainer} display-if={isReady && !isLoggedIn && !isLoggingIn}>
                 <View style={{marginBottom: 10}}>
                     <Button onPress={() => loginGoogle()} title={'Login With Google'}/>
+                </View>
+                <View style={{marginBottom: 10}}>
+                    <Button onPress={() => guestLogin()} title={'Continue as guest'}/>
                 </View>
             </View>
             <View display-if={isLoggedIn} style={styles.verticalCenterContainer}>
@@ -58,13 +75,17 @@ const mapStateToProps = (state, ownProps) => {
     return {
         isReady: isAppReady(state),
         isLoggedIn: isLoggedIn(state),
+        isLoggingIn: isLoggingIn(state),
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        loginGoogle: () => {
-            dispatch(loginWithGoogle())
+        loginGoogle: async () => {
+            dispatch(await loginWithGoogle())
+        },
+        guestLogin: async () => {
+            dispatch(await loginAsGuest())
         },
     }
 }

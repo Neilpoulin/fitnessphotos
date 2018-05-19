@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {Constants} from 'expo';
+import {StyleSheet} from 'react-native'
+import {Constants} from 'expo'
 
 export default StyleSheet.create({
     container: {
@@ -8,5 +8,13 @@ export default StyleSheet.create({
         paddingTop: Constants.statusBarHeight,
 
     },
-
+    verticalCenterContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+    centerAlignText: {
+        textAlign: 'center',
+    },
+    emptyStateContainer: {},
 })

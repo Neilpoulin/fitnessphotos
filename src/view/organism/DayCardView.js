@@ -4,7 +4,9 @@ import {
     Text,
     Image,
     TouchableOpacity,
+    TouchableHighlight,
 } from 'react-native'
+import {cardBackgroundColor, cardView} from 'style/GlobalStyles'
 import {propTypes as dayPropTypes} from 'ducks/day'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -20,17 +22,38 @@ class DayCardView extends React.Component {
         editDay: PropTypes.func,
     }
 
+    state = {
+        imageError: false,
+    }
+
+    _handleImageError() {
+        this.setState({imageError: true})
+    }
+
     render() {
         const {
             day,
             editDay,
         } = this.props
-        return <TouchableOpacity onPress={() => editDay()}><View style={styles.container}>
-            <View style={styles.columns}>
+
+        const {
+            imageError,
+        } = this.state
+
+        return <TouchableHighlight onPress={() => editDay()} style={[styles.container, cardView.container]} activeOpacity={.8}>
+            <View style={{backgroundColor: cardBackgroundColor}}>
+                <View style={[styles.padded]}>
+                    <Text style={styles.title}>{formatDayOfWeekShort(day.dayKey, false)}</Text>
+                </View>
+                <View style={styles.imageContainer} display-if={day.imageUri && !imageError}>
+                    <Image
+                        source={{uri: day.imageUri}}
+                        style={styles.image}
+                        resizeMode={'cover'}
+                        onError={() => this._handleImageError()}
+                    />
+                </View>
                 <View style={[styles.rows, styles.padded]}>
-                    <View style={styles.marginBottom}>
-                        <Text style={styles.title}>{formatDayOfWeekShort(day.dayKey, false)}</Text>
-                    </View>
                     <View style={styles.columns}>
                         <View style={[styles.columns, styles.scoresContainer]}>
                             <View style={[styles.scoreView]}>
@@ -38,7 +61,6 @@ class DayCardView extends React.Component {
                                     <Text style={styles[`score${day.scores.body}CircleText`]}>{day.scores.body}</Text>
                                     <Text style={[styles.scoreLabel, styles[`score${day.scores.body}CircleText`]]}>Body</Text>
                                 </View>
-
                             </View>
                             <View style={[styles.scoreView]}>
                                 <View style={[styles.scoreCircle, styles[`score${day.scores.food}View`]]}>
@@ -56,23 +78,16 @@ class DayCardView extends React.Component {
                             </View>
                         </View>
                     </View>
-                    <View display-if={day.steps}>
-                        <Text>{day.steps.toLocaleString()} steps</Text>
-                    </View>
                 </View>
-                <View style={styles.imageContainer}>
-                    <Image display-if={day.imageUri} source={{uri: day.imageUri}} style={styles.image}
-                        resizeMode={'contain'}/>
-                    <View style={[styles.image, styles.imageEmpty]} display-if={!day.imageUri}>
-                        <Text>No Image</Text>
-                    </View>
-                    <View style={styles.weightContainer} display-if={day.weight}>
-                        <Text style={styles.weightText}>{day.weight} lbs</Text>
-                    </View>
+
+                <View display-if={day.steps}>
+                    <Text>{day.steps.toLocaleString()} steps</Text>
+                </View>
+                <View style={styles.weightContainer} display-if={day.weight}>
+                    <Text style={styles.weightText} display-if={day.weight}>{day.weight} lbs</Text>
                 </View>
             </View>
-        </View>
-        </TouchableOpacity>
+        </TouchableHighlight>
     }
 
 }

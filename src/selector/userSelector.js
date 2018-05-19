@@ -17,3 +17,7 @@ export async function getUserId(state) {
 export function isLoggedIn(state) {
     return !!state.user.get('userId')
 }
+
+export function isLoggingIn(state) {
+    return state.user.get('isLoadingGoogle') || state.user.get('isLoadingGuest') || state.user.get('isFitbitLoading') || state.user.get('isLoadingFirebase')
+}

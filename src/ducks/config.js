@@ -36,24 +36,23 @@ export default function reducer(state = initialState, action) {
 export function initializeApp() {
     console.log('initializing configs')
     return dispatch => {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
 
             dispatch({
                 type: INITIALIZE_REQUEST,
             })
 
-            dispatch(initializeFirebase())
+            await dispatch(await initializeFirebase())
 
-            setTimeout(() => {
-                let config = {
-                    found: true,
-                }
-                dispatch({
-                    type: INITIALIZE_SUCCESS,
-                    payload: config,
-                })
-                resolve(config)
-            }, 1000)
+            const config = {
+                found: true,
+            }
+
+            dispatch({
+                type: INITIALIZE_SUCCESS,
+                payload: config,
+            })
+            resolve(config)
         })
     }
 }

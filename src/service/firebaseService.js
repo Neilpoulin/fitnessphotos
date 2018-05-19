@@ -14,7 +14,7 @@ import {
 } from 'react-native-dotenv'
 
 export function initializeFirebase() {
-    return dispatch => {
+    return async dispatch => {
         const firebaseConfig = {
             apiKey: FIREBASE_API_KEY,
             authDomain: FIREBASE_AUTH_DOMAIN,
@@ -23,18 +23,24 @@ export function initializeFirebase() {
             projectId: FIREBASE_PROJECT_ID,
         }
         console.log('initializing firebase app')
-        firebase.initializeApp(firebaseConfig)
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-
-        firebase.auth().onAuthStateChanged((user) => {
-            dispatch(handleAuthStateChange(user))
-        })
+        await firebase.initializeApp(firebaseConfig)
 
         const db = firebase.firestore()
         db.settings({
             timestampsInSnapshots: true,
         })
-        console.log('initilzed firestore db')
+
+        return new Promise(async (resolve) => {
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+
+            firebase.auth().onAuthStateChanged((user) => {
+                console.log('auth state changed... user = ', user)
+                dispatch({type: 'AUTH_STATE_CHANGED', user})
+                dispatch(handleAuthStateChange(user))
+                resolve()
+            })
+            console.log('initilzed firestore db')
+        })
     }
 
 }
@@ -98,14 +104,7 @@ export async function fetchDays({limit, userId}) {
 export async function saveGoogleAuth(googleAuth, userId) {
     console.log('starting to save google auth for userId', userId)
 
-    if (!userId) {
-        const savedUser = await firebase.firestore()
-            .collection('users')
-            .add({googleAuth})
-        userId = savedUser.id
-        await saveUserId(userId)
-        return savedUser
-    }
+    await saveUserId(userId)
     return await firebase.firestore()
         .collection('users')
         .doc(userId)
@@ -118,5 +117,29 @@ export async function logoutFirebase() {
         await firebase.auth().signOut()
     } catch (e) {
         console.error('failed to logout of firebase')
+    }
+}
+
+export function getCurrentUser() {
+    return firebase.auth().currentUser
+}
+
+export async function saveFitbitAuth(fitbitAuth) {
+    console.log('persisting fitbit info to firebase', fitbitAuth)
+    try {
+        const user = getCurrentUser()
+        if (!user) {
+            return false
+        }
+
+        await firebase.firestore()
+            .collection('users')
+            .doc(user.uid)
+            .set({fitbitAuth}, {merge: true})
+
+        return true
+    } catch (e) {
+        console.error('failed to persist fitbit auth', e)
+        return false
     }
 }

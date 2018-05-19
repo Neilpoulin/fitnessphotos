@@ -5,6 +5,7 @@ import {kgToLbs} from 'util/UnitsUtil'
 import {addDuration} from 'util/TimeUtil'
 import Timeout from 'util/Timeout'
 import FetchError from 'service/FetchError'
+import {saveFitbitAuth} from 'service/firebaseService'
 
 export const ACCESS_TOKEN_FITBIT = 'fitbit_accessToken'
 export const USER_ID_FITBIT = 'fitbit_userId'
@@ -45,33 +46,36 @@ export function getBasicAuthHeader() {
 
 export async function persistFitbitCredentials({accessToken, userId, refreshToken}) {
     console.log('attempting to persist credentials')
-    // console.log('attempting to persist credentials', accessToken, userId, refreshToken)
-    if (!accessToken || !refreshToken) {
-        console.log('You must provide values for accessToken, userId, and refreshToken. ' +
-            'At least was was not provided. ' +
-            'Values Provided were:' +
-            `accessToken=${accessToken} | refreshToken=${refreshToken} | userId=${userId}`)
-        return false
-        // throw new Error(`You must provide values for accessToken, userId, and refreshToken. At least was was not provided. Values Provided were: accessToken=${accessToken} | refreshToken=${refreshToken} | userId=${userId}`)
-    }
-    try {
-        let valuesToSet = [
-            [ACCESS_TOKEN_FITBIT, accessToken],
-            [USER_ID_FITBIT, userId],
-            [REFRESH_TOKEN_FITBIT, refreshToken],
-        ].filter(([, value]) => !!value)
 
-        // console.log('attempting to persist these values:', JSON.stringify(valuesToSet))
+    return await saveFitbitAuth({accessToken, userId, refreshToken})
 
-        let response = await AsyncStorage.multiSet(valuesToSet)
-        // console.log('response from setting tokens', response)
-        LATEST_ACCESS_TOKEN = accessToken
-        LAST_REFRESH_DATE = new Date().getTime()
-        return true
-    } catch (e) {
-        console.warn('failed to persist fitbit credentials', e)
-        return false
-    }
+    // // console.log('attempting to persist credentials', accessToken, userId, refreshToken)
+    // if (!accessToken || !refreshToken) {
+    //     console.log('You must provide values for accessToken, userId, and refreshToken. ' +
+    //         'At least was was not provided. ' +
+    //         'Values Provided were:' +
+    //         `accessToken=${accessToken} | refreshToken=${refreshToken} | userId=${userId}`)
+    //     return false
+    //     // throw new Error(`You must provide values for accessToken, userId, and refreshToken. At least was was not provided. Values Provided were: accessToken=${accessToken} | refreshToken=${refreshToken} | userId=${userId}`)
+    // }
+    // try {
+    //     let valuesToSet = [
+    //         [ACCESS_TOKEN_FITBIT, accessToken],
+    //         [USER_ID_FITBIT, userId],
+    //         [REFRESH_TOKEN_FITBIT, refreshToken],
+    //     ].filter(([, value]) => !!value)
+    //
+    //     // console.log('attempting to persist these values:', JSON.stringify(valuesToSet))
+    //
+    //     let response = await AsyncStorage.multiSet(valuesToSet)
+    //     // console.log('response from setting tokens', response)
+    //     LATEST_ACCESS_TOKEN = accessToken
+    //     LAST_REFRESH_DATE = new Date().getTime()
+    //     return true
+    // } catch (e) {
+    //     console.warn('failed to persist fitbit credentials', e)
+    //     return false
+    // }
 }
 
 async function removeFitbitKeysFromStorage() {
@@ -261,8 +265,6 @@ export async function exchangeFitbitCodeForAuthToken(code) {
         let {access_token, refresh_token, expires_in, user_id, token_type} = responseJson
         try {
             await persistFitbitCredentials({accessToken: access_token, refreshToken: refresh_token, userId: user_id})
-            let fetchedToken = await AsyncStorage.getItem(ACCESS_TOKEN_FITBIT)
-            console.log(`Fetched token from storage. Are tokens equal? ${fetchedToken === access_token}. fetchedToken=${fetchedToken} | access_token=${access_token}`)
         } catch (e) {
             console.error('failed to persist fitbit credentials, continuing anyway', e)
         }

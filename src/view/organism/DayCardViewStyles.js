@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native'
 
-const imageHeight = 100
-const imageWidth = 100
+const imageHeight = 80
+const imageWidth = 80
 const cardHeight = 60
 const cardMargin = 10
 const cardPadding = 10
@@ -13,11 +13,9 @@ const yellowColor = '#fdf103'
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        flexDirection: 'column',
-        marginTop: cardMargin,
         marginBottom: cardMargin,
+        marginLeft: cardMargin,
+        marginRight: cardMargin,
         // alignItems: 'flex-start',
         // justifyContent: 'center',
     },
@@ -26,7 +24,6 @@ const styles = StyleSheet.create({
     },
     padded: {
         padding: cardPadding,
-
     },
     columns: {
         flex: 1,
@@ -41,7 +38,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     scoresContainer: {
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         flex: 1,
         flexDirection: 'row',
     },
@@ -101,14 +98,19 @@ const styles = StyleSheet.create({
     imageContainer: {
         // height: imageHeight,
         // width: imageWidth,
-        flex: .5,
-        justifyContent: 'center',
-        flexDirection: 'column',
-        alignItems: 'center',
+
+        // justifyContent: 'center',
+        // flexDirection: 'column',
+        // alignItems: 'center',
+        position: 'relative',
+        height: 200,
     },
     image: {
-        height: imageHeight,
-        width: imageWidth,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
     },
     imageEmpty: {
         borderWidth: 1,

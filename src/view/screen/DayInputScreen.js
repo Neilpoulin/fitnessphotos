@@ -30,7 +30,7 @@ import {saveDay} from 'ducks/day'
 import {getDayKey} from 'util/TimeUtil'
 import {CAMERA_SCREEN} from 'view/nav/Routes'
 import {SafeAreaView} from 'react-navigation'
-
+import {border} from 'style/GlobalStyles'
 
 class DayInput extends React.Component {
     static propTypes = {
@@ -71,6 +71,12 @@ class DayInput extends React.Component {
         steps: PropTypes.number,
         //actions
         today: PropTypes.func,
+    }
+
+    //TODO: fix the image error case for this component.
+    // Component state carries over when you change days, so this needs to get updated basedon the current values
+    state = {
+        imageError: false,
     }
 
     constructor(props) {
@@ -137,6 +143,10 @@ class DayInput extends React.Component {
         })
     }
 
+    _handleImageError() {
+        this.setState({imageError: true})
+    }
+
     render() {
         const {
             dateFormatted,
@@ -158,6 +168,9 @@ class DayInput extends React.Component {
             getWeight,
             today,
         } = this.props
+
+        const {imageError} = this.state
+
         return <SafeAreaView style={styles.container}>
             <View style={styles.topNavContainer}>
                 <View style={styles.topNav}>
@@ -202,8 +215,14 @@ class DayInput extends React.Component {
                     </View>
                 </View>
                 <View display-if={imageUri && !isEditingImage} style={styles.photoFlexbox}>
-                    <View>
-                        <Image source={{uri: imageUri}} style={{height: 210, width: 250}} resizeMode={'contain'}/>
+                    <View display-if={true}>
+                        <Image source={{uri: imageUri}}
+                            style={{height: 210, width: 250}}
+                            onError={() => this._handleImageError()}
+                            resizeMode={'contain'}/>
+                    </View>
+                    <View display-if={imageError} style={[styles.photoFlexbox, border.solid]}>
+                        <Text>Failed to load image</Text>
                     </View>
                     <View>
                         <Link title={'Change Image'} onPress={editImage}/>

@@ -4,9 +4,10 @@ import {
 } from 'service/fitbitService'
 import {
     signInWithGoogleAsync,
+    signInAsGuest as signInAsGuestFirebase,
 } from 'service/googleService'
 import {fetchGoogleAuth, fetchUserId, clearKeys} from 'service/asyncStorageService'
-import {logoutFirebase, saveGoogleAuth} from 'service/firebaseService'
+import {logoutFirebase, getCurrentUser} from 'service/firebaseService'
 import firebase from 'firebase'
 
 export const LOGIN_FITBIT_REQUEST = 'user/LOGIN_FITBIT_REQUEST'
@@ -21,6 +22,10 @@ export const LOGIN_GOOGLE_REQUEST = 'user/LOGIN_GOOGLE_REQUEST'
 export const LOGIN_GOOGLE_SUCCESS = 'user/LOGIN_GOOGLE_SUCCESS'
 export const LOGIN_GOOGLE_ERROR = 'user/LOGIN_GOOGLE_ERROR'
 
+export const LOGIN_GUEST_REQUEST = 'user/LOGIN_GUEST_REQUEST'
+export const LOGIN_GUEST_SUCCESS = 'user/LOGIN_GUEST_SUCCESS'
+export const LOGIN_GUEST_ERROR = 'user/LOGIN_GUEST_ERROR'
+
 export const LOGIN_FIREBASE_REQUEST = 'user/LOGIN_FIREBASE_REQUEST'
 export const LOGIN_FIREBASE_SUCCESS = 'user/LOGIN_FIREBASE_SUCCESS'
 export const LOGIN_FIREBASE_ERROR = 'user/LOGIN_FIREBASE_ERROR'
@@ -31,6 +36,8 @@ export const LOGOUT_SUCCESS = 'user/LOGOUT_SUCCESS'
 export const initialState = Immutable.fromJS({
     isFitbitLoading: false,
     isLoadingFirebase: false,
+    isLoadingGoogle: false,
+    isLoadingGuest: false,
     userId: null,
     firstName: null,
     lastName: null,
@@ -43,7 +50,11 @@ export const initialState = Immutable.fromJS({
         refreshToken: null,
         isLoggedIn: false,
     },
-    isLoadingGoogle: false,
+    google: {},
+    guest: {},
+    error: null,
+    providerData: [],
+    isAnonymous: false,
 })
 
 export default function reducer(state = initialState, action) {
@@ -67,6 +78,17 @@ export default function reducer(state = initialState, action) {
         case FITBIT_LOGIN_REQUIRED:
             state = state.setIn(['fitbit', 'isLoggedIn'], false)
             break
+        case LOGIN_GUEST_REQUEST:
+            state = state.set('isLoadingGuest', true)
+            break
+        case LOGIN_GUEST_SUCCESS:
+            state = state.set('isLoadingGuest', false)
+            state = state.set('guest', action.payload)
+            break
+        case LOGIN_GUEST_ERROR:
+            state = state.set('isLoadingGuest', false)
+            state = state.setIn(['guest', 'error'], Immutable.fromJS(action.error))
+            break
         case LOGIN_GOOGLE_REQUEST:
             state = state.set('isLoadingGoogle', true)
             break
@@ -77,7 +99,7 @@ export default function reducer(state = initialState, action) {
             state = state.set('lastName', action.payload.getIn(['user', 'familyName']))
             break
         case LOGIN_GOOGLE_ERROR:
-            state = state.setIn(['google', 'error'], action.error)
+            state = state.setIn(['google', 'error'], Immutable.fromJS(action.error))
             state = state.set('isLoadingGoogle', false)
             break
         case LOGIN_FIREBASE_REQUEST:
@@ -90,6 +112,13 @@ export default function reducer(state = initialState, action) {
             state = state.set('email', action.user.email)
             state = state.set('photoURL', action.user.photoURL)
             state = state.set('userId', action.user.uid)
+            state = state.set('providerData', action.user.providerData)
+            state = state.set('isAnonymous', action.user.isAnonymous)
+            //TODO: this needs to happen separately since fitbit login isn't on the user object
+            // if (action.user.fitbitAuth) {
+            //     state = state.set('fitbit', Immutable.fromJS(action.payload.user.fitbitAuth))
+            //     state = state.setIn(['fitbit', 'isLoggedIn'], true)
+            // }
             break
         case LOGIN_FIREBASE_NO_USER:
             state = state.set('isLoadingFirebase', false)
@@ -180,6 +209,36 @@ export function logout() {
     }
 }
 
+export function loginAsGuest() {
+    return async dispatch => {
+        dispatch({
+            type: LOGIN_GUEST_REQUEST,
+        })
+        const guestAuth = await signInAsGuestFirebase()
+        if (guestAuth.error) {
+            console.error('something went wrong logging in as guest', guestAuth.error)
+            dispatch({type: LOGIN_GUEST_ERROR, error: guestAuth.error})
+        }
+        else {
+            dispatch({type: LOGIN_GUEST_SUCCESS, payload: guestAuth})
+        }
+
+    }
+}
+
+function errorToJSON(error) {
+    let json = error
+    if (error.toJSON) {
+        try {
+            json = error.toJSON()
+        }
+        catch (jsonError) {
+            console.log('can not call toJSON on this error', jsonError)
+        }
+    }
+    return json
+}
+
 export function loginWithGoogle() {
     console.log('starting google login flow')
     return async dispatch => {
@@ -189,20 +248,37 @@ export function loginWithGoogle() {
         })
         try {
             const googleAuth = await signInWithGoogleAsync()
-            if (googleAuth.error) {
-                console.error('something went wrong logging in with google', googleAuth.error)
+            if (googleAuth && googleAuth.error) {
+                switch (googleAuth.error.code) {
+                    case 'auth/credential-already-in-use':
+                        console.warn('auth credential in use already')
+                        dispatch({
+                            type: LOGIN_GOOGLE_ERROR,
+                            error: errorToJSON(googleAuth.error.toJSON()),
+                        })
+                        break
+                    default:
+                        console.error('something went wrong logging in with google', googleAuth.error)
+                        dispatch({
+                            type: LOGIN_GOOGLE_ERROR,
+                            error: errorToJSON(googleAuth.error.toJSON()),
+                        })
+                        break
+                }
+                return
             }
+            const currentUser = getCurrentUser()
             const {accessToken, idToken, user, refreshToken, serverAuthCode, uid} = googleAuth
             dispatch({
                 type: LOGIN_GOOGLE_SUCCESS,
-                payload: {accessToken, idToken, user, refreshToken, serverAuthCode, uid},
+                payload: {accessToken, idToken, user: user || currentUser, refreshToken, serverAuthCode, uid},
             })
             console.log('signed in with google successfully', googleAuth)
         } catch (e) {
             console.error('failed to login with google', e)
             dispatch({
                 type: LOGIN_GOOGLE_ERROR,
-                error: e,
+                error: errorToJSON(e),
             })
         }
     }
