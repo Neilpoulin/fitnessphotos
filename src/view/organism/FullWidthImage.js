@@ -32,10 +32,10 @@ export default class FullWidthImage extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-        if (this.containerWidth && newProps.dimensions && newProps.dimensions.width) {
+        if (this.containerWidth && newProps && newProps.dimensions && newProps.dimensions.width) {
             this.setState({
                 width: this.containerWidth,
-                height: this.containerWidth * this.props.dimensions.height / this.props.dimensions.width,
+                height: this.containerWidth * newProps.dimensions.height / newProps.dimensions.width,
             })
         }
     }

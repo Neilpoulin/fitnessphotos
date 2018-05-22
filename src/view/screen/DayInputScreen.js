@@ -4,7 +4,7 @@ import {
     View,
     Text,
     Image,
-    ActivityIndicator,
+    ImageEditor,
 } from 'react-native'
 import Immutable from 'immutable'
 import {Button, Slider} from 'react-native-elements'
@@ -391,7 +391,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             console.log('image error', error)
             dispatch(setImageLoadError(error))
         },
-        setPhoto: (photo) => {
+        setPhoto: async (photo) => {
             console.log('setting the photo into state', photo)
             dispatch(setImage(photo))
             dispatch(uploadImage(photo))
