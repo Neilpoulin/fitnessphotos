@@ -43,6 +43,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
     },
+
     buttonContainer: {
         marginBottom: 20,
     },

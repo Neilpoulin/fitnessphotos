@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native'
+import {getViewWidth} from 'style/GlobalStyles'
 
 const imageHeight = 80
 const imageWidth = 80
@@ -10,6 +11,30 @@ const circleDiameter = 50
 const redColor = '#ef1c27'
 const greenColor = '#19a45d'
 const yellowColor = '#fdf103'
+
+
+export function getCardWidth() {
+    const windowWidth = getViewWidth()
+    console.log('window width', windowWidth)
+    return windowWidth - 2 * cardMargin
+}
+
+export function getScaledImageSize(imageSizes) {
+    let width = getCardWidth()
+    if (!imageSizes) {
+        return {
+            width,
+            height: width,
+        }
+    }
+
+
+    let scaling = width / imageSizes.width
+    return {
+        width,
+        height: Math.ceil(imageSizes.height * scaling),
+    }
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -104,17 +129,17 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         position: 'relative',
         // height: 400,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        // flex: 1,
         backgroundColor: 'red',
     },
     image: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
+        // position: 'absolute',
+        // top: 0,
+        // left: 0,
+        // bottom: 0,
+        // right: 0,
     },
     imageEmpty: {
         borderWidth: 1,

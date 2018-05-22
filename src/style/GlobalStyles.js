@@ -1,12 +1,15 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet, Dimensions} from 'react-native'
 
 export const textLightColor = '#75716C'
+export const textDarkColor = '#191919'
 export const textSuccessColor = '#3d9a00'
+export const textWhite = '#FFFFFF'
 export const shadowColor = textLightColor
 export const cardBackgroundColor = '#fff'
 export const borderColor = textLightColor
 export const cardBorderRadius = 6
 export const cardViewActiveOpacity = .8
+
 
 export const containers = StyleSheet.create({
     verticalCenterContainer: {
@@ -15,6 +18,11 @@ export const containers = StyleSheet.create({
         justifyContent: 'center',
     },
 })
+
+export function getViewWidth() {
+    const windowWidth = Dimensions.get('window').width
+    return windowWidth
+}
 
 export const cardView = StyleSheet.create({
     container: {

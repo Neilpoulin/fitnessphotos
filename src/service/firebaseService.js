@@ -146,7 +146,7 @@ export async function saveFitbitAuth(fitbitAuth) {
     }
 }
 
-export async function uploadImage({uri}) {
+export async function uploadImage({uri, filename, onProgress}) {
     const response = await fetch(uri)
     const blob = await response.blob()
     const user = getCurrentUser()
@@ -154,11 +154,33 @@ export async function uploadImage({uri}) {
         return {error: 'you must be logged in to upload images'}
     }
 
+    const name = filename || uuid.v4() + '.jpg'
+
     const ref = firebase
         .storage()
         .ref()
-        .child(`${user.uid}/${uuid.v4()}`)
+        .child(`${user.uid}/${name}`)
+    try {
+        const downloadURL = await ref.getDownloadURL()
+        if (downloadURL) {
+            console.log('fire already has been uploaded, reusing it', downloadURL)
+            return {success: true, downloadURL}
+        }
 
-    const snapshot = await ref.put(blob)
-    return {success: true, downloadURL: snapshot.downloadURL}
+    } catch (e) {
+        console.log('no metadata exists, uplaoding file', e)
+    }
+    let uploadTask = ref.put(blob)
+    uploadTask.on('state_changed', (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        if (onProgress) {
+            onProgress(progress)
+        }
+        console.log('state changed during image upload. Progress: ', progress)
+    })
+
+    const completedTask = await uploadTask
+    return {success: true, downloadURL: completedTask.downloadURL}
+
+
 }

@@ -32,8 +32,17 @@ import {saveDay} from 'ducks/day'
 import {getDayKey} from 'util/TimeUtil'
 import {CAMERA_SCREEN} from 'view/nav/Routes'
 import {SafeAreaView} from 'react-navigation'
-import {containers, border, textLightColor} from 'style/GlobalStyles'
+import {
+    containers,
+    border,
+    textLightColor,
+    cardBackgroundColor,
+    textWhite,
+    textSuccessColor,
+    textDarkColor,
+} from 'style/GlobalStyles'
 import LoadingIndicator from 'view/organism/LoadingIndicator'
+import Progress from 'view/organism/Progress'
 
 class DayInput extends React.Component {
     static propTypes = {
@@ -78,6 +87,7 @@ class DayInput extends React.Component {
         imageDownloadURL: PropTypes.string,
         imageLoadError: PropTypes.bool,
         isLoading: PropTypes.bool,
+        imageUploadProgress: PropTypes.number,
         //actions
         today: PropTypes.func,
         setImageError: PropTypes.func,
@@ -123,18 +133,21 @@ class DayInput extends React.Component {
             let height = result.height
             let width = result.width
             // let imageId = uuid.v4()
+            let parts = from ? from.split('/') : []
+            let filename = null
+            if (!parts.length > 0) {
+                return
+            } else {
+                filename = parts[parts.length - 1]
+            }
 
             return imageSetter({
                 uri: from,
                 height,
                 width,
+                filename,
             })
 
-            // let parts = from ? from.split('/') : []
-            // if (!parts.length > 0) {
-            //     return
-            // }
-            // let filename = parts[parts.length - 1]
 
             // let to = `${FileSystem.documentDirectory}photos/${imageId}-${filename}`
             // FileSystem.copyAsync({
@@ -190,6 +203,7 @@ class DayInput extends React.Component {
             uploadError,
             imageDownloadURL,
             isLoading,
+            imageUploadProgress,
             //actions
             save,
             dayKey,
@@ -246,17 +260,34 @@ class DayInput extends React.Component {
                     </View>
                 </View>
                 <View display-if={imageUri && !isEditingImage} style={styles.photoFlexbox}>
-                    <View display-if={true}>
+                    <View display-if={!imageLoadError}>
                         <Image source={{uri: imageUri}}
                             style={{height: 210, width: 250}}
                             onError={() => this._handleImageError()}
                             resizeMode={'contain'}/>
+                        <View display-if={isUploading} style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            display: 'flex',
+                            backgroundColor: 'rgba(255, 255, 255, .6)',
+                            justifyContent: 'center',
+                        }}>
+
+                            <View style={{
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                marginBottom: 15,
+                            }}>
+                                <LoadingIndicator text={'Uploading Image...'} inline={true} color={textDarkColor}/>
+                            </View>
+
+                            <Progress progress={imageUploadProgress} trackTintColor={textDarkColor} progressTintColor={textSuccessColor}/>
+                        </View>
                     </View>
 
-                    <View display-if={isUploading}>
-                        <ActivityIndicator size={'small'}/>
-                        <Text>Uploading image...</Text>
-                    </View>
 
                     <View display-if={imageLoadError} style={[border.solid]}>
                         <Text>Failed to load image</Text>
@@ -336,6 +367,7 @@ const mapStateToProps = (state, ownProps) => {
         uploadError: uploadInfo.get('imageUploadError', null),
         imageDownloadURL: uploadInfo.get('imageDownloadURL', null),
         imageLoadError: dayState.get('imageLoadError', false),
+        imageUploadProgress: page.get('imageUploadProgress', 0),
     }
 }
 

@@ -59,8 +59,8 @@ export default function reducer(state = initialState, action) {
             state = state.set('imageUri', action.payload ? action.payload.get('uri') : null)
             state = state.set('imageLoadError', null)
             if (action.payload) {
-                state = state.setIn(['imageSize', 'height'], action.payload.get('height'))
-                state = state.setIn(['imageSize', 'width'], action.payload.get('width'))
+                state = state.setIn(['imageSize', 'height'], action.payload.get('height', 0))
+                state = state.setIn(['imageSize', 'width'], action.payload.get('width', 0))
             }
             break
         case SET_IMAGE_LOAD_ERROR:
@@ -110,14 +110,20 @@ export function saveDay(dayKey) {
         let userId = await getUserId(state)
         console.log('found user id', userId)
         let dayState = getDayState(state, {dayKey})
+        let imageSize = dayState.get('imageSize', Immutable.Map({})).toJS()
+        if (!imageSize || !imageSize.width || !imageSize.height) {
+            imageSize = {}
+        }
         const dayData = {
             dayKey,
             scores: dayState.get('scores').toJS(),
             weight: dayState.get('weight'),
             steps: dayState.get('steps'),
             imageUri: dayState.get('imageUri'),
-            imageSize: dayState.get('imageSize', Immutable.Map({})).toJS(),
+            imageSize,
         }
+
+
         console.log('saving day', dayData)
         dispatch({type: SAVE_REQUEST, dayKey})
         saveDayFirebase(dayData, userId).then(response => {

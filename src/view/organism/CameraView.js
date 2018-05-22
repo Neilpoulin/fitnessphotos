@@ -1,11 +1,11 @@
-import {Constants, Camera, FileSystem} from 'expo';
-import React from 'react';
+import {Constants, Camera, FileSystem} from 'expo'
+import React from 'react'
 import PropTypes from 'prop-types'
-import {StyleSheet, Text, View, TouchableOpacity, Slider, Vibration} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Slider, Vibration} from 'react-native'
 import uuid from 'uuid'
 
-export const landmarkSize = 2;
-import Ionicons from 'react-native-vector-icons/Ionicons';
+export const landmarkSize = 2
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from './CameraViewStyle'
 
@@ -15,7 +15,7 @@ const flashModeOrder = {
     on: 'auto',
     auto: 'torch',
     torch: 'off',
-};
+}
 
 const wbOrder = {
     auto: 'sunny',
@@ -24,7 +24,7 @@ const wbOrder = {
     shadow: 'fluorescent',
     fluorescent: 'incandescent',
     incandescent: 'auto',
-};
+}
 
 export default class CameraView extends React.Component {
     state = {
@@ -38,8 +38,8 @@ export default class CameraView extends React.Component {
         ratios: [],
         photos: [],
         faces: [],
-        photoId: uuid.v4()
-    };
+        photoId: uuid.v4(),
+    }
 
     static propTypes = {
         onClose: PropTypes.func,
@@ -65,84 +65,84 @@ export default class CameraView extends React.Component {
     }
 
     getRatios = async function () {
-        const ratios = await this.camera.getSupportedRatios();
-        return ratios;
-    };
+        const ratios = await this.camera.getSupportedRatios()
+        return ratios
+    }
 
     toggleFacing() {
         this.setState({
             type: this.state.type === 'back' ? 'front' : 'back',
-        });
+        })
     }
 
     toggleFlash() {
         this.setState({
             flash: flashModeOrder[this.state.flash],
-        });
+        })
     }
 
     setRatio(ratio) {
         this.setState({
             ratio,
-        });
+        })
     }
 
     toggleWB() {
         this.setState({
             whiteBalance: wbOrder[this.state.whiteBalance],
-        });
+        })
     }
 
     toggleFocus() {
         this.setState({
             autoFocus: this.state.autoFocus === 'on' ? 'off' : 'on',
-        });
+        })
     }
 
     zoomOut() {
         this.setState({
             zoom: this.state.zoom - 0.1 < 0 ? 0 : this.state.zoom - 0.1,
-        });
+        })
     }
 
     zoomIn() {
         this.setState({
             zoom: this.state.zoom + 0.1 > 1 ? 1 : this.state.zoom + 0.1,
-        });
+        })
     }
 
     setFocusDepth(depth) {
         this.setState({
             depth,
-        });
+        })
     }
 
     takePicture = async function () {
         if (this.camera) {
-            let handler = this.props.handlePhoto;
+            let handler = this.props.handlePhoto
             const toUri = `${FileSystem.documentDirectory}photos/Photo_${this.state.photoId}.jpg`
             this.camera.takePictureAsync().then(data => {
                 FileSystem.moveAsync({
                     from: data.uri,
                     to: toUri,
                 }).then(() => {
-                    console.log('saved image', data);
+                    console.log('saved image', data)
                     if (handler) {
                         handler({uri: toUri})
                     }
 
                     this.setState({
                         photoId: uuid.v4(),
-                    });
-                    Vibration.vibrate();
+                    })
+                    Vibration.vibrate()
                     this._handleClose()
-                });
-            });
+                })
+            })
         }
-    };
+    }
 
-    onFacesDetected = ({faces}) => this.setState({faces});
-    onFaceDetectionError = state => console.warn('Faces detection error:', state);
+    onFacesDetected = ({faces}) => this.setState({faces})
+    onFaceDetectionError = state => console.warn('Faces detection error:', state)
 
     renderFace({bounds, faceID, rollAngle, yawAngle}) {
         return (
@@ -165,7 +165,7 @@ export default class CameraView extends React.Component {
                 <Text style={styles.faceText}>rollAngle: {rollAngle.toFixed(0)}</Text>
                 <Text style={styles.faceText}>yawAngle: {yawAngle.toFixed(0)}</Text>
             </View>
-        );
+        )
     }
 
     renderLandmarksOfFace(face) {
@@ -180,7 +180,7 @@ export default class CameraView extends React.Component {
                         },
                     ]}
                 />
-            );
+            )
         return (
             <View key={`landmarks-${face.faceID}`}>
                 {renderLandmark(face.leftEyePosition)}
@@ -195,7 +195,7 @@ export default class CameraView extends React.Component {
                 {renderLandmark(face.noseBasePosition)}
                 {renderLandmark(face.bottomMouthPosition)}
             </View>
-        );
+        )
     }
 
     renderFaces() {
@@ -203,7 +203,7 @@ export default class CameraView extends React.Component {
             <View style={styles.facesContainer} pointerEvents="none">
                 {this.state.faces.map(this.renderFace)}
             </View>
-        );
+        )
     }
 
     renderLandmarks() {
@@ -211,36 +211,36 @@ export default class CameraView extends React.Component {
             <View style={styles.facesContainer} pointerEvents="none">
                 {this.state.faces.map(this.renderLandmarksOfFace)}
             </View>
-        );
+        )
     }
 
     getFlashIconName() {
-        let iconName = 'flash';
+        let iconName = 'flash'
         switch (this.state.flash) {
             case 'on':
-                iconName = 'flash';
-                break;
+                iconName = 'flash'
+                break
             case 'off':
-                iconName = 'flash-off';
-                break;
+                iconName = 'flash-off'
+                break
             case 'torch':
-                iconName = 'flashlight';
-                break;
+                iconName = 'flashlight'
+                break
             case 'auto':
-                iconName = 'flash-auto';
-                break;
+                iconName = 'flash-auto'
+                break
             default:
-                break;
+                break
         }
 
-        return iconName;
+        return iconName
     }
 
     renderCamera() {
         return (
             <Camera
                 ref={ref => {
-                    this.camera = ref;
+                    this.camera = ref
                 }}
                 style={{
                     flex: 1,
@@ -331,7 +331,7 @@ export default class CameraView extends React.Component {
                 {this.renderFaces()}
                 {this.renderLandmarks()}
             </Camera>
-        );
+        )
     }
 
     render() {
@@ -339,6 +339,6 @@ export default class CameraView extends React.Component {
             <View style={styles.container}>
                 {this.renderCamera()}
             </View>
-        );
+        )
     }
 }

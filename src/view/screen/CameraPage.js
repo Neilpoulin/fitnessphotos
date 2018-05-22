@@ -39,15 +39,13 @@ export default class CameraPage extends React.Component {
         } else {
 
             return (
-                <SafeAreaView style={{flex: 1}}>
-                    <CameraView
-                        handlePhoto={navParams.handlePhoto}
-                        onClose={() => {
-                            console.log('going back')
-                            navigation.goBack()
-                        }}
-                    />
-                </SafeAreaView>
+                <CameraView
+                    handlePhoto={navParams.handlePhoto}
+                    onClose={() => {
+                        console.log('going back')
+                        navigation.goBack()
+                    }}
+                />
             )
         }
     }

@@ -13,18 +13,22 @@ class LoadingIndicator extends React.Component {
         text: PropTypes.string,
         size: PropTypes.oneOf(['small', 'large']),
         color: PropTypes.string,
+        inline: PropTypes.bool,
     }
 
     static defaultProps = {
         color: textLightColor,
+        inline: false,
     }
 
     render() {
-        const {text, color, size} = this.props
-        return <View style={styles.verticalCenterContainer}>
+        const {text, color, size, inline} = this.props
+        let style = inline ? [styles.horizontalCenter] : [styles.verticalCenterContainer]
+
+        return <View style={style}>
             <ActivityIndicator size={size} color={color}/>
             <Text display-if={text} style={[styles.centerAlignText, {
-                color: textLightColor,
+                color: color,
                 fontSize: 15,
             }]}>{text}</Text>
         </View>

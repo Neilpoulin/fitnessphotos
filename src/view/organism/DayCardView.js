@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     TouchableHighlight,
 } from 'react-native'
-import {cardBackgroundColor, cardView, cardViewActiveOpacity} from 'style/GlobalStyles'
+import {cardBackgroundColor, cardView, cardViewActiveOpacity, getViewWidth} from 'style/GlobalStyles'
 import {propTypes as dayPropTypes} from 'ducks/day'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -14,6 +14,9 @@ import {formatDayOfWeekShort} from 'util/TimeUtil'
 import styles from './DayCardViewStyles'
 import {SET_DATE} from '../../ducks/dayInput'
 import {DAY_INPUT_SCREEN} from 'view/nav/Routes'
+import {getCardWidth, getScaledImageSize} from 'view/organism/DayCardViewStyles'
+import FullWidthImage from 'view/organism/FullWidthImage'
+import {getDayState} from 'selector/daySelector'
 
 class DayCardView extends React.Component {
     static propTypes = {
@@ -42,7 +45,6 @@ class DayCardView extends React.Component {
         } = this.props
 
         const {
-            imageError,
             isPressed,
         } = this.state
 
@@ -58,14 +60,12 @@ class DayCardView extends React.Component {
                 <View style={[styles.padded]}>
                     <Text style={styles.title}>{formatDayOfWeekShort(day.dayKey, false)}</Text>
                 </View>
-                <View style={styles.imageContainer} display-if={day.imageUri && !imageError}>
-                    <Image
-                        source={{uri: day.imageUri}}
-                        style={[styles.image, day.imageSize ? {} : {}]}
-                        resizeMode={'contain'}
-                        onError={() => this._handleImageError()}
-                    />
-                </View>
+                <FullWidthImage
+                    display-if={day.imageUri}
+                    source={{uri: day.imageUri}}
+                    dimensions={day.imageSize}
+                    onError={() => this._handleImageError()}
+                />
                 <View style={[styles.rows, styles.padded]}>
                     <View style={styles.columns}>
                         <View style={[styles.columns, styles.scoresContainer]}>
@@ -106,14 +106,17 @@ class DayCardView extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-
-    return {}
+    const {dayKey} = ownProps
+    const dayState = getDayState(state, {dayKey})
+    return {
+        day: dayState.toJS(),
+    }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         editDay: () => {
-            let dayKey = ownProps.day.dayKey
+            let dayKey = ownProps.dayKey
             dispatch({
                 type: SET_DATE,
                 dayKey,

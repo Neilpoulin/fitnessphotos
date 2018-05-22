@@ -22,6 +22,7 @@ export const FETCH_FITBIT_ACTIVITY_ERROR = 'dayInput/FETCH_FITBIT_ACTIVITY_ERROR
 export const UPLOAD_IMAGE_REQUEST = 'dayInput/UPLOAD_IMAGE_REQUEST'
 export const UPLOAD_IMAGE_SUCCESS = 'dayInput/UPLOAD_IMAGE_SUCCESS'
 export const UPLOAD_IMAGE_ERROR = 'dayInput/UPLOAD_IMAGE_ERROR'
+export const UPLOAD_IMAGE_PROGRESS = 'dayInput/UPLOAD_IMAGE_PROGRESS'
 
 const initialState = Immutable.fromJS({
     date: (new Date()).getTime(),
@@ -34,6 +35,7 @@ const initialState = Immutable.fromJS({
     imageUploadSuccess: false,
     imageUploadError: null,
     imageDownloadURL: null,
+    imageUploadProgress: 0,
     activity: {
         fitbit: {
             loading: false,
@@ -68,6 +70,7 @@ export default function reducer(state = initialState, action) {
         case UPLOAD_IMAGE_REQUEST:
             state = state.set('imageIsUploading', true)
             state = state.set('imageUploadSuccess', false)
+            state = state.set('imageUploadProgress', 0)
             break
         case UPLOAD_IMAGE_SUCCESS:
             state = state.set('imageIsUploading', false)
@@ -77,6 +80,10 @@ export default function reducer(state = initialState, action) {
             state = state.set('imageIsUploading', false)
             state = state.set('imageUploadSuccess', false)
             state = state.set('imageUploadError', action.payload.get('error'))
+            state = state.set('imageUploadProgress', 0)
+            break
+        case UPLOAD_IMAGE_PROGRESS:
+            state = state.set('imageUploadProgress', action.payload.get('progress'))
             break
         default:
             break
@@ -174,13 +181,17 @@ export function setFoodScore(score) {
     return setScore({type: 'food', score})
 }
 
-export function uploadImage({uri, height, width}) {
+export function uploadImage({uri, height, width, filename}) {
     return async (dispatch) => {
         dispatch({
             type: UPLOAD_IMAGE_REQUEST, payload: {uri},
         })
         try {
-            const response = await uploadToFirebase({uri})
+            const response = await uploadToFirebase({
+                uri,
+                filename,
+                onProgress: (progress) => dispatch({type: UPLOAD_IMAGE_PROGRESS, payload: {progress}}),
+            })
             if (response.success) {
                 dispatch({
                     type: UPLOAD_IMAGE_SUCCESS, payload: {uri, ...response},

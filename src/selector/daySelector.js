@@ -4,13 +4,18 @@ import {initialState as dayDefault} from 'ducks/day'
 export function getAllDaysList(state, toJs = true) {
     const days = state.days.get('daysByKey').toList()
         .filter(day => day.get('dayKey') != null)
-        .sortBy(day => getTimeStampFromDayKey(day.get('dayKey')))
-        .reverse()
+        .sortBy(day => getTimeStampFromDayKey(day.get('dayKey')), (a, b) => b - a)
     if (toJs) {
         return days.toJS()
     }
     return days
 
+}
+
+export function getAllDayKeys(state) {
+    return state.days.get('daysByKey').keySeq()
+        .sortBy(dayKey => getTimeStampFromDayKey(dayKey), (a, b) => b - a)
+        .toArray()
 }
 
 export function getDayState(state, {date, dayKey}) {

@@ -13,6 +13,10 @@ export default StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
     },
+    horizontalCenter: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     centerAlignText: {
         textAlign: 'center',
     },
