@@ -1,17 +1,14 @@
 import Immutable from 'immutable'
 import moment from 'moment'
-import FetchError from 'service/FetchError'
 import {getDayKey, getTimeStampFromDayKey} from 'util/TimeUtil'
-import {SET_SCORE, SET_IMAGE, saveDay, SET_WEIGHT} from './day'
+import {saveDay, SET_IMAGE, SET_SCORE} from './day'
 import {loadDay} from './days'
-import {getDayState, getScore} from 'selector/daySelector'
-import {getCurrentDayKey} from 'selector/dayInputSelector'
-import {fetchActivityForDay} from 'service/fitbitService'
 // import {fetchWeightForDay} from 'service/fitbitService'
 // import {FITBIT_LOGIN_REQUIRED} from './user'
-import {getWeight, getSteps} from 'selector/daySelector'
-
-import {SET_STEPS} from 'ducks/day'
+import {getScore, getSteps} from 'selector/daySelector'
+import {getCurrentDayKey} from 'selector/dayInputSelector'
+import {uploadImage as uploadToFirebase} from 'service/firebaseService'
+import {SET_IMAGE_LOAD_ERROR} from 'ducks/day'
 
 export const SET_DATE = 'dayInput/SET_DATE'
 export const SET_DAY_KEY = 'dayInput/SET_DAY_KEY'
@@ -22,6 +19,10 @@ export const FETCH_FITBIT_ACTIVITY_REQUEST = 'dayInput/FETCH_FITBIT_ACTIVITY_REQ
 export const FETCH_FITBIT_ACTIVITY_SUCCESS = 'dayInput/FETCH_FITBIT_ACTIVITY_SUCCESS'
 export const FETCH_FITBIT_ACTIVITY_ERROR = 'dayInput/FETCH_FITBIT_ACTIVITY_ERROR'
 
+export const UPLOAD_IMAGE_REQUEST = 'dayInput/UPLOAD_IMAGE_REQUEST'
+export const UPLOAD_IMAGE_SUCCESS = 'dayInput/UPLOAD_IMAGE_SUCCESS'
+export const UPLOAD_IMAGE_ERROR = 'dayInput/UPLOAD_IMAGE_ERROR'
+
 const initialState = Immutable.fromJS({
     date: (new Date()).getTime(),
     scores: {
@@ -29,6 +30,10 @@ const initialState = Immutable.fromJS({
         body: null,
         food: null,
     },
+    imageIsUploading: false,
+    imageUploadSuccess: false,
+    imageUploadError: null,
+    imageDownloadURL: null,
     activity: {
         fitbit: {
             loading: false,
@@ -59,6 +64,19 @@ export default function reducer(state = initialState, action) {
         case FETCH_FITBIT_ACTIVITY_SUCCESS:
             state = state.setIn(['activity', 'fitbit'], action.payload)
             state = state.setIn(['activity', 'fitbit', 'loading'], false)
+            break
+        case UPLOAD_IMAGE_REQUEST:
+            state = state.set('imageIsUploading', true)
+            state = state.set('imageUploadSuccess', false)
+            break
+        case UPLOAD_IMAGE_SUCCESS:
+            state = state.set('imageIsUploading', false)
+            state = state.set('imageDownloadURL', action.payload.get('downloadURL'))
+            break
+        case UPLOAD_IMAGE_ERROR:
+            state = state.set('imageIsUploading', false)
+            state = state.set('imageUploadSuccess', false)
+            state = state.set('imageUploadError', action.payload.get('error'))
             break
         default:
             break
@@ -112,6 +130,14 @@ export function goToToday() {
     }
 }
 
+export function setImageLoadError(error) {
+    return (dispatch, getState) => {
+        const state = getState()
+        let dayKey = getCurrentDayKey(state)
+        dispatch({type: SET_IMAGE_LOAD_ERROR, dayKey, payload: {error: error}})
+    }
+}
+
 function setScore({type, score}) {
     return (dispatch, getState) => {
         const state = getState()
@@ -148,13 +174,42 @@ export function setFoodScore(score) {
     return setScore({type: 'food', score})
 }
 
-export function setImage({uri}) {
+export function uploadImage({uri, height, width}) {
+    return async (dispatch) => {
+        dispatch({
+            type: UPLOAD_IMAGE_REQUEST, payload: {uri},
+        })
+        try {
+            const response = await uploadToFirebase({uri})
+            if (response.success) {
+                dispatch({
+                    type: UPLOAD_IMAGE_SUCCESS, payload: {uri, ...response},
+                })
+                dispatch(setImage({uri: response.downloadURL, height, width}))
+                // dispatch(save())
+            } else {
+                dispatch({
+                    type: UPLOAD_IMAGE_ERROR,
+                    payload: {
+                        uri, ...response,
+                    },
+                })
+            }
+        } catch (e) {
+            dispatch({
+                type: UPLOAD_IMAGE_ERROR, payload: {uri, error: e},
+            })
+        }
+    }
+}
+
+export function setImage({uri, height, width}) {
     return (dispatch, getState) => {
         let dayKey = getDayKey(getState().dayInput.get('date'))
         dispatch({
             type: SET_IMAGE,
             dayKey,
-            payload: {uri},
+            payload: {uri, height, width},
         })
         dispatch(save())
     }

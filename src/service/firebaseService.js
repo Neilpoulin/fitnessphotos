@@ -12,6 +12,7 @@ import {
     FIREBASE_PROJECT_ID,
     FIREBASE_STORAGE_BUCKET,
 } from 'react-native-dotenv'
+import uuid from 'uuid'
 
 export function initializeFirebase() {
     return async dispatch => {
@@ -45,7 +46,7 @@ export function initializeFirebase() {
 
 }
 
-export async function saveDay({dayKey, steps, scores, weight, imageUri}, userId) {
+export async function saveDay({dayKey, steps, scores, weight, imageUri, imageSize}, userId) {
     console.log('saving day key to firebase', dayKey, 'for userid ', userId)
     return firebase.firestore()
         .collection('users')
@@ -57,6 +58,7 @@ export async function saveDay({dayKey, steps, scores, weight, imageUri}, userId)
             scores,
             weight,
             imageUri,
+            imageSize,
             userId: userId,
         }, {merge: true})
 }
@@ -142,4 +144,21 @@ export async function saveFitbitAuth(fitbitAuth) {
         console.error('failed to persist fitbit auth', e)
         return false
     }
+}
+
+export async function uploadImage({uri}) {
+    const response = await fetch(uri)
+    const blob = await response.blob()
+    const user = getCurrentUser()
+    if (!user) {
+        return {error: 'you must be logged in to upload images'}
+    }
+
+    const ref = firebase
+        .storage()
+        .ref()
+        .child(`${user.uid}/${uuid.v4()}`)
+
+    const snapshot = await ref.put(blob)
+    return {success: true, downloadURL: snapshot.downloadURL}
 }

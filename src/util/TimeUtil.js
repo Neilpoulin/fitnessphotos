@@ -15,7 +15,7 @@ export function formatDayOfWeekShort(date, showYear = false) {
     if (showYear) {
         return moment(date).format('dd, M D, YYYY')
     }
-    return moment(date).format('ddd, MMM D')
+    return moment(date).format('dddd, MMM D')
 }
 
 export function getDayKey(date) {

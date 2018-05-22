@@ -103,7 +103,11 @@ const styles = StyleSheet.create({
         // flexDirection: 'column',
         // alignItems: 'center',
         position: 'relative',
-        height: 200,
+        // height: 400,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        backgroundColor: 'red',
     },
     image: {
         position: 'absolute',

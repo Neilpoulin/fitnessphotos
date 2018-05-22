@@ -4,6 +4,7 @@ import {
     Text,
     FlatList,
     ActivityIndicator,
+    RefreshControl,
 } from 'react-native'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -15,6 +16,7 @@ import {SafeAreaView} from 'react-navigation'
 import {textLightColor} from 'style/GlobalStyles'
 import {Button} from 'react-native-elements'
 import {DAY_INPUT_SCREEN} from 'view/nav/Routes'
+import LoadingIndicator from 'view/organism/LoadingIndicator'
 
 class FeedScreen extends React.Component {
     static propTypes = {
@@ -24,6 +26,18 @@ class FeedScreen extends React.Component {
         //actions
         load: PropTypes.func,
     }
+
+    state = {
+        refreshing: false,
+    }
+
+    _onRefresh() {
+        this.setState({refreshing: true})
+        this.props.load().then(() => {
+            this.setState({refreshing: false})
+        })
+    }
+
 
     componentWillMount() {
         this.props.load()
@@ -36,16 +50,20 @@ class FeedScreen extends React.Component {
             isLoading,
         } = this.props
         return <SafeAreaView style={styles.container}>
-            <View display-if={isLoading} style={styles.verticalCenterContainer}>
-                <ActivityIndicator size={'small'} color={textLightColor}/>
-                <Text style={[styles.centerAlignText, {color: textLightColor, fontSize: 15}]}>Loading Feed</Text>
-            </View>
 
-            <FlatList display-if={days && days.length > 0 && !isLoading}
+            <LoadingIndicator size={'small'} text={'Loading Feed'} display-if={(!days || !days.length) && isLoading && !this.state.refreshing}/>
+
+            <FlatList display-if={days && days.length}
                 style={{padding: 10}}
                 data={days || []}
                 renderItem={({item}) => <DayCardView navigation={navigation} day={item}/>}
                 keyExtractor={(item, index) => `${index}`}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={this.state.refreshing}
+                        onRefresh={this._onRefresh.bind(this)}
+                    />
+                }
             />
             <View display-if={!isLoading && (!days || days.length === 0)} style={[styles.verticalCenterContainer, styles.emptyStateContainer]}>
                 <Text style={[styles.centerAlignText]}>You have no activity yet</Text>
@@ -68,7 +86,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         load: async () => {
-            dispatch(await loadAll())
+            return await dispatch(await loadAll())
         },
     }
 }

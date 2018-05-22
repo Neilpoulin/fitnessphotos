@@ -18,6 +18,8 @@ export const SET_IMAGE = 'day/SET_IMAGE'
 export const SET_WEIGHT = 'day/SET_WEIGHT'
 export const SET_STEPS = 'day/SET_STEPS'
 
+export const SET_IMAGE_LOAD_ERROR = 'day/SET_IMAGE_LOAD_ERROR'
+
 export const propTypes = {
     dayKey: PropTypes.string,
     scores: PropTypes.shape({
@@ -38,11 +40,14 @@ export const initialState = Immutable.fromJS({
         food: 0,
     },
     imageUri: null,
+    imageSize: {},
     weight: null,
     steps: null,
     isSaving: false,
+    isLoading: false,
     saveError: null,
     isFitbitLoading: false,
+    imageLoadError: null,
 })
 
 export default function reducer(state = initialState, action) {
@@ -51,7 +56,15 @@ export default function reducer(state = initialState, action) {
             state = state.setIn(['scores', action.payload.get('type')], action.payload.get('score', 0))
             break
         case SET_IMAGE:
-            state = state.set('imageUri', action.payload ? action.payload.getIn(['uri']) : null)
+            state = state.set('imageUri', action.payload ? action.payload.get('uri') : null)
+            state = state.set('imageLoadError', null)
+            if (action.payload) {
+                state = state.setIn(['imageSize', 'height'], action.payload.get('height'))
+                state = state.setIn(['imageSize', 'width'], action.payload.get('width'))
+            }
+            break
+        case SET_IMAGE_LOAD_ERROR:
+            state = state.set('imageLoadError', action.payload ? action.payload.get('error') : null)
             break
         case SAVE_SUCCESS:
             state = state.set('isSaving', false)
@@ -62,18 +75,17 @@ export default function reducer(state = initialState, action) {
             state = state.set('isSaving', true)
             break
         case SAVE_ERROR:
-            state = state.set('isFitbitLoading', false)
             state = state.set('saveError', action.payload)
             break
         case LOAD_DAY_REQUEST:
-            state = state.set('isFitbitLoading', true)
+            state = state.set('isLoading', true)
             break
         case LOAD_DAY_ERROR:
-            state = state.set('isFitbitLoading', false)
+            state = state.set('isLoading', false)
             state = state.set('error', action.payload)
             break
         case LOAD_DAY_SUCCESS:
-            state = state.set('isFitbitLoading', false)
+            state = state.set('isLoading', false)
             state = state.merge(action.payload)
             state = state.set('error', null)
             break
@@ -104,7 +116,9 @@ export function saveDay(dayKey) {
             weight: dayState.get('weight'),
             steps: dayState.get('steps'),
             imageUri: dayState.get('imageUri'),
+            imageSize: dayState.get('imageSize', Immutable.Map({})).toJS(),
         }
+        console.log('saving day', dayData)
         dispatch({type: SAVE_REQUEST, dayKey})
         saveDayFirebase(dayData, userId).then(response => {
             console.log('firebase response', response)

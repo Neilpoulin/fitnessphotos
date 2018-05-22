@@ -16,6 +16,7 @@ import {navigationProp} from 'util/PropTypes'
 import {FEED_SCREEN} from 'view/nav/Routes'
 import {SafeAreaView} from 'react-navigation'
 import {textLightColor, textSuccessColor} from 'style/GlobalStyles'
+import LoadingIndicator from 'view/organism/LoadingIndicator'
 
 
 class LoginScreen extends React.Component {
@@ -45,11 +46,8 @@ class LoginScreen extends React.Component {
             isLoggingIn,
         } = this.props
         return <SafeAreaView style={styles.container}>
-            <View display-if={!isReady} style={{flex: 1, justifyContent: 'center'}}>
-                <ActivityIndicator size={'large'} color={textLightColor}/>
-                <Text style={[{fontSize: 20, color: textLightColor}, styles.centerText]}>Loading App</Text>
-            </View>
-
+            <LoadingIndicator text={'Loading App'} size={'large'} display-if={!isReady}/>
+            
             <View style={styles.verticalCenterContainer} display-if={isLoggingIn}>
                 <ActivityIndicator size={'small'} color={textSuccessColor}/>
                 <Text style={[{fontSize: 15, color: textSuccessColor}, styles.centerText]}>Logging In...</Text>

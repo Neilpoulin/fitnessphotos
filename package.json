@@ -68,6 +68,6 @@
         "redux-thunk": "^2.2.0",
         "remote-redux-devtools": "^0.5.12",
         "sentry-expo": "^1.7.0",
-        "uuid": "^3.1.0"
+        "uuid": "^3.2.1"
     }
 }

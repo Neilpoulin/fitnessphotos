@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee6cf6da-d390-42b8-922f-d7ee924ca39a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/style/GlobalStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/organism/LoadingIndicator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selector/userSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selector/userSelector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/day.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/day.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ducks/dayInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/dayInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/firebaseService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/firebaseService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/fitbitService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/fitbitService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/googleService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/googleService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/GlobalStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/GlobalStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/TimeUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/TimeUtil.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/organism/DayCardView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/organism/DayCardView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/screen/FeedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/FeedScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/FeedScreenStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/FeedScreenStyles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/screen/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/LoginScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,47 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProfileScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/ProfileScreen.js">
+      <file leaf-file-name="GlobalStyles.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style/GlobalStyles.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ducks/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeedScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DayCardView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="61" column="53" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewPagerAndroidExample.android.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-native/RNTester/js/ViewPagerAndroidExample.android.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="227" column="2" selection-start-line="227" selection-start-column="2" selection-end-line="227" selection-end-column="2" />
+            <state relative-caret-position="164">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -80,44 +41,80 @@
       <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="75" column="56" lean-forward="true" selection-start-line="75" selection-start-column="56" selection-end-line="75" selection-end-column="56" />
+            <state relative-caret-position="147">
+              <caret line="201" column="51" selection-start-line="201" selection-start-column="51" selection-end-line="201" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DayInputScreenStyle.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js">
+      <file leaf-file-name="FeedScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+            <state relative-caret-position="267">
+              <caret line="63" column="62" lean-forward="true" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CameraViewStyle.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/organism/CameraViewStyle.js">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+            <state relative-caret-position="150">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DayCardViewStyles.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js">
+      <file leaf-file-name="LoginScreen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/screen/LoginScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state relative-caret-position="369">
+              <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GlobalStyles.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/style/GlobalStyles.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+            <state relative-caret-position="529">
+              <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModalStackNavigator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/nav/Routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadingIndicator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/organism/LoadingIndicator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeedScreenStyles.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreenStyles.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -126,13 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>react@</find>
-      <find>loadAllStepsSince</find>
-      <find>fetchDayBy</find>
-      <find>fetchDayByKey</find>
-      <find>Permissions</find>
-      <find>expo@</find>
-      <find>ImagePicker</find>
       <find>AuthSession</find>
       <find>isLoading</find>
       <find>loginWithGoogleFromCache</find>
@@ -154,8 +144,15 @@
       <find>user.ui</find>
       <find>border</find>
       <find>imageWidth</find>
+      <find>handlePho</find>
+      <find>setting the</find>
+      <find>successfully copied</find>
       <find>image:</find>
       <find>body</find>
+      <find>hax</find>
+      <find>imageLoadError</find>
+      <find>save</find>
+      <find>change I</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/util/UnitsUtil.js" />
         <option value="$PROJECT_DIR$/src/util/UnitsUtil.test.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DevScreen.js" />
         <option value="$PROJECT_DIR$/jestSetup.js" />
@@ -183,15 +179,12 @@
         <option value="$PROJECT_DIR$/src/selector/dayInputSelector.js" />
         <option value="$PROJECT_DIR$/src/service/database.js" />
         <option value="$PROJECT_DIR$/src/view/nav/AppTabNavigator.js" />
-        <option value="$PROJECT_DIR$/src/ducks/dayInput.js" />
-        <option value="$PROJECT_DIR$/src/util/TimeUtil.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/service/asyncStorageService.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/selector/configSelector.js" />
         <option value="$PROJECT_DIR$/src/view/screen/LoginScreenStyles.js" />
@@ -199,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/view/nav/Routes.js" />
         <option value="$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js" />
         <option value="$PROJECT_DIR$/src/ducks/days.js" />
-        <option value="$PROJECT_DIR$/src/ducks/day.js" />
         <option value="$PROJECT_DIR$/src/view/screen/ChartScreen.js" />
         <option value="$PROJECT_DIR$/src/view/screen/PhotoViewerPage.js" />
         <option value="$PROJECT_DIR$/src/view/screen/CameraPage.js" />
@@ -208,17 +200,22 @@
         <option value="$PROJECT_DIR$/src/service/googleService.js" />
         <option value="$PROJECT_DIR$/src/ducks/config.js" />
         <option value="$PROJECT_DIR$/src/selector/userSelector.js" />
-        <option value="$PROJECT_DIR$/src/view/screen/LoginScreen.js" />
         <option value="$PROJECT_DIR$/src/view/screen/FeedScreenStyles.js" />
         <option value="$PROJECT_DIR$/src/service/fitbitService.js" />
-        <option value="$PROJECT_DIR$/src/service/firebaseService.js" />
         <option value="$PROJECT_DIR$/src/view/screen/ProfileScreen.js" />
         <option value="$PROJECT_DIR$/src/ducks/user.js" />
-        <option value="$PROJECT_DIR$/src/view/screen/FeedScreen.js" />
-        <option value="$PROJECT_DIR$/src/style/GlobalStyles.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/service/firebaseService.js" />
+        <option value="$PROJECT_DIR$/src/util/TimeUtil.js" />
         <option value="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" />
         <option value="$PROJECT_DIR$/src/view/organism/DayCardView.js" />
+        <option value="$PROJECT_DIR$/src/ducks/dayInput.js" />
+        <option value="$PROJECT_DIR$/src/ducks/day.js" />
+        <option value="$PROJECT_DIR$/src/style/GlobalStyles.js" />
+        <option value="$PROJECT_DIR$/src/view/organism/LoadingIndicator.js" />
+        <option value="$PROJECT_DIR$/src/view/screen/FeedScreen.js" />
+        <option value="$PROJECT_DIR$/src/view/screen/LoginScreen.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
       </list>
     </option>
@@ -246,9 +243,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="27" />
-    <option name="width" value="1440" />
-    <option name="height" value="873" />
+    <option name="y" value="23" />
+    <option name="width" value="2560" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -354,6 +351,12 @@
               <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
               <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fitnessphotos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fitnessphotos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -403,17 +406,17 @@
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/util" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/view/util" />
       <recent name="$PROJECT_DIR$/src/view/organism" />
       <recent name="$PROJECT_DIR$/src/view/nav" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/util" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -428,7 +431,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.Function that does not resolve after timeout period">
+  <component name="RunManager" selected="Jest.format date short">
     <configuration name="Function that  resolves before timeout period" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -462,18 +465,6 @@
         <test-name value="Timeout that does not resolve after timeout period" />
       </test-names>
     </configuration>
-    <configuration name="add duration.start tme is now, add 100, no period" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
-      <test-names>
-        <test-name value="add duration" />
-        <test-name value="start tme is now, add 100, no period" />
-      </test-names>
-    </configuration>
     <configuration name="add duration.start tme is now, add 100, period seconds" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -484,6 +475,17 @@
       <test-names>
         <test-name value="add duration" />
         <test-name value="start tme is now, add 100, period seconds" />
+      </test-names>
+    </configuration>
+    <configuration name="format date short" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <working-dir value="$PROJECT_DIR$/src/util" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/util/TimeUtil.test.js" />
+      <test-names>
+        <test-name value="format date short" />
       </test-names>
     </configuration>
     <configuration name="start ios" type="js.build_tools.npm" factoryName="npm">
@@ -498,19 +500,19 @@
     </configuration>
     <list>
       <item itemvalue="npm.start ios" />
-      <item itemvalue="Jest.add duration.start tme is now, add 100, no period" />
       <item itemvalue="Jest.add duration.start tme is now, add 100, period seconds" />
       <item itemvalue="Jest.Timeout that does not resolve after timeout period" />
       <item itemvalue="Jest.Function that  resolves before timeout period" />
       <item itemvalue="Jest.Function that does not resolve after timeout period" />
+      <item itemvalue="Jest.format date short" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.format date short" />
         <item itemvalue="Jest.Function that does not resolve after timeout period" />
         <item itemvalue="Jest.Function that  resolves before timeout period" />
         <item itemvalue="Jest.Timeout that does not resolve after timeout period" />
         <item itemvalue="Jest.add duration.start tme is now, add 100, period seconds" />
-        <item itemvalue="Jest.add duration.start tme is now, add 100, no period" />
       </list>
     </recent_temporary>
   </component>
@@ -538,7 +540,7 @@
       <workItem from="1522786403295" duration="436000" />
       <workItem from="1523939164275" duration="83000" />
       <workItem from="1523939489994" duration="49113000" />
-      <workItem from="1526704260480" duration="9584000" />
+      <workItem from="1526704260480" duration="23014000" />
     </task>
     <task id="LOCAL-00001" summary="fix some stuff">
       <created>1514881454632</created>
@@ -701,13 +703,17 @@
       <option name="project" value="LOCAL" />
       <updated>1526150142281</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="lots of updates">
+      <created>1526756613025</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1526756613025</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Function_that__resolves_before_timeout_period - 2018.01.21 at 14h 54m 26s.xml">
-      <configuration name="Function that  resolves before timeout period" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="Function_that__resolves_before_timeout_period - 2018.01.21 at 14h 54m 46s.xml">
       <configuration name="Function that  resolves before timeout period" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -735,9 +741,12 @@
     <history-entry file="Timeout_that_does_not_resolve_after_timeout_period - 2018.01.21 at 14h 52m 44s.xml">
       <configuration name="Timeout that does not resolve after timeout period" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="format_date_short - 2018.05.21 at 22h 09m 52s.xml">
+      <configuration name="format date short" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218720000" />
+    <option name="totallyTimeSpent" value="232150000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -749,17 +758,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1440" height="873" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49680948" weight="0.32958803" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5031905" side_tool="true" weight="0.30836454" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.47625" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49680948" visible="true" weight="0.20275344" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.47580045" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49680948" weight="0.2271035" />
       <window_info anchor="right" id="FAQ Robot" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17291667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09726562" />
       <window_info id="Project Explorer" order="3" />
       <window_info id="Job Explorer" order="3" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -838,7 +847,8 @@
     <MESSAGE value="loading indicator" />
     <MESSAGE value="basic login stuff" />
     <MESSAGE value="safe view" />
-    <option name="LAST_COMMIT_MESSAGE" value="safe view" />
+    <MESSAGE value="lots of updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="lots of updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -912,27 +922,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/service/database.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ducks/camera.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/expo/src/Expo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="198" column="30" selection-start-line="198" selection-start-column="30" selection-end-line="198" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yarn.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -944,13 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="262" column="21" lean-forward="true" selection-start-line="262" selection-start-column="21" selection-end-line="262" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -996,13 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/middleware/immutable-action.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -1028,20 +1003,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ducks/days.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="32" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="75" column="55" lean-forward="true" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1108,20 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/selector/configSelector.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1133,20 +1080,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1164,38 +1097,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreenStyles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/LoginScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="66" column="101" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/nav/Routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" selection-start-column="13" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/fitbitService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="270" selection-start-line="270" selection-end-line="270" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/firebaseService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="122" column="25" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1213,24 +1118,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/organism/CameraViewStyle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/GlobalStyles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1248,24 +1139,143 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ducks/days.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="755">
+          <caret line="60" column="26" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/firebaseService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/TimeUtil.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-888">
+          <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        <state relative-caret-position="279">
+          <caret line="106" column="33" lean-forward="true" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="61" column="53" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
+        <state relative-caret-position="527">
+          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/selector/dayInputSelector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="57" column="72" lean-forward="true" selection-start-line="57" selection-start-column="72" selection-end-line="57" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ducks/day.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreenStyles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/GlobalStyles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/organism/LoadingIndicator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="63" column="62" lean-forward="true" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/nav/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/nav/ModalStackNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/LoginScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="75" column="56" lean-forward="true" selection-start-line="75" selection-start-column="56" selection-end-line="75" selection-end-column="56" />
+        <state relative-caret-position="147">
+          <caret line="201" column="51" selection-start-line="201" selection-start-column="51" selection-end-line="201" selection-end-column="51" />
         </state>
       </provider>
     </entry>

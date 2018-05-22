@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     TouchableHighlight,
 } from 'react-native'
-import {cardBackgroundColor, cardView} from 'style/GlobalStyles'
+import {cardBackgroundColor, cardView, cardViewActiveOpacity} from 'style/GlobalStyles'
 import {propTypes as dayPropTypes} from 'ducks/day'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -24,6 +24,11 @@ class DayCardView extends React.Component {
 
     state = {
         imageError: false,
+        isPressed: false,
+    }
+
+    _setIsPressed(isPressed) {
+        this.setState({isPressed})
     }
 
     _handleImageError() {
@@ -38,18 +43,26 @@ class DayCardView extends React.Component {
 
         const {
             imageError,
+            isPressed,
         } = this.state
 
-        return <TouchableHighlight onPress={() => editDay()} style={[styles.container, cardView.container]} activeOpacity={.8}>
-            <View style={{backgroundColor: cardBackgroundColor}}>
+        return <TouchableHighlight onPress={() => editDay()}
+            style={[styles.container,
+                cardView.container,
+                isPressed ? cardView.containerPressed : {},
+            ]}
+            onPressIn={() => this._setIsPressed(true)}
+            onPressOut={() => this._setIsPressed(false)}
+            activeOpacity={cardViewActiveOpacity}>
+            <View style={[{backgroundColor: cardBackgroundColor}, cardView.containerContent]}>
                 <View style={[styles.padded]}>
                     <Text style={styles.title}>{formatDayOfWeekShort(day.dayKey, false)}</Text>
                 </View>
                 <View style={styles.imageContainer} display-if={day.imageUri && !imageError}>
                     <Image
                         source={{uri: day.imageUri}}
-                        style={styles.image}
-                        resizeMode={'cover'}
+                        style={[styles.image, day.imageSize ? {} : {}]}
+                        resizeMode={'contain'}
                         onError={() => this._handleImageError()}
                     />
                 </View>
@@ -93,6 +106,7 @@ class DayCardView extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+
     return {}
 }
 
