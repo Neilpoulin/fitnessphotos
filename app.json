@@ -1,16 +1,27 @@
 {
-    "expo": {
-        "name": "Photo Trends",
-        "version": "0.0.2",
-        "sdkVersion": "27.0.0",
-        "slug": "photo-trends",
-        "icon": "images/photo-trends-logo.png",
-        "ios": {
-            "bundleIdentifier": "com.neilpoulin.phototrends"
-        },
-        "splash": {
-            "image": "./images/splash.png",
-            "resizeMode": "cover"
-        }
+  "expo": {
+    "name": "Photo Trends",
+    "version": "0.0.2",
+    "sdkVersion": "27.0.0",
+    "slug": "photo-trends",
+    "icon": "images/photo-trends-logo.png",
+    "ios": {
+      "bundleIdentifier": "com.neilpoulin.phototrends",
+      "publishBundlePath": "ios/photo-trends/Supporting/shell-app.bundle",
+      "publishManifestPath": "ios/photo-trends/Supporting/shell-app-manifest.json"
+    },
+    "splash": {
+      "image": "./images/splash.png",
+      "resizeMode": "cover"
+    },
+    "android": {
+      "package": "com.neilpoulin.phototrends"
+    },
+    "isDetached": true,
+    "detach": {
+      "scheme": "exp939747bc274a4a299375112f1fcf9c26",
+      "iosExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v2.5.10-sdk27.0.0-7e6dd135-e649-48e2-ab7c-e76521ce6259.tar.gz",
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.5.3-sdk27.0.0-408c8d77-8d1f-4784-b7b4-93826250663a.tar.gz"
     }
+  }
 }
