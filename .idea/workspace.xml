@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee6cf6da-d390-42b8-922f-d7ee924ca39a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/view/atom/ScoreCircle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/organism/ScoreSelector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/organism/ScoreSelectorStyles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/GlobalStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/GlobalStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="309" column="46" lean-forward="true" selection-start-line="309" selection-start-column="46" selection-end-line="309" selection-end-column="46" />
+            <state relative-caret-position="330">
+              <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -88,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreCircleStyles.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScoreCircleStyles.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="270">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -210,9 +202,9 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/view/organism/ScoreSelector.js" />
         <option value="$PROJECT_DIR$/src/view/organism/ScoreSelectorStyles.js" />
-        <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
         <option value="$PROJECT_DIR$/src/view/atom/ScoreCircle.js" />
         <option value="$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js" />
+        <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
       </list>
     </option>
   </component>
@@ -720,7 +712,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526965057280</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="use score circles">
+      <created>1530593787185</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1530593787185</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -756,7 +755,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246144000" />
+    <option name="totallyTimeSpent" value="246217000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -849,7 +848,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix some stuff" />
     <MESSAGE value="setup redux" />
     <MESSAGE value="working day buttons" />
     <MESSAGE value="choose image" />
@@ -874,7 +872,8 @@
     <MESSAGE value="safe view" />
     <MESSAGE value="lots of updates" />
     <MESSAGE value="lots of stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="lots of stuff" />
+    <MESSAGE value="use score circles" />
+    <option name="LAST_COMMIT_MESSAGE" value="use score circles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1270,13 +1269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="309" column="46" lean-forward="true" selection-start-line="309" selection-start-column="46" selection-end-line="309" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/nav/AppTabNavigator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1300,8 +1292,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        <state relative-caret-position="270">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
         </state>
       </provider>
     </entry>

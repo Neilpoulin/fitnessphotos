@@ -4,11 +4,10 @@ import {
     View,
     Text,
     Image,
-    ImageEditor,
-    TouchableOpacity,
+    ScrollView,
 } from 'react-native'
 import Immutable from 'immutable'
-import {Button, Slider} from 'react-native-elements'
+import {Button} from 'react-native-elements'
 import {Button as Link} from 'react-native'
 import {connect} from 'react-redux'
 import {formatLongDate} from 'util/TimeUtil'
@@ -27,18 +26,13 @@ import {
     loadCurrentDay,
     goToToday,
 } from 'ducks/dayInput'
-import {formatScore} from 'util/ScoreUtil'
 import {getDayState} from 'selector/daySelector'
 import {saveDay} from 'ducks/day'
 import {getDayKey} from 'util/TimeUtil'
 import {CAMERA_SCREEN} from 'view/nav/Routes'
 import {SafeAreaView} from 'react-navigation'
 import {
-    containers,
     border,
-    textLightColor,
-    cardBackgroundColor,
-    textWhite,
     textSuccessColor,
     textDarkColor,
 } from 'style/GlobalStyles'
@@ -306,7 +300,7 @@ class DayInput extends React.Component {
                 <Text>Steps: {steps}</Text>
             </View>
 
-            <View style={styles.scoreContainer}>
+            <ScrollView style={styles.scoreContainer}>
                 <ScoreSelector onSelect={(value) => setBody(value)}
                     currentValue={scores.body}
                     label={'Body'}/>
@@ -316,7 +310,7 @@ class DayInput extends React.Component {
                 <ScoreSelector onSelect={(value) => setMind(value)}
                     currentValue={scores.mind}
                     label={'Mind'}/>
-            </View>
+            </ScrollView>
         </SafeAreaView>
     }
 
