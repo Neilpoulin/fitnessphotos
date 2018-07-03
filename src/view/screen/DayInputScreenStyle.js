@@ -51,6 +51,9 @@ export default StyleSheet.create({
         fontSize: 28,
 
     },
+    scoreContainer: {
+        padding: 20,
+    },
     sliderContainer: {
         paddingLeft: 20,
         paddingRight: 20,

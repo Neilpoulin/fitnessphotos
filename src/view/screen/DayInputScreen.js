@@ -5,6 +5,7 @@ import {
     Text,
     Image,
     ImageEditor,
+    TouchableOpacity,
 } from 'react-native'
 import Immutable from 'immutable'
 import {Button, Slider} from 'react-native-elements'
@@ -43,6 +44,7 @@ import {
 } from 'style/GlobalStyles'
 import LoadingIndicator from 'view/organism/LoadingIndicator'
 import Progress from 'view/organism/Progress'
+import ScoreSelector from 'view/organism/ScoreSelector'
 
 class DayInput extends React.Component {
     static propTypes = {
@@ -237,7 +239,7 @@ class DayInput extends React.Component {
                     />
                 </View>
                 <View>
-                    <Link title={'Today'} onPress={today}/>
+                    <Link title={'Go to Today'} onPress={today}/>
                 </View>
             </View>
             <View style={styles.photoContainer}>
@@ -303,44 +305,18 @@ class DayInput extends React.Component {
             <View display-if={steps}>
                 <Text>Steps: {steps}</Text>
             </View>
-            <View style={styles.sliderContainer}>
-                <Slider
-                    minimumValue={0}
-                    maximumValue={3}
-                    step={1}
-                    value={scores.body}
-                    trackStyle={styles.sliderTrack}
-                    thumbStyle={styles.sliderThumb}
-                    onValueChange={(value) => setBody(value)}
-                />
-                <Text>Body: {formatScore(scores.body)}</Text>
-            </View>
-            <View style={styles.sliderContainer}>
-                <Slider
-                    minimumValue={0}
-                    maximumValue={3}
-                    step={1}
-                    value={scores.mind}
-                    trackStyle={styles.sliderTrack}
-                    thumbStyle={styles.sliderThumb}
-                    onValueChange={(value) => setMind(value)}/>
-                <Text>Mind: {formatScore(scores.mind)}</Text>
-            </View>
-            <View
-                style={styles.sliderContainer}>
-                <Slider
-                    minimumValue={0}
-                    maximumValue={3}
-                    step={1}
-                    value={scores.food}
-                    trackStyle={styles.sliderTrack}
-                    thumbStyle={styles.sliderThumb}
-                    onValueChange={(value) => setFood(value)}
-                />
-                <Text>Food: {formatScore(scores.food)}</Text>
-            </View>
 
-
+            <View style={styles.scoreContainer}>
+                <ScoreSelector onSelect={(value) => setBody(value)}
+                    currentValue={scores.body}
+                    label={'Body'}/>
+                <ScoreSelector onSelect={(value) => setFood(value)}
+                    currentValue={scores.food}
+                    label={'Food'}/>
+                <ScoreSelector onSelect={(value) => setMind(value)}
+                    currentValue={scores.mind}
+                    label={'Mind'}/>
+            </View>
         </SafeAreaView>
     }
 
