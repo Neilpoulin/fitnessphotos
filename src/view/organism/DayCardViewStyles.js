@@ -6,7 +6,7 @@ const imageWidth = 80
 const cardHeight = 60
 const cardMargin = 10
 const cardPadding = 10
-const circleDiameter = 50
+const circleDiameter = 60
 
 
 export function getCardWidth() {
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     scoreLabel: {
         textAlign: 'center',
         fontSize: 10,
+        marginTop: 5,
     },
     score0View: {
         backgroundColor: 'white',

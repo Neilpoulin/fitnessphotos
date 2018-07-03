@@ -5,20 +5,7 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import styles from './ScoreCircleStyles'
-
-function getDisplayValue(score) {
-    switch (score) {
-        case 1:
-            return ':-('
-        case 2:
-            return ':-|'
-        case 3:
-            return ':-)'
-        default:
-            return ''
-    }
-}
-
+import {getExpressiveValue} from 'util/ScoreUtil'
 
 class ScoreCircle extends React.Component {
     static propTypes = {
@@ -33,7 +20,7 @@ class ScoreCircle extends React.Component {
         let colorStyle = selected ? [styles[`selected${score}`], styles.selected] : []
         let labelStyle = selected ? [styles.selected] : []
         return <View style={[styles.container, ...colorStyle]}>
-            <Text style={[styles.label, ...labelStyle]}>{getDisplayValue(score)}</Text>
+            <Text style={[styles.label, ...labelStyle]}>{getExpressiveValue(score)}</Text>
 
         </View>
     }

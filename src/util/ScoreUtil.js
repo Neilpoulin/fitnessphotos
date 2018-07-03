@@ -22,3 +22,17 @@ export function formatScore(score) {
     }
     return display
 }
+
+
+export function getExpressiveValue(score) {
+    switch (score) {
+        case 1:
+            return ':-('
+        case 2:
+            return ':-|'
+        case 3:
+            return ':-)'
+        default:
+            return '?'
+    }
+}
