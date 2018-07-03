@@ -185,7 +185,7 @@ export function setFoodScore(score) {
 export function uploadImage({uri, height, width, filename}) {
     return async (dispatch, getState) => {
         const state = getState()
-        if (!getUploadPhotoPref()) {
+        if (!getUploadPhotoPref(state)) {
             return
         }
 

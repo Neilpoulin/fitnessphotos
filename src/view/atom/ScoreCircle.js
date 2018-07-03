@@ -18,7 +18,7 @@ class ScoreCircle extends React.Component {
         const {score, selected} = this.props
 
         let colorStyle = selected ? [styles[`selected${score}`], styles.selected] : []
-        let labelStyle = selected ? [styles.selected] : []
+        let labelStyle = selected ? [styles.selectedLabel] : []
         return <View style={[styles.container, ...colorStyle]}>
             <Text style={[styles.label, ...labelStyle]}>{getExpressiveValue(score)}</Text>
 

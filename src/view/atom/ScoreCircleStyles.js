@@ -9,9 +9,11 @@ const styles = StyleSheet.create({
         padding: 18,
     },
     label: {color: 'gray'},
-    selected: {
+    selectedLabel: {
         fontWeight: 'bold',
         color: 'black',
+    },
+    selected: {
         borderColor: 'black',
     },
     selected1: {

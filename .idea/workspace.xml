@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ee6cf6da-d390-42b8-922f-d7ee924ca39a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/splash.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/day.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/day.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ducks/dayInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/dayInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selector/userSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/selector/userSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/firebaseService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/firebaseService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/atom/ScoreCircle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/atom/ScoreCircle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/organism/ScoreSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/organism/ScoreSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,8 +22,26 @@
       <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="361" column="26" selection-start-line="361" selection-start-column="26" selection-end-line="361" selection-end-column="26" />
+            <state relative-caret-position="354">
+              <caret line="361" column="40" lean-forward="true" selection-start-line="361" selection-start-column="40" selection-end-line="361" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreCircleStyles.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DayCardViewStyles.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -38,8 +49,8 @@
       <file leaf-file-name="dayInput.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="204">
+              <caret line="194" column="13" lean-forward="true" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -49,15 +60,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
               <caret line="24" column="34" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/ProfileScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="119" column="62" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -83,8 +85,8 @@
       <file leaf-file-name="ScoreCircle.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+            <state relative-caret-position="315">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -94,15 +96,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2">
               <caret line="208" column="35" selection-start-line="208" selection-start-column="35" selection-end-line="208" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -120,9 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>day.get</find>
-      <find>logout</find>
-      <find>LOGIN_GOOGLE_ERROR</find>
       <find>user.ui</find>
       <find>border</find>
       <find>imageWidth</find>
@@ -148,8 +138,11 @@
       <find>.json(</find>
       <find>.json()</find>
       <find>fetchPre</find>
-      <find>expo</find>
       <find>.json</find>
+      <find>fontWeight: 'bold</find>
+      <find>UPLOAD_IMAGE</find>
+      <find>setting the</find>
+      <find>expo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,7 +194,6 @@
         <option value="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/view/organism/ScoreSelectorStyles.js" />
-        <option value="$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js" />
         <option value="$PROJECT_DIR$/src/view/organism/DayCardView.js" />
         <option value="$PROJECT_DIR$/src/util/ScoreUtil.js" />
         <option value="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" />
@@ -210,9 +202,10 @@
         <option value="$PROJECT_DIR$/src/service/firebaseService.js" />
         <option value="$PROJECT_DIR$/src/ducks/user.js" />
         <option value="$PROJECT_DIR$/src/view/organism/ScoreSelector.js" />
-        <option value="$PROJECT_DIR$/src/view/atom/ScoreCircle.js" />
         <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
         <option value="$PROJECT_DIR$/src/selector/userSelector.js" />
+        <option value="$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js" />
+        <option value="$PROJECT_DIR$/src/view/atom/ScoreCircle.js" />
         <option value="$PROJECT_DIR$/src/ducks/dayInput.js" />
       </list>
     </option>
@@ -747,7 +740,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530594274919</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="initial commit on cloud images">
+      <created>1530599975897</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1530599975897</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -783,7 +783,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252048000" />
+    <option name="totallyTimeSpent" value="252641000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -876,7 +876,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="choose image" />
     <MESSAGE value="fix camrea image" />
     <MESSAGE value="Semi persist the data!" />
     <MESSAGE value="move state to the days state" />
@@ -901,7 +900,8 @@
     <MESSAGE value="use score circles" />
     <MESSAGE value="remove unused styles" />
     <MESSAGE value="update score styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="update score styles" />
+    <MESSAGE value="initial commit on cloud images" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit on cloud images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1206,13 +1206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/ScoreUtil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -1229,13 +1222,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/images/splash.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/selector/daySelector.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1293,20 +1279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="361" column="26" selection-start-line="361" selection-start-column="26" selection-end-line="361" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ducks/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -1321,10 +1293,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircleStyles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="361" column="40" lean-forward="true" selection-start-line="361" selection-start-column="40" selection-end-line="361" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="204">
+          <caret line="194" column="13" lean-forward="true" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
         </state>
       </provider>
     </entry>
