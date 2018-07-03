@@ -4,6 +4,7 @@ import {
     View,
     Text,
     Button as Link,
+    Switch,
     Image,
 } from 'react-native'
 import {Button} from 'react-native-elements'
@@ -11,7 +12,7 @@ import Immutable from 'immutable'
 import {connect} from 'react-redux'
 import styles from './DayInputScreenStyle'
 import {loadAll, loadAllStepsSince} from 'ducks/days'
-import {loginWithFitbit, loginWithGoogle, logout as logoutUser} from 'ducks/user'
+import {loginWithFitbit, loginWithGoogle, logout as logoutUser, setUserPreferences} from 'ducks/user'
 import {getDateKeyDayAgo} from 'util/TimeUtil'
 
 import {loadAllDays, deleteAll} from 'service/database'
@@ -24,12 +25,15 @@ class ProfileScreen extends React.Component {
         user: PropTypes.object,
         hasGoogle: PropTypes.bool,
         googleErrorMessage: PropTypes.string,
+        imageUploadEnabled: PropTypes.bool,
+        savePreferencesSuccess: PropTypes.bool,
         //actions
         connectFitbit: PropTypes.func,
         loadSteps: PropTypes.func,
         loginGoogle: PropTypes.func,
         logout: PropTypes.func,
         navigation: navigationProp,
+        savePreference: PropTypes.func,
     }
 
     constructor(props) {
@@ -49,6 +53,10 @@ class ProfileScreen extends React.Component {
             logout,
             hasGoogle,
             googleErrorMessage,
+            imageUploadEnabled,
+            savePreferencesSuccess,
+            //actions
+            savePreference,
         } = this.props
         return <SafeAreaView style={styles.container}>
 
@@ -81,6 +89,14 @@ class ProfileScreen extends React.Component {
             <View style={{marginBottom: 10}}>
                 <Button onPress={() => logout()} title={'Log Out'}/>
             </View>
+            <View>
+                <Text>Use Cloud Images</Text>
+                <Switch value={imageUploadEnabled} onValueChange={savePreference('imageUploadEnabled')}/>
+
+            </View>
+            <View display-if={savePreferencesSuccess}>
+                <Text>Save Success!</Text>
+            </View>
         </SafeAreaView>
     }
 
@@ -101,6 +117,8 @@ const mapStateToProps = (state, ownProps) => {
     })
     return {
         user,
+        imageUploadEnabled: state.user.get('imageUploadEnabled', false),
+        savePreferencesSuccess: state.user.get('savePreferencesSuccess'),
         hasGoogle,
         googleErrorMessage: state.user.getIn(['google', 'error', 'message']),
     }
@@ -121,6 +139,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         logout: async () => {
             dispatch(await logoutUser())
             ownProps.navigation.navigate(LOGIN_SCREEN)
+        },
+        savePreference: (name) => async (value) => {
+            console.log('saving preferences', name, value)
+            dispatch(await setUserPreferences({[name]: value}))
         },
     }
 }

@@ -28,6 +28,7 @@ export const propTypes = {
         food: PropTypes.number,
     }),
     imageUri: PropTypes.string,
+    localImageUri: PropTypes.string,
     weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
@@ -57,6 +58,7 @@ export default function reducer(state = initialState, action) {
             break
         case SET_IMAGE:
             state = state.set('imageUri', action.payload ? action.payload.get('uri') : null)
+            state = state.set('localImageUri', action.payload ? action.payload.get('localImageUri') : null)
             state = state.set('imageLoadError', null)
             if (action.payload) {
                 state = state.setIn(['imageSize', 'height'], action.payload.get('height', 0))

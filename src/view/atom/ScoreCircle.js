@@ -10,7 +10,7 @@ import {getExpressiveValue} from 'util/ScoreUtil'
 class ScoreCircle extends React.Component {
     static propTypes = {
         score: PropTypes.number,
-        selected: PropTypes.boolean,
+        selected: PropTypes.bool,
     }
 
 

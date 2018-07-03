@@ -7,7 +7,7 @@ import {
     signInAsGuest as signInAsGuestFirebase,
 } from 'service/googleService'
 import {fetchGoogleAuth, fetchUserId, clearKeys} from 'service/asyncStorageService'
-import {logoutFirebase, getCurrentUser} from 'service/firebaseService'
+import {logoutFirebase, getCurrentUser, saveUserPreferences, fetchUserPreferences} from 'service/firebaseService'
 import firebase from 'firebase'
 
 export const LOGIN_FITBIT_REQUEST = 'user/LOGIN_FITBIT_REQUEST'
@@ -33,6 +33,11 @@ export const LOGIN_FIREBASE_NO_USER = 'user/LOGIN_FIREBASE_NO_USER'
 
 export const LOGOUT_SUCCESS = 'user/LOGOUT_SUCCESS'
 
+export const SAVE_PREFERENCES_REQUEST = 'user/SAVE_PREFERENCES_REQUEST'
+export const SAVE_PREFERENCES_SUCCESS = 'user/SAVE_PREFERENCES_SUCCESS'
+export const SAVE_PREFERENCES_ERROR = 'user/SAVE_PREFERENCES_ERROR'
+export const CLEAR_PREFERENCES_SUCCESS = 'user/CLEAR_PREFERENCES_SUCCESS'
+
 export const initialState = Immutable.fromJS({
     isFitbitLoading: false,
     isLoadingFirebase: false,
@@ -55,6 +60,10 @@ export const initialState = Immutable.fromJS({
     error: null,
     providerData: [],
     isAnonymous: false,
+    imageUploadEnabled: false,
+    isSavingPreferences: false,
+    savePreferencesSuccess: false,
+    savePreferencesError: null,
 })
 
 export default function reducer(state = initialState, action) {
@@ -114,6 +123,7 @@ export default function reducer(state = initialState, action) {
             state = state.set('userId', action.user.uid)
             state = state.set('providerData', action.user.providerData)
             state = state.set('isAnonymous', action.user.isAnonymous)
+            state = state.set('imageUploadEnabled', action.user.imageUploadEnabled)
             //TODO: this needs to happen separately since fitbit login isn't on the user object
             // if (action.user.fitbitAuth) {
             //     state = state.set('fitbit', Immutable.fromJS(action.payload.user.fitbitAuth))
@@ -129,6 +139,25 @@ export default function reducer(state = initialState, action) {
             break
         case LOGOUT_SUCCESS:
             state = initialState
+            break
+        case SAVE_PREFERENCES_REQUEST:
+            state = state.set('isSavingPreferences', true)
+                .set('savePreferencesSuccess', false)
+                .set('savePreferencesError', null)
+                .merge(action.payload)
+            break
+        case SAVE_PREFERENCES_SUCCESS:
+            state = state.set('isSavingPreferences', false)
+                .set('savePreferencesSuccess', true)
+                .set('savePreferencesError', null)
+            break
+        case SAVE_PREFERENCES_ERROR:
+            state = state.set('isSavingPreferences', false)
+                .set('savePreferencesSuccess', false)
+                .set('savePreferencesError', Immutable.fromJS(action.error))
+            break
+        case CLEAR_PREFERENCES_SUCCESS:
+            state = state.set('savePreferencesSuccess', false)
             break
         default:
             break
@@ -190,10 +219,17 @@ export function handleAuthStateChange(user) {
     return dispatch => {
         if (user != null) {
             console.log('We are authenticated now!', user)
-            dispatch({
-                type: LOGIN_FIREBASE_SUCCESS,
-                user,
+            fetchUserPreferences().then(prefs => {
+                console.log('fetched preferences', prefs)
+                dispatch({
+                    type: LOGIN_FIREBASE_SUCCESS,
+                    user: {
+                        ...user,
+                        ...prefs,
+                    },
+                })
             })
+
         }
         console.log('auth state changed. User = ', user)
     }
@@ -223,6 +259,21 @@ export function loginAsGuest() {
             dispatch({type: LOGIN_GUEST_SUCCESS, payload: guestAuth})
         }
 
+    }
+}
+
+export function setUserPreferences(prefs) {
+    console.log('saving user preferences setting', prefs)
+    return async (dispatch) => {
+        dispatch({type: SAVE_PREFERENCES_REQUEST, payload: prefs})
+        const success = await saveUserPreferences(prefs)
+        if (success) {
+            dispatch({type: SAVE_PREFERENCES_SUCCESS, payload: prefs})
+            window.setTimeout(() => dispatch({type: CLEAR_PREFERENCES_SUCCESS}), 2500)
+
+        } else {
+            dispatch({type: SAVE_PREFERENCES_ERROR, error: 'Failed to save preferences'})
+        }
     }
 }
 

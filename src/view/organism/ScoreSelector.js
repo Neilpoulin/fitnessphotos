@@ -12,7 +12,7 @@ class ScoreSelector extends React.Component {
         currentValue: PropTypes.number,
     }
 
-    defaultProps = {
+    static defaultProps = {
         onSelect: (value) => console.log('score changed to ', value),
 
     }

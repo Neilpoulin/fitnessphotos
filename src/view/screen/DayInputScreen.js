@@ -15,8 +15,8 @@ import {goToNextDate, goToPreviousDate, setImageLoadError, uploadImage} from 'du
 import styles from './DayInputScreenStyle'
 import Ionicon from 'react-native-vector-icons/Ionicons'
 import {openCamera} from 'ducks/camera'
-import {ImagePicker, Permissions} from 'expo'
-
+import {ImagePicker, Permissions, FileSystem} from 'expo'
+import uuid from 'uuid'
 import {
     setBodyScore,
     setMindScore,
@@ -137,27 +137,22 @@ class DayInput extends React.Component {
                 filename = parts[parts.length - 1]
             }
 
-            return imageSetter({
-                uri: from,
-                height,
-                width,
-                filename,
+            let imageId = uuid()
+            let to = `${FileSystem.documentDirectory}photos/${imageId}-${filename}`
+            return FileSystem.copyAsync({
+                from, to,
+            }).then(() => {
+                console.log('successfully copied image')
+                // this._loadImages()
+
+                return imageSetter({
+                    uri: to,
+                    height,
+                    width,
+                    filename,
+                    localUri: to,
+                })
             })
-
-
-            // let to = `${FileSystem.documentDirectory}photos/${imageId}-${filename}`
-            // FileSystem.copyAsync({
-            //     from, to,
-            // }).then(() => {
-            //     console.log('successfully copied image')
-            //     // this._loadImages()
-            //     imageSetter({
-            //         uri: to,
-            //         height,
-            //         width,
-            //
-            //     })
-            // })
         } catch (e) {
             console.error('something went wrong trying to open the camera roll', e)
         }
