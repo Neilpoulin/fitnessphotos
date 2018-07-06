@@ -35,7 +35,7 @@ export function initializeFirebase() {
             firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 
             firebase.auth().onAuthStateChanged((user) => {
-                user = user.toJSON()
+                user = user ? user.toJSON() : null
                 console.log('auth state changed... user = ', user)
                 dispatch({type: 'AUTH_STATE_CHANGED', user})
                 dispatch(handleAuthStateChange(user))
@@ -47,7 +47,7 @@ export function initializeFirebase() {
 
 }
 
-export async function saveDay({dayKey, steps, scores, weight, imageUri, imageSize}, userId) {
+export async function saveDay({dayKey, steps, scores, weight, imageSize, localImageUri, cloudImageUri}, userId) {
     console.log('saving day key to firebase', dayKey, 'for userId ', userId)
     return firebase.firestore()
         .collection('users')
@@ -58,7 +58,8 @@ export async function saveDay({dayKey, steps, scores, weight, imageUri, imageSiz
             steps,
             scores,
             weight,
-            imageUri,
+            localImageUri,
+            cloudImageUri,
             imageSize,
             userId: userId,
         }, {merge: true})

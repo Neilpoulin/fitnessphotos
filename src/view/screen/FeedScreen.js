@@ -79,7 +79,6 @@ class FeedScreen extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     // let days = getAllDaysList(state)
     let dayKeys = getAllDayKeys(state)
-    console.log('dayKeys', dayKeys)
     const isLoading = state.days.get('isLoading')
     return {
         // days,

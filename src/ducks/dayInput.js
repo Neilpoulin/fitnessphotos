@@ -202,7 +202,7 @@ export function uploadImage({uri, height, width, filename}) {
                 dispatch({
                     type: UPLOAD_IMAGE_SUCCESS, payload: {uri, ...response},
                 })
-                dispatch(setImage({uri: response.downloadURL, height, width}))
+                dispatch(setImage({cloudUri: response.downloadURL, localUri: uri, height, width}))
                 // dispatch(save())
             } else {
                 dispatch({
@@ -220,13 +220,13 @@ export function uploadImage({uri, height, width, filename}) {
     }
 }
 
-export function setImage({uri, height, width, localImageUri}) {
+export function setImage({uri, height, width, localUri, cloudUri}) {
     return (dispatch, getState) => {
         let dayKey = getDayKey(getState().dayInput.get('date'))
         dispatch({
             type: SET_IMAGE,
             dayKey,
-            payload: {uri, height, width, localImageUri},
+            payload: {uri, height, width, localUri, cloudUri},
         })
         dispatch(save())
     }

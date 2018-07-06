@@ -15,7 +15,7 @@ import {goToNextDate, goToPreviousDate, setImageLoadError, uploadImage} from 'du
 import styles from './DayInputScreenStyle'
 import Ionicon from 'react-native-vector-icons/Ionicons'
 import {openCamera} from 'ducks/camera'
-import {ImagePicker, Permissions, FileSystem} from 'expo'
+import {ImagePicker, Permissions, FileSystem, ImageManipulator} from 'expo'
 import uuid from 'uuid'
 import {
     setBodyScore,
@@ -39,6 +39,7 @@ import {
 import LoadingIndicator from 'view/organism/LoadingIndicator'
 import Progress from 'view/organism/Progress'
 import ScoreSelector from 'view/organism/ScoreSelector'
+import {resizeImage, processRawImage} from 'util/ImageUtil'
 
 class DayInput extends React.Component {
     static propTypes = {
@@ -63,7 +64,8 @@ class DayInput extends React.Component {
             navigate: PropTypes.func,
         }),
         openCamera: PropTypes.func,
-        imageUri: PropTypes.string,
+        localImageUri: PropTypes.string,
+        cloudImageUri: PropTypes.string,
         setBody: PropTypes.func,
         setFood: PropTypes.func,
         setMind: PropTypes.func,
@@ -93,6 +95,7 @@ class DayInput extends React.Component {
     // Component state carries over when you change days, so this needs to get updated basedon the current values
     state = {
         imageError: false,
+        useCloudImage: false,
     }
 
     constructor(props) {
@@ -124,35 +127,9 @@ class DayInput extends React.Component {
             })
             let imageSetter = this.props.setPhoto
             console.log('got image from camera roll', result)
+            let processedImage = await processRawImage(result)
+            imageSetter(processedImage)
 
-            let from = result.uri
-            let height = result.height
-            let width = result.width
-            // let imageId = uuid.v4()
-            let parts = from ? from.split('/') : []
-            let filename = null
-            if (!parts.length > 0) {
-                return
-            } else {
-                filename = parts[parts.length - 1]
-            }
-
-            let imageId = uuid()
-            let to = `${FileSystem.documentDirectory}photos/${imageId}-${filename}`
-            return FileSystem.copyAsync({
-                from, to,
-            }).then(() => {
-                console.log('successfully copied image')
-                // this._loadImages()
-
-                return imageSetter({
-                    uri: to,
-                    height,
-                    width,
-                    filename,
-                    localUri: to,
-                })
-            })
         } catch (e) {
             console.error('something went wrong trying to open the camera roll', e)
         }
@@ -162,9 +139,10 @@ class DayInput extends React.Component {
     _takePicture = async () => {
         let imageSetter = this.props.setPhoto
         this.props.navigation.navigate(CAMERA_SCREEN, {
-            handlePhoto: (photo) => {
+            handlePhoto: async (photo) => {
                 console.log('got photo from camera', photo)
-                imageSetter(photo)
+                let processedImage = await processRawImage(photo)
+                imageSetter(processedImage)
             },
         })
     }
@@ -172,6 +150,9 @@ class DayInput extends React.Component {
     _handleImageError(e) {
         // console.error('something went wrong with the image handler', e)
         this.props.setImageError(true)
+        this.setState({
+            useCloudImage: true,
+        })
     }
 
     render() {
@@ -183,25 +164,26 @@ class DayInput extends React.Component {
             setBody,
             setMind,
             setFood,
-            imageUri,
+            localImageUri,
+            cloudImageUri,
             editImage,
             editImageDone,
             isEditingImage,
             weight,
             steps,
             isUploading,
-            uploadSuccess,
-            uploadError,
-            imageDownloadURL,
             isLoading,
             imageUploadProgress,
             //actions
-            save,
-            dayKey,
-            getWeight,
             today,
             imageLoadError,
         } = this.props
+
+        let currentImageUri = localImageUri || cloudImageUri
+
+        if (this.state.useCloudImage && cloudImageUri) {
+            currentImageUri = cloudImageUri
+        }
 
         if (isLoading) {
             return <LoadingIndicator text={'Loading'}/>
@@ -232,7 +214,7 @@ class DayInput extends React.Component {
                 </View>
             </View>
             <View style={styles.photoContainer}>
-                <View style={styles.actionsFlexbox} display-if={!imageUri || isEditingImage}>
+                <View style={styles.actionsFlexbox} display-if={!currentImageUri || isEditingImage}>
                     <View style={styles.buttonContainer}>
                         <Button
                             title={'Take Photo'}
@@ -250,9 +232,9 @@ class DayInput extends React.Component {
                         <Link title={'Cancel Edit'} onPress={editImageDone}/>
                     </View>
                 </View>
-                <View display-if={imageUri && !isEditingImage} style={styles.photoFlexbox}>
+                <View display-if={currentImageUri && !isEditingImage} style={styles.photoFlexbox}>
                     <View display-if={!imageLoadError}>
-                        <Image source={{uri: imageUri}}
+                        <Image source={{uri: currentImageUri}}
                             style={{height: 210, width: 250}}
                             onError={() => this._handleImageError()}
                             resizeMode={'contain'}/>
@@ -315,22 +297,23 @@ const mapStateToProps = (state, ownProps) => {
     let page = state.dayInput
     let dayKey = getDayKey(page.get('date'))
     let dayState = getDayState(state, {dayKey})
-    let imageUri = dayState.get('imageUri')
+    let localImageUri = dayState.get('localImageUri')
+    let cloudImageUri = dayState.get('cloudImageUri')
     let steps = dayState.get('steps')
-    let uploadInfo = page.getIn(['uploadActivity', imageUri], Immutable.Map())
+    
     return {
         dateFormatted: formatLongDate(page.get('date')),
         scores: dayState.get('scores').toJS(),
         weight: dayState.get('weight'),
-        imageUri,
+        localImageUri,
+        cloudImageUri,
         dayKey,
         isEditingImage: page.get('isEditingImage'),
         steps,
         isLoading: dayState.get('isLoading'),
         isUploading: page.get('imageIsUploading', false),
         uploadSuccess: page.get('imageUploadSuccess', false),
-        uploadError: uploadInfo.get('imageUploadError', null),
-        imageDownloadURL: uploadInfo.get('imageDownloadURL', null),
+        uploadError: page.get('imageUploadError', null),
         imageLoadError: dayState.get('imageLoadError', false),
         imageUploadProgress: page.get('imageUploadProgress', 0),
     }
@@ -358,6 +341,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         setPhoto: async (photo) => {
             console.log('setting the photo into state', photo)
+            //todo: copy and resize the image
             dispatch(setImage(photo))
             dispatch(uploadImage(photo))
             dispatch(setEditingImage(false))

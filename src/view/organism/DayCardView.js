@@ -47,6 +47,7 @@ class DayCardView extends React.Component {
 
         const {
             isPressed,
+            imageError,
         } = this.state
 
         return <TouchableHighlight onPress={() => editDay()}
@@ -62,8 +63,8 @@ class DayCardView extends React.Component {
                     <Text style={styles.title}>{formatDayOfWeekShort(day.dayKey, false)}</Text>
                 </View>
                 <FullWidthImage
-                    display-if={day.imageUri}
-                    source={{uri: day.imageUri}}
+                    display-if={!imageError && (day.localImageUri || day.cloudImageUri)}
+                    source={{uri: day.localImageUri || day.cloudImageUri}}
                     dimensions={day.imageSize}
                     onError={() => this._handleImageError()}
                 />
