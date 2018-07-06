@@ -213,7 +213,22 @@ class DayInput extends React.Component {
                     <Link title={'Go to Today'} onPress={today}/>
                 </View>
             </View>
-            <View style={styles.photoContainer}>
+            <ScrollView style={styles.photoContainer}>
+
+
+                <View style={styles.scoreContainer} display-if={!isEditingImage}>
+                    <ScoreSelector onSelect={(value) => setBody(value)}
+                        currentValue={scores.body}
+                        label={'Body'}/>
+                    <ScoreSelector onSelect={(value) => setFood(value)}
+                        currentValue={scores.food}
+                        label={'Food'}/>
+                    <ScoreSelector onSelect={(value) => setMind(value)}
+                        currentValue={scores.mind}
+                        label={'Mind'}/>
+                </View>
+
+
                 <View style={styles.actionsFlexbox} display-if={!currentImageUri || isEditingImage}>
                     <View style={styles.buttonContainer}>
                         <Button
@@ -269,25 +284,15 @@ class DayInput extends React.Component {
                         <Link title={'Change Image'} onPress={editImage}/>
                     </View>
                 </View>
-            </View>
-            <View display-if={weight}>
-                <Text>Weight: {weight}</Text>
-            </View>
-            <View display-if={steps}>
-                <Text>Steps: {steps}</Text>
-            </View>
 
-            <ScrollView style={styles.scoreContainer}>
-                <ScoreSelector onSelect={(value) => setBody(value)}
-                    currentValue={scores.body}
-                    label={'Body'}/>
-                <ScoreSelector onSelect={(value) => setFood(value)}
-                    currentValue={scores.food}
-                    label={'Food'}/>
-                <ScoreSelector onSelect={(value) => setMind(value)}
-                    currentValue={scores.mind}
-                    label={'Mind'}/>
+                <View display-if={weight}>
+                    <Text>Weight: {weight}</Text>
+                </View>
+                <View display-if={steps}>
+                    <Text>Steps: {steps}</Text>
+                </View>
             </ScrollView>
+
         </SafeAreaView>
     }
 
@@ -300,7 +305,7 @@ const mapStateToProps = (state, ownProps) => {
     let localImageUri = dayState.get('localImageUri')
     let cloudImageUri = dayState.get('cloudImageUri')
     let steps = dayState.get('steps')
-    
+
     return {
         dateFormatted: formatLongDate(page.get('date')),
         scores: dayState.get('scores').toJS(),

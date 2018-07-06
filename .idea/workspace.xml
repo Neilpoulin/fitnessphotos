@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee6cf6da-d390-42b8-922f-d7ee924ca39a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/util/ImageUtil.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/day.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/day.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ducks/dayInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ducks/dayInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/firebaseService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/firebaseService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/organism/DayCardView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/organism/DayCardView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/screen/FeedScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/FeedScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,11 +18,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DayInputScreen.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="345" column="25" selection-start-line="345" selection-start-column="25" selection-end-line="345" selection-end-column="25" />
+            <state relative-caret-position="415">
+              <caret line="233" column="31" lean-forward="true" selection-start-line="233" selection-start-column="31" selection-end-line="233" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreSelector.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/organism/ScoreSelector.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreSelectorStyles.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/organism/ScoreSelectorStyles.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XHRExampleFetch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/react-native/RNTester/js/XHRExampleFetch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="958">
+              <caret line="116" column="2" selection-start-line="116" selection-start-column="2" selection-end-line="116" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DayInputScreenStyle.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -37,24 +68,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="620">
               <caret line="52" column="60" lean-forward="true" selection-start-line="52" selection-start-column="60" selection-end-line="52" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeedScreen.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FullWidthImage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/organism/FullWidthImage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-39">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -77,15 +90,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/ImageUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dayInput.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -95,20 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreCircle.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/atom/ScoreCircle.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="firebaseService.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="firebaseService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/firebaseService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+            <state relative-caret-position="615">
+              <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -139,14 +134,14 @@
       <find>SET_IMAGE</find>
       <find>localImageUri</find>
       <find>setting the</find>
-      <find>fetchPre</find>
       <find>handlePhoto</find>
       <find>save</find>
       <find>uploadActivity</find>
       <find>uploadInfo</find>
-      <find>imageDownloadURL</find>
-      <find>uploa</find>
       <find>imageUri</find>
+      <find>fetchPre</find>
+      <find>uploa</find>
+      <find>imageDownloadURL</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,9 +188,7 @@
         <option value="$PROJECT_DIR$/src/view/organism/LoadingIndicator.js" />
         <option value="$PROJECT_DIR$/src/view/organism/FullWidthImage.js" />
         <option value="$PROJECT_DIR$/src/style/GlobalStyles.js" />
-        <option value="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/view/organism/ScoreSelectorStyles.js" />
         <option value="$PROJECT_DIR$/src/util/ScoreUtil.js" />
         <option value="$PROJECT_DIR$/src/view/organism/DayCardViewStyles.js" />
         <option value="$PROJECT_DIR$/src/view/screen/ProfileScreen.js" />
@@ -206,11 +199,13 @@
         <option value="$PROJECT_DIR$/src/view/atom/ScoreCircle.js" />
         <option value="$PROJECT_DIR$/src/view/screen/FeedScreen.js" />
         <option value="$PROJECT_DIR$/src/util/ImageUtil.js" />
-        <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
         <option value="$PROJECT_DIR$/src/ducks/dayInput.js" />
         <option value="$PROJECT_DIR$/src/view/organism/DayCardView.js" />
         <option value="$PROJECT_DIR$/src/ducks/day.js" />
         <option value="$PROJECT_DIR$/src/service/firebaseService.js" />
+        <option value="$PROJECT_DIR$/src/view/organism/ScoreSelectorStyles.js" />
+        <option value="$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js" />
+        <option value="$PROJECT_DIR$/src/view/screen/DayInputScreen.js" />
       </list>
     </option>
   </component>
@@ -763,7 +758,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530600585946</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="use local and cloud image uris">
+      <created>1530855143712</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1530855143712</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -799,7 +801,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258424000" />
+    <option name="totallyTimeSpent" value="260506000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -815,6 +817,7 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49680948" weight="0.32958803" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5031905" side_tool="true" weight="0.30836454" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35118306" />
@@ -848,7 +851,6 @@
       <window_info id="Project Explorer" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Job Explorer" order="3" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5031905" side_tool="true" weight="0.30836454" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -892,7 +894,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Semi persist the data!" />
     <MESSAGE value="move state to the days state" />
     <MESSAGE value="get saving to work" />
     <MESSAGE value="update the feed view" />
@@ -917,7 +918,8 @@
     <MESSAGE value="update score styles" />
     <MESSAGE value="initial commit on cloud images" />
     <MESSAGE value="fix image upload setting check" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix image upload setting check" />
+    <MESSAGE value="use local and cloud image uris" />
+    <option name="LAST_COMMIT_MESSAGE" value="use local and cloud image uris" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1166,27 +1168,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native/RNTester/js/XHRExampleFetch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="116" column="2" selection-start-line="116" selection-start-column="2" selection-end-line="116" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/organism/ScoreSelectorStyles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/nav/AppTabNavigator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1239,13 +1220,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/organism/ScoreSelector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ducks/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -1288,20 +1262,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="345" column="25" selection-start-line="345" selection-start-column="25" selection-end-line="345" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="203" column="18" lean-forward="true" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/screen/FeedScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
@@ -1339,8 +1299,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/firebaseService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+        <state relative-caret-position="615">
+          <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ducks/dayInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="203" column="18" lean-forward="true" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/RNTester/js/XHRExampleFetch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="958">
+          <caret line="116" column="2" selection-start-line="116" selection-start-column="2" selection-end-line="116" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/organism/ScoreSelector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/organism/ScoreSelectorStyles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreenStyle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/screen/DayInputScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="233" column="31" lean-forward="true" selection-start-line="233" selection-start-column="31" selection-end-line="233" selection-end-column="31" />
         </state>
       </provider>
     </entry>
