@@ -36,6 +36,7 @@ export default StyleSheet.create({
     actionsFlexbox: {
         alignItems: 'stretch',
         justifyContent: 'center',
+        marginBottom: 50,
         // flex: 1,
     },
     photoFlexbox: {
