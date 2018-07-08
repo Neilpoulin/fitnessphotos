@@ -2,9 +2,9 @@
 
 # expo
 .idea/
-android/
-ios/
 .expo/
+ios/Pods/
+android/maven/
 
 # dependencies
 /node_modules
