@@ -9,6 +9,8 @@ import {initializeApp} from 'ducks/config'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {loadUserIfExists} from 'ducks/user'
 
+console.disableYellowBox = true
+
 console.log('index.js starting')
 
 console.log('attempting to set up store')

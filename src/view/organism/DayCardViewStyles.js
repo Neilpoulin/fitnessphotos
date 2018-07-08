@@ -1,16 +1,12 @@
 import {StyleSheet} from 'react-native'
-import {getViewWidth} from 'style/GlobalStyles'
+import {getViewWidth, greenColor, redColor, yellowColor} from 'style/GlobalStyles'
 
 const imageHeight = 80
 const imageWidth = 80
 const cardHeight = 60
 const cardMargin = 10
 const cardPadding = 10
-const circleDiameter = 50
-
-const redColor = '#ef1c27'
-const greenColor = '#19a45d'
-const yellowColor = '#fdf103'
+const circleDiameter = 60
 
 
 export function getCardWidth() {
@@ -97,6 +93,7 @@ const styles = StyleSheet.create({
     scoreLabel: {
         textAlign: 'center',
         fontSize: 10,
+        marginTop: 5,
     },
     score0View: {
         backgroundColor: 'white',

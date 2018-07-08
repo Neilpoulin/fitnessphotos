@@ -17,6 +17,7 @@ import {DAY_INPUT_SCREEN} from 'view/nav/Routes'
 import {getCardWidth, getScaledImageSize} from 'view/organism/DayCardViewStyles'
 import FullWidthImage from 'view/organism/FullWidthImage'
 import {getDayState} from 'selector/daySelector'
+import {getExpressiveValue} from 'util/ScoreUtil'
 
 class DayCardView extends React.Component {
     static propTypes = {
@@ -46,6 +47,7 @@ class DayCardView extends React.Component {
 
         const {
             isPressed,
+            imageError,
         } = this.state
 
         return <TouchableHighlight onPress={() => editDay()}
@@ -61,8 +63,8 @@ class DayCardView extends React.Component {
                     <Text style={styles.title}>{formatDayOfWeekShort(day.dayKey, false)}</Text>
                 </View>
                 <FullWidthImage
-                    display-if={day.imageUri}
-                    source={{uri: day.imageUri}}
+                    display-if={!imageError && (day.localImageUri || day.cloudImageUri)}
+                    source={{uri: day.localImageUri || day.cloudImageUri}}
                     dimensions={day.imageSize}
                     onError={() => this._handleImageError()}
                 />
@@ -71,20 +73,20 @@ class DayCardView extends React.Component {
                         <View style={[styles.columns, styles.scoresContainer]}>
                             <View style={[styles.scoreView]}>
                                 <View style={[styles.scoreCircle, styles[`score${day.scores.body}View`]]}>
-                                    <Text style={styles[`score${day.scores.body}CircleText`]}>{day.scores.body}</Text>
+                                    <Text style={styles[`score${day.scores.body}CircleText`]}>{getExpressiveValue(day.scores.body)}</Text>
                                     <Text style={[styles.scoreLabel, styles[`score${day.scores.body}CircleText`]]}>Body</Text>
                                 </View>
                             </View>
                             <View style={[styles.scoreView]}>
                                 <View style={[styles.scoreCircle, styles[`score${day.scores.food}View`]]}>
-                                    <Text style={styles[`score${day.scores.food}CircleText`]}>{day.scores.food}</Text>
+                                    <Text style={styles[`score${day.scores.food}CircleText`]}>{getExpressiveValue(day.scores.food)}</Text>
                                     <Text style={[styles.scoreLabel, styles[`score${day.scores.food}CircleText`]]}>Food</Text>
                                 </View>
 
                             </View>
                             <View style={[styles.scoreView]}>
                                 <View style={[styles.scoreCircle, styles[`score${day.scores.mind}View`]]}>
-                                    <Text style={styles[`score${day.scores.mind}CircleText`]}>{day.scores.mind}</Text>
+                                    <Text style={styles[`score${day.scores.mind}CircleText`]}>{getExpressiveValue(day.scores.mind)}</Text>
                                     <Text style={[styles.scoreLabel, styles[`score${day.scores.mind}CircleText`]]}>Mind</Text>
                                 </View>
 

@@ -27,7 +27,8 @@ export const propTypes = {
         mind: PropTypes.number,
         food: PropTypes.number,
     }),
-    imageUri: PropTypes.string,
+    localImageUri: PropTypes.string,
+    cloudImageUri: PropTypes.string,
     weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
@@ -39,7 +40,8 @@ export const initialState = Immutable.fromJS({
         body: 0,
         food: 0,
     },
-    imageUri: null,
+    localImageUri: null,
+    cloudImageUri: null,
     imageSize: {},
     weight: null,
     steps: null,
@@ -56,7 +58,9 @@ export default function reducer(state = initialState, action) {
             state = state.setIn(['scores', action.payload.get('type')], action.payload.get('score', 0))
             break
         case SET_IMAGE:
-            state = state.set('imageUri', action.payload ? action.payload.get('uri') : null)
+            state = state.set('localImageUri', action.payload ? action.payload.get('localUri') : null)
+            state = state.set('cloudImageUri', action.payload ? action.payload.get('cloudUri') : null)
+
             state = state.set('imageLoadError', null)
             if (action.payload) {
                 state = state.setIn(['imageSize', 'height'], action.payload.get('height', 0))
@@ -119,7 +123,8 @@ export function saveDay(dayKey) {
             scores: dayState.get('scores').toJS(),
             weight: dayState.get('weight'),
             steps: dayState.get('steps'),
-            imageUri: dayState.get('imageUri'),
+            localImageUri: dayState.get('localImageUri', null) || null,
+            cloudImageUri: dayState.get('cloudImageUri', null) || null,
             imageSize,
         }
 

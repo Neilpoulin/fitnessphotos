@@ -1,7 +1,10 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # expo
+.idea/
 .expo/
+ios/Pods/
+android/maven/
 
 # dependencies
 /node_modules

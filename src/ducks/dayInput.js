@@ -8,6 +8,7 @@ import {loadDay} from './days'
 import {getScore, getSteps} from 'selector/daySelector'
 import {getCurrentDayKey} from 'selector/dayInputSelector'
 import {uploadImage as uploadToFirebase} from 'service/firebaseService'
+import {getUploadPhotoPref} from 'selector/userSelector'
 import {SET_IMAGE_LOAD_ERROR} from 'ducks/day'
 
 export const SET_DATE = 'dayInput/SET_DATE'
@@ -182,7 +183,12 @@ export function setFoodScore(score) {
 }
 
 export function uploadImage({uri, height, width, filename}) {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+        const state = getState()
+        if (!getUploadPhotoPref(state)) {
+            return
+        }
+
         dispatch({
             type: UPLOAD_IMAGE_REQUEST, payload: {uri},
         })
@@ -196,7 +202,7 @@ export function uploadImage({uri, height, width, filename}) {
                 dispatch({
                     type: UPLOAD_IMAGE_SUCCESS, payload: {uri, ...response},
                 })
-                dispatch(setImage({uri: response.downloadURL, height, width}))
+                dispatch(setImage({cloudUri: response.downloadURL, localUri: uri, height, width}))
                 // dispatch(save())
             } else {
                 dispatch({
@@ -214,13 +220,13 @@ export function uploadImage({uri, height, width, filename}) {
     }
 }
 
-export function setImage({uri, height, width}) {
+export function setImage({uri, height, width, localUri, cloudUri}) {
     return (dispatch, getState) => {
         let dayKey = getDayKey(getState().dayInput.get('date'))
         dispatch({
             type: SET_IMAGE,
             dayKey,
-            payload: {uri, height, width},
+            payload: {uri, height, width, localUri, cloudUri},
         })
         dispatch(save())
     }

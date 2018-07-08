@@ -36,12 +36,14 @@ export default StyleSheet.create({
     actionsFlexbox: {
         alignItems: 'stretch',
         justifyContent: 'center',
+        marginBottom: 50,
         // flex: 1,
     },
     photoFlexbox: {
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
+        marginBottom: 100,
     },
 
     buttonContainer: {
@@ -50,6 +52,9 @@ export default StyleSheet.create({
     button: {
         fontSize: 28,
 
+    },
+    scoreContainer: {
+        padding: 20,
     },
     sliderContainer: {
         paddingLeft: 20,

@@ -21,3 +21,7 @@ export function isLoggedIn(state) {
 export function isLoggingIn(state) {
     return state.user.get('isLoadingGoogle') || state.user.get('isLoadingGuest') || state.user.get('isFitbitLoading') || state.user.get('isLoadingFirebase')
 }
+
+export function getUploadPhotoPref(state) {
+    return state.user.get('imageUploadEnabled', false)
+}

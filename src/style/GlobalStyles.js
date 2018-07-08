@@ -10,6 +10,10 @@ export const borderColor = textLightColor
 export const cardBorderRadius = 6
 export const cardViewActiveOpacity = .8
 
+export const redColor = '#ef1c27'
+export const greenColor = '#19a45d'
+export const yellowColor = '#fdf103'
+
 
 export const containers = StyleSheet.create({
     verticalCenterContainer: {

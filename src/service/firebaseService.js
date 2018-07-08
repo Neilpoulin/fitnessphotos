@@ -35,19 +35,20 @@ export function initializeFirebase() {
             firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 
             firebase.auth().onAuthStateChanged((user) => {
+                user = user ? user.toJSON() : null
                 console.log('auth state changed... user = ', user)
                 dispatch({type: 'AUTH_STATE_CHANGED', user})
                 dispatch(handleAuthStateChange(user))
                 resolve()
             })
-            console.log('initilzed firestore db')
+            console.log('initialized firestore db')
         })
     }
 
 }
 
-export async function saveDay({dayKey, steps, scores, weight, imageUri, imageSize}, userId) {
-    console.log('saving day key to firebase', dayKey, 'for userid ', userId)
+export async function saveDay({dayKey, steps, scores, weight, imageSize, localImageUri, cloudImageUri}, userId) {
+    console.log('saving day key to firebase', dayKey, 'for userId ', userId)
     return firebase.firestore()
         .collection('users')
         .doc(userId)
@@ -57,7 +58,8 @@ export async function saveDay({dayKey, steps, scores, weight, imageUri, imageSiz
             steps,
             scores,
             weight,
-            imageUri,
+            localImageUri,
+            cloudImageUri,
             imageSize,
             userId: userId,
         }, {merge: true})
@@ -142,6 +144,51 @@ export async function saveFitbitAuth(fitbitAuth) {
         return true
     } catch (e) {
         console.error('failed to persist fitbit auth', e)
+        return false
+    }
+}
+
+export async function fetchUserPreferences() {
+    try {
+        console.log('fetching user preferences')
+        const user = getCurrentUser()
+        if (!user) {
+            console.log('no user found, no preferences to retrieve')
+            return {}
+        }
+        let query = await firebase.firestore()
+            .collection('users')
+            .doc(user.uid)
+
+        const querySnapshot = await query.get()
+
+        if (querySnapshot) {
+            return querySnapshot.data()
+        } else {
+            console.log('no results for user when finding preferences')
+            return {}
+        }
+    } catch (e) {
+        console.error('failed to get user preferences')
+        return {}
+    }
+}
+
+export async function saveUserPreferences(prefs) {
+    console.log('attempting to persist user prefs', prefs)
+    try {
+        const user = getCurrentUser()
+        if (!user) {
+            return false
+        }
+
+        await firebase.firestore().collection('users')
+            .doc(user.uid)
+            .set(prefs, {merge: true})
+
+        return true
+    } catch (e) {
+        console.error('failed to persist user preferences', e)
         return false
     }
 }
